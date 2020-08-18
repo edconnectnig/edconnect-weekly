@@ -1,0 +1,12 @@
+  
+{
+	"name": "app",
+	"version": "1.0.0",
+	"description": "",
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+	  "dotenv": "^8.2.0"
+	}
+  }
