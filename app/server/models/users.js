@@ -63,6 +63,13 @@ class Users extends DataModel {
             }
         }
 
+        if (this.getById(obj.id)){
+            return {
+                status: "error",
+                error: `A user same ID ${obj.id} already exists`
+            };
+        }
+
         if (this.getByEmail(obj.email)){
             return {
                 status: "error",
