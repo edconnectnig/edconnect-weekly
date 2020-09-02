@@ -6,7 +6,7 @@
 	"keywords": [],
 	"author": "",
 	"scripts": {
-		"start": "node -r ./index.js"
+		"test": "node ./index.js"
 	},
 	"license": "ISC",
 	"dependencies": {

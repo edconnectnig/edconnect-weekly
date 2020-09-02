@@ -29,32 +29,28 @@ class DataModel {
     }
 
     save(obj){
-        const validate = this.validate(obj);
-
-        if (validate.status === "ok") {
+        if (this.validate(obj)) {
             this.data.push(obj);
-            return validate;
+            return true;
         }
-        return validate;
+        return false;
     }
 
-    update(id, obj){
+    update(obj, id){
         const index = this.getIndexOf(id);
 
-        if(index > -1){
-            const validate = this.validate(obj);
-
-            if (validate.status !== "ok") {
-                return validate;
+        if(index > -1) {
+            const temp = this.data[index];
+            for (const property in obj) {
+                temp[property] = obj[property];
             }
 
-            this.data[index] = Object.assign(this.data[index], obj);
-            return validate;
+            this.data[index] = temp; 
+            return true;
         }
-        return {
-            status: "error",
-            error: "object id not found"
-        };
+
+        console.log("object id not found");
+        return false;
     }
 
     delete(id){
@@ -68,10 +64,7 @@ class DataModel {
 
     validate(obj){
         // this method will be overriden in the sub classes
-        return {
-            status: "ok",
-            error: null
-        };
+        return true;
     }
 }
 

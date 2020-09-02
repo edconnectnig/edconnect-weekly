@@ -1,14 +1,13 @@
 const DataModel = require('./data_model');
-const util = require('../utils');
 
 class Project {
-    constructor(name, abstract, authors, tags, createdBy){
+    constructor(id, name, abstract, authors, tags, createdBy){
+        this.id = id;
         this.name = name; 
         this.abstract = abstract; 
         this.authors = authors;
         this.tags = tags;
         this.createdBy = createdBy;
-        this.id = util.generate_random_id();
     }
 }
 
@@ -17,25 +16,23 @@ class Projects extends DataModel {
         for (const property in obj) {
             if(["authors", "tags"].includes(property)){
                 if(!Array.isArray(obj[property])){
-                    return {
-                        status: "error",
-                        error: `${property} should be an array`
-                    };
+                    console.log(`${property} should be an array`)
+                    return false;
                 }
             } else {
                 if(obj[property] === ""){
-                    return {
-                        status: "error",
-                        error: `${property} should not be empty`
-                    };
+                    console.log(`${property} should not be empty`)
+                    return false;
                 }
             }
         }
 
-        return {
-            status: "ok",
-            error: null
-        };
+        if (this.getById(obj.id)){
+            console.log(`A project with ID ${obj.id} already exists`);
+            return false;
+        }
+
+        return true;
     }
 }
 
