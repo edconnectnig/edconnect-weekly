@@ -5,6 +5,9 @@
 	"description": "",
 	"keywords": [],
 	"author": "",
+	"scripts": {
+		"test": "node ./index.js"
+	},
 	"license": "ISC",
 	"dependencies": {
 	  "dotenv": "^8.2.0"
