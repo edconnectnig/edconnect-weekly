@@ -13,26 +13,21 @@ class Project {
 
 class Projects extends DataModel {
     validate(obj){
+        this.errors = [];
+        
         for (const property in obj) {
             if(["authors", "tags"].includes(property)){
                 if(!Array.isArray(obj[property])){
-                    console.log(`${property} should be an array`)
-                    return false;
+                    this.errors.push(`${property} should be an array`)
                 }
             } else {
                 if(obj[property] === ""){
-                    console.log(`${property} should not be empty`)
-                    return false;
+                    this.errors.push(`${property} should not be empty`)
                 }
             }
         }
 
-        if (this.getById(obj.id)){
-            console.log(`A project with ID ${obj.id} already exists`);
-            return false;
-        }
-
-        return true;
+        return this.errors.length > 0 ? false : true;
     }
 }
 

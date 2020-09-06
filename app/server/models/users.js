@@ -25,8 +25,7 @@ class Users extends DataModel {
             }
         }; 
         
-        console.log("Invalid username and password");
-        return true;
+        return false;
     }
 
     getByEmail(email){
@@ -48,34 +47,27 @@ class Users extends DataModel {
     }
 
     validate(obj){
+        this.errors = [];
+
         for (const property in obj) {
             if(obj[property] === ""){
-                console.log(`${property} should not be empty`);
-                return false;
+                this.errors.push(`${property} should not be empty`);
             }
         }
 
-        if (this.getById(obj.id)){
-            console.log(`A user with ID ${obj.id} already exists`);
-            return false;
-        }
-
         if (this.getByEmail(obj.email)){
-            console.log(`A user with email address ${obj.email} already exists`);
-            return false;
+            this.errors.push(`A user with specified email address already exists`);
         }
 
         if (this.getByMatricNumber(obj.matricNumber)){
-            console.log(`A user with matric number ${obj.matricNumber} already exists`);
-            return false;
+            this.errors.push(`A user with specified matric number already exists`);
         }
 
         if(obj.password.length < 7){
-            console.log("Your password should have at least 7 characters");
-            return false;
+            this.errors.push("Password should have at least 7 characters");
         }
 
-        return true;
+        return (this.errors.length > 0) ? false : true;
     }
 }
 
