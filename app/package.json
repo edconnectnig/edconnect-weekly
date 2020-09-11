@@ -1,4 +1,3 @@
-  
 {
 	"name": "app",
 	"version": "1.0.0",
@@ -6,10 +5,12 @@
 	"keywords": [],
 	"author": "",
 	"scripts": {
-		"test": "node ./index.js"
+		"test": "node ./test.js",
+		"start": "node ./index.js"
 	},
 	"license": "ISC",
 	"dependencies": {
-	  "dotenv": "^8.2.0"
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1"
 	}
-  }
+}
