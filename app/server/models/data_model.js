@@ -39,6 +39,7 @@ class DataModel {
 
     update(obj, id){
         const index = this.getIndexOf(id);
+        this.errors = [];
 
         if(index > -1) {
             const temp = this.data[index];
@@ -50,7 +51,7 @@ class DataModel {
             return true;
         }
 
-        console.log("object id not found");
+        this.errors.push("object id not found");
         return false;
     }
 

@@ -94,6 +94,16 @@ api.get('/users/:id', (req, res) => {
     res.json(users.getById(req.params.id));
 });
 
+api.post('/users/update', (req, res) => {
+    const {
+        id,
+        obj
+    } = req.body;
+
+    const success = users.update(obj, id);
+    handlePost(success, users.errors, res);
+});
+
 api.get('/projects', (req, res) => {
     res.json(projects.getAll());
 });
@@ -120,6 +130,35 @@ api.post('/projects', requireLogin, (req, res) => {
         saveProjectsDb(projects.data);
     }
     handlePost(success, projects.errors, res);
+});
+
+api.post('/projects/update', (req, res) => {
+    const {
+        id,
+        obj
+    } = req.body;
+
+    const success = projects.update(obj, id);
+    handlePost(success, projects.errors, res);
+});
+
+api.get('/programs', (req, res) => {
+    res.json([
+        'Computer Science',
+        'Computer Information Systems',
+        'Computer technology'
+    ]);
+});
+
+api.get('/graduationYears', (req, res) => {
+    res.json([
+        '2015',
+        '2016',
+        '2017',
+        '2018',
+        '2019',
+        '2020'
+    ]);
 });
 
 module.exports = api;
