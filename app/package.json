@@ -5,12 +5,20 @@
 	"keywords": [],
 	"author": "",
 	"scripts": {
-		"test": "node ./test.js",
-		"start": "node ./index.js"
+		"dev": "nodemon server/index.js",
+		"start": "node server/index.js"
 	},
 	"license": "ISC",
 	"dependencies": {
+		"axios": "^0.19.2",
+		"body-parser": "^1.19.0",
 		"dotenv": "^8.2.0",
-		"express": "^4.17.1"
+		"express": "^4.17.1",
+		"express-session": "^1.17.1",
+		"morgan": "^1.10.0"
+	},
+	"devDependencies": {
+		"cross-env": "^7.0.2",
+		"nodemon": "^2.0.4"
 	}
 }
