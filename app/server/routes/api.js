@@ -29,16 +29,28 @@ projects.data = getFileAsJson(projectsFile).data;
 
 const id = () => Math.random().toString(36).substring(2);
 
-const handlePost = (success, errors, res) => {  
+const getCookie = (req, name) => {
+    const cookie =  req.headers['cookie'] || "";
+    for (const ck of cookie.split(';')) {
+        const vals = ck.split("=")
+        if (vals[0].trim() === name) {
+            return vals[1]
+        }
+    }
+}
+const handlePost = (success, data,  errors, res) => {  
     if (success) {
-        res.status(200).json({ status: 'ok' });
+        res.status(200).json({ status: 'ok', data });
     } else {
         res.status(400).json({ status: 'error', errors });
     }
 }
 
 const requireLogin = (req, res, next) => {
-    if (req.session.user) {
+
+   const uid = getCookie(req, 'uid');
+    if (uid) {
+        req.session.uid = uid;
         next();
     } else {
         res.status(401).json({ status: 'error', errors: 'Unauthorized Access' });
@@ -61,7 +73,7 @@ api.post('/register', (req, res) => {
     if (success) {
         saveUsersDb(users.data);
     }
-    handlePost(success, users.errors, res);
+    handlePost(success, {id: user.id} , users.errors, res);
 });
 
 api.post('/login', (req, res) => {
@@ -74,7 +86,7 @@ api.post('/login', (req, res) => {
     if (success) {
         req.session.user = users.getByEmail(email);
     }
-    handlePost(success, users.errors, res);
+    handlePost(success,req.session.user,  users.errors, res);
 });
 
 api.get('/logout', (req, res) => {
@@ -124,12 +136,12 @@ api.post('/projects', requireLogin, (req, res) => {
         tags
     } = req.body;
 
-    const project = new Project(id(), name, abstract, authors, tags, req.session.user.id);
+    const project = new Project(id(), name, abstract, authors, tags, req.session.uid );
     const success = projects.save(project);
     if (success) {
         saveProjectsDb(projects.data);
     }
-    handlePost(success, projects.errors, res);
+    handlePost(success,{},  projects.errors, res);
 });
 
 api.post('/projects/update', (req, res) => {
