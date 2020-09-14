@@ -86,7 +86,7 @@ const Login = {
       window.location = "index.html";
     } else {
       const alert = document.getElementsByClassName("alert")[0];
-      alert.innerHTML = "Invalid username/password";
+      alert.innerHTML = "Invalid email/password";
       alert.classList.remove("invisible");
     }
     return false;
