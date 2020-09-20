@@ -40,9 +40,9 @@ const getCookie = (req, name) => {
 };
 const handlePost = (success, data, errors, res) => {
   if (success) {
-    res.status(200).json({ status: "ok", data:data });
+    res.status(200).json({ status: "ok", data });
   } else {
-    res.status(400).json({ status: "error", errors:errors });
+    res.status(400).json({ status: "error", errors });
   }
 };
 
