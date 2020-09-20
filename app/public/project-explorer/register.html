@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <title>Project Explorer</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    </head>
+    <body id="registerhtml">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+            <a href="#" class="navbar-brand">Project Explorer</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsive-nav" aria-controls="#responsive-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="#responsive-nav">
+                <form class="form-inline my-2 my-lg-0 pull-xs-left" method="POST" action="" enctype="text/plain">
+                    <input class="form-control" type="search" aria-label="Search" placeholder="Search Projects">&nbsp;
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="viewProject.html" title="Projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="createProject.html" title="Submit Project">Submit</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav mr-sm-2">
+                    <li class="nav-item" id="hidesignup">
+                        <a class="nav-link" href="register.html" title="Sign up">Sign up</a>
+                    </li>
+                    <li class="nav-item" id="hidelogin">
+                        <a class="nav-link" href="login.html" title="Login Page">Login</a>
+                    </li>
+                    <li class="nav-item" id="logout" style="display: none;">
+                        <a class="nav-link" href="index.html" title="Logout">Logout</a>
+                    </li>
+                    <li class="nav-item" id="username" style="display: none; text-decoration: none; cursor: default;">
+                        <a class="nav-link" id="usernametext" ></a>
+                    </li>
+                </ul>    
+            </div>
+        </nav>
+
+        <main role="main">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p style="margin: 20px auto 20px 125px; font-weight: bold; font-size: 25px">Sign up</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" style="width: 900px; margin: auto;">
+                <div class="row">
+                    <div class="col">
+                        <div class="alert alert-danger" role="alert" style="display: none;" id="alert">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="container">
+                <form method="POST" action="" enctype="text/plain" name="signupForm" id="signupForm">
+    
+                <div class="row" style="margin: 10px 10% 0 10%">
+                    <div class="col-md-6">
+                    
+                        <fieldset class="form-group">
+                            <label>First name</label>
+                            <input class="form-control" type="text" name="firstName" id="firstName" size="74" maxlength="30" placeholder="First name">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label>Email Address</label>
+                            <input class="form-control" type="email" name="email" id="email" size="74" maxlength="50" placeholder="Your Email address">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label>Program</label>
+                            <select class="form-control" name="program" id="program">
+                                <option>Choose...</option>
+                                <!-- <option>(B. A. Hons), HISTORY & INTERNATIONAL STUDIES</option>
+                                <option>B.A .FRENCH AND INTERNATIONAL RELATIONS</option>
+                                <option>B.A Christian Religious Studies</option>
+                                <option>B.A Music</option>
+                                <option>B.A. (Ed) ENGLISH LANGUAGE EDUCATION</option>
+                                <option>B.ED. EDUCATIONAL PLANNING & ADMINISTRATION</option>
+                                <option>B.Sc (Ed) Business Education</option>
+                                <option>B.Sc (Hons) in Business Administration</option>
+                                <option>B.Sc Accounting</option>
+                                <option>B.Sc Agricultural Economics and Extension</option>
+                                <option>B.Sc Animal Science</option>
+                                <option>B.Sc Biochemistry</option>
+                                <option>B.Sc Computer Science</option>
+                                <option>B.Sc Economics</option>
+                                <option>B.Sc Finance</option>
+                                <option>B.Sc MASS COMMUNICATION</option>
+                                <option>B.Sc Microbiology</option>
+                                <option>B.Sc Physics</option>
+                                <option>B.Sc Physiology</option>
+                                <option>B.Sc Software Engineering</option>
+                                <option>B.SC. (ED) ECONOMICS EDUCATION</option>
+                                <option>B.Sc. (Ed) GUIDANCE AND COUNSELING</option>
+                                <option>Bachelor in Information Resources Management (BIRM)</option>
+                                <option>Bachelor of Agriculture in Agronomy and Landscape Design</option>
+                                <option>Bachelor of Medical Laboratory Science Degree (BMLS)</option>
+                                <option>BACHELOR OF SCIENCE (B.Sc. Hons) BIOLOGY</option>
+                                <option>Bachelors in Social Work and Human Services</option>
+                                <option>BSc. Public Health</option>
+                                <option>English Studies (B.A)</option>
+                                <option>MEDICINE (MBBS)</option> -->
+                            </select>
+                        </fieldset>
+                        <button class="btn btn-primary" type="submit">Sign Up</button>
+                    </div>    
+                        
+                    <div class="col-md-6">    
+                        
+                        <fieldset class="form-group">
+                            <label>Last name</label>
+                            <input class="form-control" type="text" name="lastName" id="lastName" size="74" maxlength="30" placeholder="Last name">
+                        </fieldset>
+                        <fieldset class="form-group">
+                        <label>Password</label>
+                        <input class="form-control" type="password" name="password" id="password" size="74" maxlength="30" placeholder="Your Password">
+                        
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <fieldset class="form-group">
+                                    <label>Matriculation Number</label>
+                                    <input class="form-control" type="text" name="matricNumber" id="matricNumber" size="34px" maxlength="8" placeholder="e.g. 16/2020">
+                                </fieldset>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <fieldset class="form-group">
+                                    <label>Graduation Year</label>
+                                    <select class="form-control" name="graduationYear" id="graduationYear">
+                                        <option>Choose...</option>
+                                        <!-- <option>2020</option>
+                                        <option>2019</option>
+                                        <option>2018</option>
+                                        <option>2017</option>
+                                        <option>2016</option>
+                                        <option>2015</option>
+                                        <option>2014</option>
+                                        <option>2013</option>
+                                        <option>2012</option>
+                                        <option>2011</option>
+                                        <option>2010</option>
+                                        <option>2009</option>
+                                        <option>2008</option>
+                                        <option>2007</option>
+                                        <option>2006</option>
+                                        <option>2005</option>
+                                        <option>2004</option>
+                                        <option>2003</option> -->
+                                    </select>
+                                </fieldset>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            <div style="background-color: lightgrey; text-align: right; margin: 20px 160px 0px 160px; padding: 5px 20px 5px 20px">
+                <small class="text-muted">
+                    Project Explorer &copy; 2020 . <span style="color: #000">Edconnect</span>
+                </small>
+            </div>
+        </footer>
+    
+        <script src="js/app.js"></script>
+    </body>
+</html>

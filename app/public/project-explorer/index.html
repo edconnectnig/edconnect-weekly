@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <title>Project Explorer</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    </head>
+    <body id="indexhtml">
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+            <a href="#" class="navbar-brand">Project Explorer</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsive-nav" aria-controls="#responsive-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="#responsive-nav">
+                <form class="form-inline my-2 my-lg-0 pull-xs-left" method="POST" action="" enctype="text/plain">
+                    <input class="form-control" type="search" aria-label="Search" placeholder="Search Projects">&nbsp;
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="viewProject.html" title="Projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="createProject.html" title="Submit Project">Submit</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav mr-sm-2">
+                    <li class="nav-item" id="hidesignup">
+                        <a class="nav-link" href="register.html" title="Sign up">Sign up</a>
+                    </li>
+                    <li class="nav-item" id="hidelogin">
+                        <a class="nav-link" href="login.html" title="Login Page">Login</a>
+                    </li>
+                    <li class="nav-item" id="logout" style="display: none;">
+                        <a class="nav-link" href="index.html" title="Logout">Logout</a>
+                    </li>
+                    <li class="nav-item" id="username" style="display: none; text-decoration: none; cursor: default;">
+                        <a class="nav-link" id="usernametext" ></a>
+                    </li>
+                </ul>    
+            </div>
+        </nav>
+        
+        <div>
+            <div class="jumbotron" style="margin: 20px 160px 0px 160px">
+                <h2>Welcome to Project Explorer</h2>
+                <p class="lead">
+                    Project Explorer is a repository for final year projects across all departments at your institution. You can submit your project and search projects submitted by others to learn from.
+                </p>
+                
+                <p>
+                    <a class="btn btn-primary" href="register.html">Get Started</a>
+                    <a class="btn btn-secondary" href="login.html">Login</a>
+                </p>
+            </div>
+
+            <div class="container showcase">
+                <div class="row" style="margin: 10px 16px 20px 16px">
+                    
+                    <div class="col-md-3 order-4">
+                        <div class="card" style="padding: 20px">
+                            <div class="card-block">
+                                <h6 class="card-title" style="font-size: 20px; margin-bottom: 0px; color: dodgerblue"><a href="viewProject?id=qqg8jtk5iso" id="projTitle1"></a></h6>
+                                <small class="text-muted" id="projAuthor1"></small>
+                                <p class="card-text mb-0" id="projAbstract1"></p>
+                                <span style="color: dodgerblue" id="projTag1"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 order-3">
+                        <div class="card" style="padding: 20px">
+                            <div class="card-block">
+                                <h6 class="card-title" style="font-size: 20px; margin-bottom: 0px; color: dodgerblue"><a href="viewProject?id=nqg2khk5isu" id="projTitle2"></a></h6>
+                                <small class="text-muted" id="projAuthor2"></small>
+                                <p class="card-text mb-0" id="projAbstract2"></p>
+                                <span style="color: dodgerblue" id="projTag2"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 order-2">
+                        <div class="card" style="padding: 20px">
+                            <div class="card-block">
+                                <h6 class="card-title" style="font-size: 20px; margin-bottom: 0px; color: dodgerblue"><a href="viewProject?id=ogdetv741wa" id="projTitle3"></a></h6>
+                                <small class="text-muted" id="projAuthor3"></small>
+                                <p class="card-text mb-0" id="projAbstract3"></p>
+                                <span style="color: dodgerblue" id="projTag3"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 order-1">
+                        <div class="card" style="padding: 20px">
+                            <div class="card-block">
+                                <h6 class="card-title" style="font-size: 20px; margin-bottom: 0px; color: dodgerblue"><a href="viewProject?id=qsf52khk5isu" id="projTitle4"></a></h6>
+                                <small class="text-muted" id="projAuthor4"></small>
+                                <p class="card-text mb-0" id="projAbstract4"></p>
+                                <span style="color: dodgerblue" id="projTag4"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+           
+        <footer>
+            <div style="background-color: lightgrey; text-align: right; margin: 0px 160px 0px 160px; padding: 5px 20px 5px 20px">
+                <small class="text-muted">
+                    Project Explorer &copy; 2020 . <span style="color: #000">Edconnect</span>
+                </small>
+            </div>
+        </footer>
+
+        <script src="js/app.js"></script>
+    </body>
+</html>
