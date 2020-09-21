@@ -9,7 +9,7 @@ window.addEventListener("load", function() {
         .split('=')[1];
     if (cookieValue) {
         //alert(cookieValue);
-        fetch("/api/users", {
+        fetch("/api/users/" + cookieValue, {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json"
@@ -37,29 +37,13 @@ window.addEventListener("load", function() {
 
                 navUsername.style.display = 'inline';
 
-                //var usernameText = document.getElementById("usernametext");
+                var usernameText = document.getElementById("usernametext");
 
-                //usernameText.style.color = 'white';
+                usernameText.style.color = 'white';
 
-                //usernameText.textContent = "Hi, " + output[0].firstname;
+                usernameText.textContent = "Hi, " + output.firstname;
 
                 return output;
-            })
-            .then( (specificOutput) => {
-                for (var i = 0; i < specificOutput.length; i++) {
-                    if (specificOutput[i].id == cookieValue) {
-                        var usernameText = document.getElementById("usernametext");
-
-                        usernameText.style.color = 'white';
-                        usernameText.textContent = "Hi, " + specificOutput[i].firstname;
-                        break;
-                    }
-                    else {
-                        console.error();
-                    }
-                }
-
-                return specificOutput;
             })
             .then( (checkOutput) => {
                 var logoutFunc = document.getElementById("logout");
@@ -242,7 +226,7 @@ if ( registerHtmlFile ) {
                 let value = response.data.id;
                 console.log(name, value);
                 
-                document.cookie = `${name}=${value}expires=Fri, 18 Oct 2020 17:00:40 GMT`;
+                document.cookie = `${name}=${value};expires=Fri, 18 Oct 2020 17:00:40 GMT; path=/`;
 
                 window.location.href = "index.html";
 
@@ -374,8 +358,8 @@ if (createHtmlFile) {
 
         var name = document.getElementById("name").value;
         var abstract = document.getElementById("abstract").value;
-        var authors = document.getElementById("authors").value;
-        var tags = document.getElementById("tags").value;
+        var authors = document.getElementById("authors").value.split(",");
+        var tags = document.getElementById("tags").value.split(",");
         
 
         // fetch POST request
@@ -436,50 +420,58 @@ if (indexHtmlFile) {
             return res.json();
         })
         .then( (output) => {
-            
-            var showProjTile1 = document.getElementById("projTitle1");
-            var showProjAuthor1 = document.getElementById("projAuthor1");
-            var showProjAbstract1 = document.getElementById("projAbstract1");
-            var showProjTag1 = document.getElementById("projTag1");
 
-            var showProjTile2 = document.getElementById("projTitle2");
-            var showProjAuthor2 = document.getElementById("projAuthor2");
-            var showProjAbstract2 = document.getElementById("projAbstract2");
-            var showProjTag2 = document.getElementById("projTag2");
+            for (var i = 0; i < 4; i++) {
 
-            var showProjTile3 = document.getElementById("projTitle3");
-            var showProjAuthor3 = document.getElementById("projAuthor3");
-            var showProjAbstract3 = document.getElementById("projAbstract3");
-            var showProjTag3 = document.getElementById("projTag3");
+                // Store the element to work with in a variable
+                var showProjects = document.getElementById("showcaseprojects");
 
-            var showProjTile4 = document.getElementById("projTitle4");
-            var showProjAuthor4 = document.getElementById("projAuthor4");
-            var showProjAbstract4 = document.getElementById("projAbstract4");
-            var showProjTag4 = document.getElementById("projTag4");
+                var cardColumn = document.createElement("div");
+                cardColumn.className = "col";
+                
 
-            for (var i = 0; i < output.length; i++) {
-                showProjTile1.textContent = output[0].name;
-                showProjAuthor1.textContent = output[0].authors;
-                showProjAbstract1.textContent = output[0].abstract;
-                showProjTag1.textContent = output[0].tags;
+                var cardContainer = document.createElement("div");
+                cardContainer.className = "card";
+                cardContainer.style.padding = "20px";
+                
+                
+                var cardBlock = document.createElement("div");
+                cardBlock.className = "card-block";
+                cardContainer.append(cardBlock);
 
-                showProjTile2.textContent = output[1].name;
-                showProjAuthor2.textContent = output[1].authors;
-                showProjAbstract2.textContent = output[1].abstract;
-                showProjTag2.textContent = output[1].tags;
+                var cardTitle = document.createElement("h6");
+                cardTitle.className = "card-title";
+                cardTitle.style.fontSize = "20px";
+                cardTitle.style.marginBottom = "0";
+                cardTitle.style.color = "dodgerBlue";
+                cardBlock.append(cardTitle);
 
-                showProjTile3.textContent = output[2].name;
-                showProjAuthor3.textContent = output[2].authors;
-                showProjAbstract3.textContent = output[2].abstract;
-                showProjTag3.textContent = output[2].tags;
+                var projectLink = document.createElement("a");
+                projectLink.setAttribute("href", "viewProject.html?id=" + output[i].id);
+                projectLink.style.textDecoration = "none";
+                projectLink.innerHTML = output[i].name;
+                cardTitle.append(projectLink);
 
-                showProjTile4.textContent = output[3].name;
-                showProjAuthor4.textContent = output[3].authors;
-                showProjAbstract4.textContent = output[3].abstract;
-                showProjTag4.textContent = output[3].tags;
+                var cardAuthor = document.createElement("small");
+                cardAuthor.className = "text-muted";
+                cardAuthor.textContent = output[i].authors;
+                cardBlock.append(cardAuthor);
+
+                var cardText = document.createElement("p");
+                cardText.className = "card-text";
+                cardText.classList.add("mb-0");
+                cardText.textContent = output[i].abstract;
+                cardBlock.append(cardText);
+
+                var cardTag = document.createElement("span");
+                cardTag.style.color = "dodgerblue";
+                cardTag.textContent = output[i].tags;
+                cardBlock.append(cardTag);
+
+                cardColumn.append(cardContainer);
+                showProjects.append(cardColumn);
+
             }
-
-            return output;
         })
         .catch( (error) => {
             console.log('ERROR:', error.message);
@@ -495,7 +487,15 @@ if (viewHtmlFile) {
     
     // Send a GET request to /api/projects/{id}
 
-    fetch("/api/projects/qsf52khk5isu", {
+    // First I need to get the querystring from the url and then use the URLSearchParams API to get the value so that I can pass it into the GET API.
+    
+    var paramsString = location.search;
+
+    var searchParams = new URLSearchParams(paramsString);
+
+    var projectId = searchParams.get("id");
+
+    fetch("/api/projects/" + projectId, {
         method: 'GET',
         headers: {
             "Content-Type": "application/json"
@@ -514,35 +514,41 @@ if (viewHtmlFile) {
             var projTag = document.getElementById("project_tags");
 
             projName.textContent = output.name;
-            projAuthor.innerHTML = "<p>" + output.authors[0] + "</p>" + "<p>" + output.authors[1] + "</p>";
+
+            for (var i = 0; i < output.authors.length; i++) {
+                var author = document.createElement("p");
+                author.textContent = output.authors[i];
+                projAuthor.append(author);
+            }
+
             projAbstract.textContent = output.abstract;
             projTag.textContent = output.tags;
-        })
-        .catch( (err) => {
-            console.log('ERROR:', err.message);
-        })
 
-    
-    // I need to update the createdBy. So, I'm sending a GET request to /api/users/{id}
-    
-    fetch("/api/users/qsf52khk5isu", {
-        method: 'GET',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        mode: 'cors',
-        cache: 'default'
-    })
-        .then(function(res) {
-            return res.json();
-        })
-        .then( (output) => {
-            
-            var proj_author = document.getElementById("project_author");
+            // I need to update the createdBy. So, I'm sending a GET request to /api/users/{id}. Since the id of the user is equal to the createdBy value of the project, I will use output.createdBy to represent it.
 
-            proj_author.textContent = output.firstName + " " + output.lastName;
+            fetch("/api/users/" + output.createdBy, {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            mode: 'cors',
+            cache: 'default'
+            })
+                .then(function(res) {
+                    return res.json();
+                })
+                .then( (output) => {
+                    
+                    var proj_author = document.getElementById("project_author");
 
-            return output;
+                    proj_author.textContent = output.firstname + " " + output.lastname;
+
+                    return output;
+                })
+                .catch( (err) => {
+                console.log('ERROR:', err.message);
+                })
+
         })
         .catch( (err) => {
             console.log('ERROR:', err.message);
