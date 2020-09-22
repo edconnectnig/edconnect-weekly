@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <title>Project Explorer</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    </head>
+    <body id="createhtml">
+            
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+            <a href="#" class="navbar-brand">Project Explorer</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsive-nav" aria-controls="#responsive-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="#responsive-nav">
+                <form class="form-inline my-2 my-lg-0 pull-xs-left" method="POST" action="" enctype="text/plain">
+                    <input class="form-control" type="search" aria-label="Search" placeholder="Search Projects">&nbsp;
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="viewProject.html" title="Projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="createProject.html" title="Submit Project">Submit</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav mr-sm-2">
+                    <li class="nav-item" id="hidesignup">
+                        <a class="nav-link" href="register.html" title="Sign up">Sign up</a>
+                    </li>
+                    <li class="nav-item" id="hidelogin">
+                        <a class="nav-link" href="login.html" title="Login Page">Login</a>
+                    </li>
+                    <li class="nav-item" id="logout" style="display: none;">
+                        <a class="nav-link" href="index.html" title="Logout">Logout</a>
+                    </li>
+                    <li class="nav-item" id="username" style="display: none; text-decoration: none; cursor: default;">
+                        <a class="nav-link" id="usernametext" ></a>
+                    </li>
+                </ul>    
+            </div>
+        </nav>
+
+        <div>
+            <div class="jumbotron">
+                
+            </div>
+        </div>
+
+        <div class="container" style="width: 580px; margin: auto;">
+            <div class="row">
+                <div class="col">
+                    <div class="alert alert-danger" role="alert" style="display: none;" id="projAlert">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="padding: 0px 290px 0px 300px">
+            <div class="row">
+                <div class="col">
+                    <form method="POST" action="" enctype="text/plain" id="createProjectForm">
+                        <h3 style="margin-top: 20px ">Submit Project</h3>
+                        <fieldset class="form-group">
+                            <label>Project Name</label>
+                            <input class="form-control" type="text" name="name" id="name" size="74" maxlength="50" placeholder="Enter project name">
+                        </fieldset>
+                            
+                        <fieldset class="form-group">
+                            <label>Project Abstract</label>
+                            <textarea class="form-control" name="abstract" id="abstract" size="20" maxlength="100" rows="10" cols="56"></textarea>
+                        </fieldset>
+                
+                        <fieldset class="form-group">
+                            <label>Author(s)</label>
+                            <input class="form-control" type="text" name="authors" id="authors" size="74" maxlength="50" placeholder="Enter author names (separated by comma)">
+                        </fieldset>
+                
+                        <fieldset class="form-group">
+                            <label>Tag(s)</label>
+                            <input class="form-control" type="text" name="tags" id="tags" size="74" maxlength="50" placeholder="Use # to tag project with different topics (e.g. #javascript #mongodb)">
+                        </fieldset>
+                
+                        <button class="btn btn-primary" type="submit" name="submit">Continue</button>
+        
+                    </form>
+                </div>
+            </div>
+        </div>
+
+                            
+        <footer>
+            <div style="background-color: lightgrey; text-align: right; margin: 20px 160px 0px 160px; padding: 5px 20px 5px 20px">
+                <small class="text-muted">
+                    Project Explorer &copy; 2020 . <span style="color: #000">Edconnect</span>
+                </small>
+            </div>
+        </footer>
+
+        <script src="js/app.js"></script>
+    </body>
+</html>            

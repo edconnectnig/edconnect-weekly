@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <title>Project Explorer</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    </head>
+    <body>
+           
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+            <a href="#" class="navbar-brand">Project Explorer</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsive-nav" aria-controls="#responsive-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="#responsive-nav">
+                <form class="form-inline my-2 my-lg-0 pull-xs-left" method="POST" action="" enctype="text/plain">
+                    <input class="form-control" type="search" aria-label="Search" placeholder="Search Projects">&nbsp;
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html" title="Projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="createProject.html" title="Submit Project">Submit</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav mr-sm-2">
+                    <li class="nav-item" id="hidesignup">
+                        <a class="nav-link" href="register.html" title="Sign up">Sign up</a>
+                    </li>
+                    <li class="nav-item" id="hidelogin">
+                        <a class="nav-link" href="login.html" title="Login Page">Login</a>
+                    </li>
+                    <li class="nav-item" id="logout" style="display: none;">
+                        <a class="nav-link" href="index.html" title="Logout">Logout</a>
+                    </li>
+                    <li class="nav-item" id="username" style="display: none; text-decoration: none; cursor: default;">
+                        <a class="nav-link" id="usernametext" ></a>
+                    </li>
+                </ul>    
+            </div>
+        </nav>
+
+        <p style="margin: 40px 0 20px 138px"><span style="font-weight: bold; font-size: 20px">Project 4</span></p>
+        
+        <div class="container">
+            <div class="row  align-items-center" style="background-color: lightgray; margin: 0px auto 20px 20px; padding: 5px 0px 5px 10px">
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-4">
+                            Created by<br>
+                            Ade James, Brian Olaoluwa 
+                        </div>
+
+                        <div class="col-md-4">
+                            Date Created<br>
+                            03/03/2020
+                        </div>
+
+                        <div class="col-md-4">
+                            Last Updated<br>
+                            04/04/2020
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a class="btn btn-primary" href="viewProject.html">View Project</a>
+                </div>
+            </div>        
+        </div>
+
+        <div class="container">
+
+            <form method="POST" action="" enctype="text/plain">
+
+                <div class="row" style="margin: 0px -16px 0px 3px">
+
+                    <div class="col-md-6">
+
+                        <h3>Edit Project</h3>
+                        <hr>
+                        
+                            <fieldset class="form-group">
+                                <label>Project Name</label>
+                                <input class="form-control" type="text" name="name" size="74" maxlength="50" value="Technology">
+                            </fieldset>
+                        
+                            <fieldset class="form-group">
+                                <label>Project Abstract</label>
+                                <textarea class="form-control" name="abstract" size="20" maxlength="100" rows="10" cols="56" placeholder="Maximum of 100 characters">Researching the areas technology has helped in the world, access of Nigerians to technology and solutions to technological problems</textarea>
+                            </fieldset>
+
+                            <fieldset class="form-group">
+                                <label>Author(s)</label>
+                                <input class="form-control" type="text" name="authors" size="74" maxlength="50" value="Ade James, Brian Olaoluwa">
+                            </fieldset>
+
+                            <fieldset class="form-group">
+                                <label>Tag(s)</label>
+                                <input class="form-control" type="text" name="tags" size="74" maxlength="50" value="#yaml, #ejs">
+                            </fieldset>
+                            <button class="btn btn-primary" type="submit">Save</button>
+                        
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <h3>Manage Project files</h3>
+                        <hr>
+                        
+                        <fieldset class="form-group">
+                            <input class="form-control-file" type="file">
+                        </fieldset>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <b>Project files</b>
+                            </div>
+                            <div class="card-block" style="text-align: center; padding-top: 10px; padding-bottom: 10px">
+                                <p class="card-text">No file uploaded yet</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+        
+        </div>
+        
+        
+        <footer>
+            <div style="background-color: lightgrey; text-align: right; margin: 20px 160px 0px 160px; padding: 5px 20px 5px 20px">
+                <small class="text-muted">
+                    Project Explorer &copy; 2020 . <span style="color: #000">Edconnect</span>
+                </small>
+            </div>
+        </footer>
+
+        <script src="js/app.js"></script>
+    </body>
+</html>            
