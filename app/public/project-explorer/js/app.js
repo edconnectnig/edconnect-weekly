@@ -1,15 +1,36 @@
+// IMPLEMENTING THE SET AND GET COOKIE FUNCTION
+
+function createCookie(name, value, exdays) {
+	if (exdays) {
+		var date = new Date();
+		date.setTime(date.getTime() + (exdays * 24 * 60 * 60 * 1000) );
+		var expires = "; expires=" + date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+}
+
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
+
 // UPDATING THE NAVBAR IN ALL PAGES TO SHOW THAT THE USER HAS LOGGED IN
 
 // Check for cookie on page load
 
 window.addEventListener("load", function() {
-    const cookieValue = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('uid'))
-        .split('=')[1];
-    if (cookieValue) {
+    
+    if (readCookie("uid")) {
         //alert(cookieValue);
-        fetch("/api/users/" + cookieValue, {
+        fetch("/api/users/" + readCookie("uid"), {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json"
@@ -222,11 +243,13 @@ if ( registerHtmlFile ) {
                 var response = await res.json()
                 console.log(response);
 
-                let name = "uid";
+                createCookie("uid", response.data.id, "30");
+
+                /*let name = "uid";
                 let value = response.data.id;
                 console.log(name, value);
                 
-                document.cookie = `${name}=${value};expires=Fri, 18 Oct 2020 17:00:40 GMT; path=/`;
+                document.cookie = `${name}=${value};expires=Fri, 18 Oct 2020 17:00:40 GMT; path=/`;*/
 
                 window.location.href = "index.html";
 
@@ -291,15 +314,7 @@ if (loginHtmlFile) {
                 if (res.status == 200) {
                     var response = await res.json();
 
-                    let name = "uid";
-                    let value = response.data.id;
-                    let date = new Date();
-
-                    date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000) );
-
-                    var expire = 'expires=' + date.toUTCString();
-
-                    document.cookie = name + '=' + value + ';' + expire;
+                    createCookie("uid", response.data.id, "30");
 
                     window.location.href = "index.html";
 
@@ -332,11 +347,10 @@ var createHtmlFile = document.getElementById("createhtml");
 if (createHtmlFile) {
 
     window.addEventListener("load", function() {
-        const cookieValue = document.cookie
-            .split('; ')
-            .find(row => row.startsWith('uid'))
-            .split('=')[1];
-        if (!cookieValue) {
+
+        readCookie("uid");
+        
+        if (!readCookie("uid")) {
             alert("Log in");
             window.location.href = "login.html"
         }
