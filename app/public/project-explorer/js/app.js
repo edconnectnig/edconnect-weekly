@@ -247,13 +247,15 @@ if ( registerHtmlFile ) {
 
                 /* Okay, so basically my challenge has been that I've been calling the response.json() which will return the body of the response in json format together with the unique id attributed to data (response.data.id) after calling for the id in it. Now, this is a script, it runs line by line. So, calling the id from the response.json will be like "I can't find no id in any json." So, all I had to do was call for response.json before calling for id. So, I stored it in a variable, then used the variable to call it. Now, what the hell is 'await'? Now, res.json() returns a promise too which will be pending so I can't take anything from it. So, it needs to fulfill its promise before I can do anything which is why I said I will 'await' it. And you can't use await without 'async' */
             }
-            else {
+            res.json().then(function(data) {
+                console.log(data);
+                
                 var error = document.getElementById("alert");
 
                 error.style.display = "block";
 
-                error.innerHTML = "<p>A user with specified email address already exists</p><p>A user with specified matric number already exists</p>";
-            }
+                error.innerHTML = data.errors;
+            })
         })
         .catch( (err) => {
             console.log('ERROR:', err.message);
