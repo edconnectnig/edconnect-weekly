@@ -117,14 +117,14 @@ if ( registerHtmlFile ) {
         }
     })
     .then( (data) => {
-        console.log(data);
+        //console.log(data);
         //let jsonData = JSON.stringify(data);
         //console.log(jsonData);
         //return jsonData;
         return data;
     })
     .then( (output) => {
-        console.log(output);
+        //console.log(output);
         /*
         var prog1 = document.createElement("option");
         var ul = document.getElementById('program').appendChild(prog1);
@@ -138,13 +138,13 @@ if ( registerHtmlFile ) {
         for (var i = 0; i < output.length; i++) {
             var prog = document.createElement("option");
             var ul = document.getElementById('program').appendChild(prog);
-            console.log(ul);
+            //console.log(ul);
             prog.textContent = output[i];
             //console.log(prog.textContent);
             //console.log(prog);
             allProg.push(ul);
         }
-        console.log(allProg);
+        //console.log(allProg);
 
         return allProg;
     })
@@ -172,11 +172,11 @@ if ( registerHtmlFile ) {
         }
     })
     .then( (data) => {
-        console.log(data);
+        //console.log(data);
         return data;
     })
     .then( (output) => {
-        console.log(output);
+        //console.log(output);
         
         let allGradYears = [];
 
@@ -185,11 +185,11 @@ if ( registerHtmlFile ) {
             let ul = document.getElementById('graduationYear').appendChild(gradYears);
             
             gradYears.textContent = output[i];
-            console.log(ul);
+            //console.log(ul);
 
             allGradYears.push(ul);
         }
-        console.log(allGradYears);
+        //console.log(allGradYears);
         
         return allGradYears;
     })
@@ -241,15 +241,9 @@ if ( registerHtmlFile ) {
         .then(async function (res) {
             if (res.status == 200) {
                 var response = await res.json()
-                console.log(response);
+                //console.log(response);
 
                 createCookie("uid", response.data.id, "30");
-
-                /*let name = "uid";
-                let value = response.data.id;
-                console.log(name, value);
-                
-                document.cookie = `${name}=${value};expires=Fri, 18 Oct 2020 17:00:40 GMT; path=/`;*/
 
                 window.location.href = "index.html";
 
@@ -266,7 +260,7 @@ if ( registerHtmlFile ) {
             }
         })
         .then( (data) => {
-            console.log(data);
+            //console.log(data);
         })
         .catch( (err) => {
             console.log('ERROR:', err.message);
