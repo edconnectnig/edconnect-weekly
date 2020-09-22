@@ -117,10 +117,6 @@ if ( registerHtmlFile ) {
         }
     })
     .then( (data) => {
-        //console.log(data);
-        //let jsonData = JSON.stringify(data);
-        //console.log(jsonData);
-        //return jsonData;
         return data;
     })
     .then( (output) => {
@@ -140,11 +136,11 @@ if ( registerHtmlFile ) {
             var ul = document.getElementById('program').appendChild(prog);
             //console.log(ul);
             prog.textContent = output[i];
-            //console.log(prog.textContent);
-            //console.log(prog);
+            console.log(prog.textContent);
+            console.log(prog);
             allProg.push(ul);
         }
-        //console.log(allProg);
+        console.log(allProg);
 
         return allProg;
     })
@@ -172,11 +168,11 @@ if ( registerHtmlFile ) {
         }
     })
     .then( (data) => {
-        //console.log(data);
+        console.log(data);
         return data;
     })
     .then( (output) => {
-        //console.log(output);
+        console.log(output);
         
         let allGradYears = [];
 
@@ -185,11 +181,11 @@ if ( registerHtmlFile ) {
             let ul = document.getElementById('graduationYear').appendChild(gradYears);
             
             gradYears.textContent = output[i];
-            //console.log(ul);
+            console.log(ul);
 
             allGradYears.push(ul);
         }
-        //console.log(allGradYears);
+        console.log(allGradYears);
         
         return allGradYears;
     })
@@ -241,7 +237,7 @@ if ( registerHtmlFile ) {
         .then(async function (res) {
             if (res.status == 200) {
                 var response = await res.json()
-                //console.log(response);
+                console.log(response);
 
                 createCookie("uid", response.data.id, "30");
 
@@ -258,9 +254,6 @@ if ( registerHtmlFile ) {
 
                 error.innerHTML = "<p>A user with specified email address already exists</p><p>A user with specified matric number already exists</p>";
             }
-        })
-        .then( (data) => {
-            //console.log(data);
         })
         .catch( (err) => {
             console.log('ERROR:', err.message);
