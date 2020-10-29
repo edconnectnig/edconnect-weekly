@@ -2,8 +2,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
         <title>Project Explorer</title>
+        
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
     </head>
     <body id="indexhtml">
 
@@ -22,10 +27,10 @@
                 
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="viewProject.html" title="Projects">Projects</a>
+                        <a class="nav-link" href="viewproject.html" title="Projects">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="createProject.html" title="Submit Project">Submit</a>
+                        <a class="nav-link" href="createproject.html" title="Submit Project">Submit</a>
                     </li>
                 </ul>
 
@@ -36,41 +41,49 @@
                     <li class="nav-item" id="hidelogin">
                         <a class="nav-link" href="login.html" title="Login Page">Login</a>
                     </li>
-                    <li class="nav-item" id="logout" style="display: none;">
+                    <li class="nav-item logout" id="logout">
                         <a class="nav-link" href="index.html" title="Logout">Logout</a>
                     </li>
-                    <li class="nav-item" id="username" style="display: none; text-decoration: none; cursor: default;">
-                        <a class="nav-link" id="usernametext" ></a>
+                    <li class="nav-item username" id="username">
+                        <a class="nav-link" id="usernametext"></a>
                     </li>
                 </ul>    
             </div>
         </nav>
         
-        <div>
-            <div class="jumbotron" style="margin: 20px 160px 0px 160px">
-                <h2>Welcome to Project Explorer</h2>
-                <p class="lead">
-                    Project Explorer is a repository for final year projects across all departments at your institution. You can submit your project and search projects submitted by others to learn from.
-                </p>
-                
-                <p>
-                    <a class="btn btn-primary" href="register.html">Get Started</a>
-                    <a class="btn btn-secondary" href="login.html">Login</a>
-                </p>
-            </div>
+        <div class="container">
 
-            <div class="container">
-                <div class="row showcase" id="showcaseprojects" style="margin: 10px 16px 20px 16px">
-                    
+            <div class="row">
+                <div class="col-12">
+                    <div class="jumbotron">
+                        <h2>Welcome to Project Explorer</h2>
+                        <p class="lead">
+                            Project Explorer is a repository for final year projects across all departments at your institution. You can submit your project and search projects submitted by others to learn from.
+                        </p>
+                        
+                        <p>
+                            <a class="btn btn-primary" href="register.html">Get Started</a>
+                            <a class="btn btn-secondary" href="login.html">Login</a>
+                        </p>
+                    </div>
                 </div>
             </div>
+
+            <div class="row showcase" id="showcaseprojects">
+                
+            </div>
+
         </div>
-           
-        <footer>
-            <div style="background-color: lightgrey; text-align: right; margin: 0px 160px 0px 160px; padding: 5px 20px 5px 20px">
-                <small class="text-muted">
-                    Project Explorer &copy; 2020 . <span style="color: #000">Edconnect</span>
-                </small>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row footer-row">
+                    <div class="col-12 text-right footer-col">
+                        <small class="text-muted">
+                            Project Explorer &copy; 2020 . <strong>Edconnect</strong>
+                        </small>
+                    </div>
+                </div>
             </div>
         </footer>
 

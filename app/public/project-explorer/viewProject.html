@@ -2,13 +2,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
         <title>Project Explorer</title>
+        
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
     </head>
     <body id="viewhtml">
             
         <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-            <a href="#" class="navbar-brand">Project Explorer</a>
+            <a href="index.html" class="navbar-brand">Project Explorer</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsive-nav" aria-controls="#responsive-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,10 +27,10 @@
                 
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="viewProject.html" title="Projects">Projects</a>
+                        <a class="nav-link" href="#" title="Projects">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="createProject.html" title="Submit Project">Submit</a>
+                        <a class="nav-link" href="createproject.html" title="Submit Project">Submit</a>
                     </li>
                 </ul>
 
@@ -36,20 +41,20 @@
                     <li class="nav-item" id="hidelogin">
                         <a class="nav-link" href="login.html" title="Login Page">Login</a>
                     </li>
-                    <li class="nav-item" id="logout" style="display: none;">
+                    <li class="nav-item logout" id="logout">
                         <a class="nav-link" href="index.html" title="Logout">Logout</a>
                     </li>
-                    <li class="nav-item" id="username" style="display: none; text-decoration: none; cursor: default;">
-                        <a class="nav-link" id="usernametext" ></a>
+                    <li class="nav-item username" id="username">
+                        <a class="nav-link" id="usernametext"></a>
                     </li>
                 </ul>    
             </div>
         </nav>
 
-        <p style="margin: 40px 0 20px 146px; font-weight: bold; font-size: 30px" id="project_name"></p>
+        <p id="project_name"></p>
 
         <div class="container">
-            <div class="row  align-items-center" style="background-color: lightgray; margin: 0px auto 20px 20px; padding: 5px 0px 5px 10px">
+            <div class="row  align-items-center profile-body">
                 <div class="col-md-10">
                     <div class="row">
                         <div class="col-md-4">
@@ -70,7 +75,7 @@
                 </div>
                 
                 <div class="col-md-2">
-                    <a class="btn btn-primary" href="editProject.html">Edit Project</a>
+                    <a class="btn btn-primary" href="editproject.html">Edit Project</a>
                 </div>
             </div>        
         </div>
@@ -79,7 +84,7 @@
 
             <div class="row">
 
-                <div class="col-md-6" style="padding-right: 10px; padding-left: 32px">
+                <div class="col-md-6 heading">
                     
                     <h3>Project Abstract</h3>
                     <p id="project_abstract">
@@ -88,7 +93,7 @@
                 
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 heading">
                     
                     <h3>Project Details</h3>
                     
@@ -98,20 +103,20 @@
                         </div>
 
                         <div class="card-block">
-                            <p class="card-text" style="padding: 10px 0 0 20px" id="project_authors">
+                            <p class="card-text" id="project_authors">
                             
                             </p>
                         </div>
 
                         <div class="card-footer">
-                            <small style="color: dodgerblue" id="project_tags"></small>
+                            <small class="card-tag" id="project_tags"></small>
                         </div>
                     
                     <div class="card mt-3">
                         <div class="card-header">
                             <b>Project files</b>
                         </div>
-                        <div class="card-block" style="text-align: center; padding-top: 10px; padding-bottom: 10px">
+                        <div class="card-block upload-file">
                             <p class="card-text">No file uploaded yet</p>
                         </div>
                     </div>
@@ -122,11 +127,15 @@
         </div>
 
         
-        <footer>
-            <div style="background-color: lightgrey; text-align: right; margin: 20px 0px 0px 16px; padding: 5px 20px 5px 20px">
-                <small class="text-muted">
-                    Project Explorer &copy; 2020 . <span style="color: #000">Edconnect</span>
-                </small>
+        <footer class="footer">
+            <div class="container">
+                <div class="row footer-row">
+                    <div class="col-12 text-right footer-col">
+                        <small class="text-muted">
+                            Project Explorer &copy; 2020 . <strong>Edconnect</strong>
+                        </small>
+                    </div>
+                </div>
             </div>
         </footer>
 

@@ -2,13 +2,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
         <title>Project Explorer</title>
+        
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
     </head>
     <body id="loginhtml">
             
         <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-            <a href="#" class="navbar-brand">Project Explorer</a>
+            <a href="index.html" class="navbar-brand">Project Explorer</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsive-nav" aria-controls="#responsive-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,10 +27,10 @@
                 
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="viewProject.html" title="Projects">Projects</a>
+                        <a class="nav-link" href="viewproject.html" title="Projects">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="createProject.html" title="Submit Project">Submit</a>
+                        <a class="nav-link" href="createproject.html" title="Submit Project">Submit</a>
                     </li>
                 </ul>
 
@@ -34,13 +39,13 @@
                         <a class="nav-link" href="register.html" title="Sign up">Sign up</a>
                     </li>
                     <li class="nav-item" id="hidelogin">
-                        <a class="nav-link" href="login.html" title="Login Page">Login</a>
+                        <a class="nav-link" href="#" title="Login Page">Login</a>
                     </li>
-                    <li class="nav-item" id="logout" style="display: none;">
+                    <li class="nav-item logout" id="logout">
                         <a class="nav-link" href="index.html" title="Logout">Logout</a>
                     </li>
-                    <li class="nav-item" id="username" style="display: none; text-decoration: none; cursor: default;">
-                        <a class="nav-link" id="usernametext" ></a>
+                    <li class="nav-item username" id="username">
+                        <a class="nav-link" id="usernametext"></a>
                     </li>
                 </ul>    
             </div>
@@ -48,33 +53,34 @@
 
         <main role="main">
         
-            <div class="container" style="padding: 0 275px 0 340px">
+            <div class="container">
 
                 <div class="row mt-3">
-                    <div class="col-lg-12">
+                    <div class="col-12 col-md-8 offset-md-2">
                         <h1>Login</h1>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col">
-                        <div class="alert alert-danger" role="alert" id="alert" style="display: none;">
+                        <div class="alert alert-danger logout" role="alert" id="alert">
                             
                         </div>
                     </div>
                 </div>
             
                 <div class="row">
-                    <div class="col">
+                    <div class="col-12 col-md-8 offset-md-2">
                         <form method="post" action="" enctype="text/plain" id="loginForm">
                             <fieldset class="form-group">
-                                <label>Email address</label>
+                                <label for="email" class="col-form-label">Email address</label>
                                 <input class="form-control" type="email" name="email" id="email" maxlength="50" placeholder="Enter email">
                             </fieldset>
                             <fieldset class="form-group">
-                                <label>Password</label>
+                                <label for="password" class="col-form-label">Password</label>
                                 <input class="form-control" type="password" name="password" id="password" placeholder="Password">
                             </fieldset>
+                            
                             <input class="btn btn-primary" type="submit" value="Login">
                         </form>
                     </div>
@@ -84,11 +90,15 @@
 
         </main>
 
-        <footer>
-            <div style="background-color: lightgrey; text-align: right; margin: 20px 160px 0px 160px; padding: 5px 20px 5px 20px">
-                <small class="text-muted">
-                    Project Explorer &copy; 2020 . <span style="color: #000">Edconnect</span>
-                </small>
+        <footer class="footer">
+            <div class="container">
+                <div class="row footer-row">
+                    <div class="col-12 text-right footer-col">
+                        <small class="text-muted">
+                            Project Explorer &copy; 2020 . <strong>Edconnect</strong>
+                        </small>
+                    </div>
+                </div>
             </div>
         </footer>
 

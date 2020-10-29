@@ -2,13 +2,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
         <title>Project Explorer</title>
+        
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
     </head>
     <body>
            
         <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-            <a href="#" class="navbar-brand">Project Explorer</a>
+            <a href="index.html" class="navbar-brand">Project Explorer</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsive-nav" aria-controls="#responsive-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,10 +27,10 @@
                 
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="projects.html" title="Projects">Projects</a>
+                        <a class="nav-link" href="viewproject.html" title="Projects">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="createProject.html" title="Submit Project">Submit</a>
+                        <a class="nav-link" href="createproject.html" title="Submit Project">Submit</a>
                     </li>
                 </ul>
 
@@ -36,20 +41,25 @@
                     <li class="nav-item" id="hidelogin">
                         <a class="nav-link" href="login.html" title="Login Page">Login</a>
                     </li>
-                    <li class="nav-item" id="logout" style="display: none;">
+                    <li class="nav-item logout" id="logout">
                         <a class="nav-link" href="index.html" title="Logout">Logout</a>
                     </li>
-                    <li class="nav-item" id="username" style="display: none; text-decoration: none; cursor: default;">
+                    <li class="nav-item username" id="username">
                         <a class="nav-link" id="usernametext" ></a>
                     </li>
                 </ul>    
             </div>
         </nav>
-
-        <p style="margin: 40px 0 20px 138px"><span style="font-weight: bold; font-size: 20px">Project 4</span></p>
         
         <div class="container">
-            <div class="row  align-items-center" style="background-color: lightgray; margin: 0px auto 20px 20px; padding: 5px 0px 5px 10px">
+
+            <div class="row">
+                <div class="col-12 heading">
+                    <h2>Project 4</h2>
+                </div>
+            </div>
+
+            <div class="row  align-items-center profile-body">
                 <div class="col-md-10">
                     <div class="row">
                         <div class="col-md-4">
@@ -69,7 +79,7 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a class="btn btn-primary" href="viewProject.html">View Project</a>
+                    <a class="btn btn-primary" href="viewproject.html">View Project</a>
                 </div>
             </div>        
         </div>
@@ -78,9 +88,9 @@
 
             <form method="POST" action="" enctype="text/plain">
 
-                <div class="row" style="margin: 0px -16px 0px 3px">
+                <div class="row">
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 heading">
 
                         <h3>Edit Project</h3>
                         <hr>
@@ -108,7 +118,7 @@
                         
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 heading">
 
                         <h3>Manage Project files</h3>
                         <hr>
@@ -121,7 +131,7 @@
                             <div class="card-header">
                                 <b>Project files</b>
                             </div>
-                            <div class="card-block" style="text-align: center; padding-top: 10px; padding-bottom: 10px">
+                            <div class="card-block upload-file">
                                 <p class="card-text">No file uploaded yet</p>
                             </div>
                         </div>
@@ -133,12 +143,15 @@
         
         </div>
         
-        
-        <footer>
-            <div style="background-color: lightgrey; text-align: right; margin: 20px 160px 0px 160px; padding: 5px 20px 5px 20px">
-                <small class="text-muted">
-                    Project Explorer &copy; 2020 . <span style="color: #000">Edconnect</span>
-                </small>
+        <footer class="footer">
+            <div class="container">
+                <div class="row footer-row">
+                    <div class="col-12 text-right footer-col">
+                        <small class="text-muted">
+                            Project Explorer &copy; 2020 . <strong>Edconnect</strong>
+                        </small>
+                    </div>
+                </div>
             </div>
         </footer>
 

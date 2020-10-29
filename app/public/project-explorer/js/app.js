@@ -450,7 +450,7 @@ if (indexHtmlFile) {
                 cardBlock.append(cardTitle);
 
                 var projectLink = document.createElement("a");
-                projectLink.setAttribute("href", "viewProject.html?id=" + output[i].id);
+                projectLink.setAttribute("href", "viewproject.html?id=" + output[i].id);
                 projectLink.style.textDecoration = "none";
                 projectLink.innerHTML = output[i].name;
                 cardTitle.append(projectLink);
@@ -482,7 +482,7 @@ if (indexHtmlFile) {
 }
 
 
-// Updating the viewProject page.
+// Updating the viewproject page.
 
 var viewHtmlFile = document.getElementById("viewhtml");
 
