@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <link rel="stylesheet" href="css/bootstrap.min.css">
+         <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand navbar-dark bg-primary fixed-top">
+
+            <a class = "navbar-brand" href="index.html">Project Explorer</a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+
+            <form class="form-inline" role="form" name="prp">
+                <div class="form-group">
+                    <li class="nav-item">
+                    <input type="text" class="form-control" placeholder="Search Projects" id="search_item">
+                    </li>
+                </div>
+                    <li class="nav-item">
+                    <button type = "button" class = "btn btn-outline-light" id="mybutton">Search</button>
+                    </li>
+            </form>
+
+            <li class="nav-item">
+            <a href="search.html" class="nav-link">Projects</a>
+            </li>
+            
+            <li class="nav-item">
+            <a href="createProject.html" class="nav-link">Submit</a>
+            </li>
+
+            </ul>
+           
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+            <a href="register.html" class="nav-link">Signed in as: <div class="text-white">Ade Ade</div></a>
+            </li>
+
+             <li class="nav-item">
+            <a href="login.html" class="nav-link">Logout</a>
+            </li>
+
+            </ul>
+            </div>
+        </nav>
+    
+
+        <h2 class="view_h2" id="project_name"></h2>
+
+        <div class="jumbotron container view">
+            <div class="row">
+                <div class="col view_col1 " id="project_author"></div>
+                <div class="col view_col2">Date Created : <br> 2020-08-04</div>
+                <div class="col view_col3">Last Updated : <br> 2020-08-04</div>
+                <div class="col view_col4"><a href="editProject.html" class="btn btn-primary">Edit Project</a></div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h5>Project Abstract</h5>
+                    <hr>
+                    <p id="project_abstract"></p>
+                    <h5>Comments</h5>
+                    <textarea class= "form-control" rows="5"></textarea>
+                    <button id="view_submit" class="btn btn-primary">Submit</button>
+                    <hr>
+                    <p class="text-center">No comments yet</p>
+                </div>
+                
+                <div class="col">
+                    <h5>Project Details</h5>
+                    <hr>
+
+                    <div id="project_authors" class="card">
+                        <div class="card-header">Authors</div>
+                        <ul class="list-group list-group-flush"></ul>
+                        <!-- <div class="card-footer text-primary"></div> -->
+                    </div><br>
+
+                     <div class="card">
+                        <div class="card-header">Project Files</div>
+                        <div class="card-body text-center">
+                            <h6 class="card-text text-muted">No file uploaded yet</h6>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    <div class="jumbotron footer">Project Explorer &copy; 2020 <b>Edconnect</b></div>
+    <script src="js/app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,112 @@
+.welcome{
+    margin: 80px 110px 30px 100px;
+}
+ .columns{
+    border: 1px solid #d5d5d2;
+    border-radius: 5px;
+    margin-right: 10px;
+    padding: 20px;
+}
+.alert{
+    margin-left: 300px;
+    margin-right: 300px;
+}
+#mybutton{
+    margin-left: 10px;
+}
+ .footer{
+    margin: 40px 110px 10px 100px;
+    padding: 10px;
+    text-align: right;
+}
+.login{
+    margin: 90px 0px 0px 400px;
+}
+.login input{
+     width: 600px;
+}
+.register_h3{
+    margin: 100px 0px 10px 310px;
+}
+.search_col1,.register_col1{
+    margin: 10px 0px 0px 190px;
+}
+.search_col2,.register_col2{
+    margin: 10px 190px 0px 0px;
+}
+.search_h3{
+     margin: 80px 110px 10px 100px;
+}
+.profile{
+    margin: 100px 110px 30px 100px;
+}
+.profile_h4,.profile_h5,.search_h4,.search_h5{
+     display: inline;
+}
+.update_h5,.change_h5{
+    margin: 20px 0px 10px 100px;
+}
+.profile_hr{
+    margin: 20px 110px 30px 100px;
+}
+.profile_col4,.profile_col6,.profile_col9{
+    margin-left: 100px;
+}
+.profile_col5,.profile_col8{
+    margin-right: 150px;
+}
+.text-white{
+    display: inline;
+}
+.search{
+    margin: 0px 110px 10px 100px;
+    padding: 20px;
+}
+.search input{
+    width: 600px;
+    margin-left: 20px;
+}
+ .createProject{
+    margin: 90px 0px 0px 400px;
+}
+ .createProject input{
+    width: 500px;
+ }
+.createProject textarea{
+    width: 500px;
+    height: 150px;
+}
+.edit{
+   margin: 10px 110px 20px 100px;
+   padding: 10px;
+}
+.edit_col1{
+    margin-left: 10px;
+}
+.edit_col5 textarea{
+    height: 210px;
+}
+.view_btn{
+    margin-left: 100px;
+}
+.edit_heading{
+    margin: 90px 110px 0px 100px;
+}
+.view{
+    margin: 10px 110px 10px 110px;
+    padding: 10px;
+ }
+ #view_submit{
+    margin-top: 20px;
+ }
+.view_col1,.view_col2,.view_col3{
+    margin-left: 20px;
+    margin-right: 50px;
+}
+.view_col4{
+    margin-left: 300px;
+}
+.view_h2{
+    margin: 80px 0px 0px 110px;
+}
+

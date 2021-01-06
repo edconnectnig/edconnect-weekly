@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand navbar-dark bg-primary fixed-top">
+
+            <a class = "navbar-brand" href="index.html">Project Explorer</a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+
+            <form class="form-inline" role="form" name="prp">
+                <div class="form-group">
+                    <li class="nav-item">
+                    <input type="text" class="form-control" placeholder="Search Projects" id="search_item">
+                    </li>
+                </div>
+                    <li class="nav-item">
+                    <button type = "button" class = "btn btn-outline-light" id="mybutton">Search</button>
+                    </li>
+            </form>
+
+            <li class="nav-item">
+            <a href="search.html" class="nav-link">Projects</a>
+            </li>
+            
+            <li class="nav-item">
+            <a href="createProject.html"  id="nav_submit" class="nav-link">Submit</a>
+            </li>
+
+            </ul>
+           
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+            <a href="register.html" class="nav-link">Signed in as: <div class="text-white">Ade Ade</div></a>
+            </li>
+
+             <li class="nav-item">
+            <a href="login.html" class="nav-link">Logout</a>
+            </li>
+
+            </ul>
+            </div>
+        </nav>
+    
+             <h3 class="edit_heading">Project 4</h3>
+
+            <div class="jumbotron container edit">
+                <div class="row">
+                    <div class="col edit_col1">
+                        Created By : <br> Ade Ade
+                    </div>
+                    <div class="col">
+                        Date Created : <br> 2020-08-04
+                    </div>
+                    <div class="col">
+                        Last Updated : <br> 2020-08-04
+                    </div>
+                    <div class="col">
+                    <a href="viewProject.html" class="btn btn-primary">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col edit_col5">
+                     <h5>Edit Project</h5>
+                    <hr>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Project Name: </label><br>
+                            <input name="name" type="text" class="form-control" placeholder="Project 4"/><br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="abstract">Project Abstract: </label><br>
+                            <textarea name="abstract" class="form-control">Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptatevelit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea><br>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="authors">Author(s): </label><br>
+                            <input type="text" name="authors" class="form-control" rows="4" cols="20" placeholder="Ade Ade, Brian James"/><br>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tags">Tag(s): </label><br>
+                            <input type="text" name="tags" class="form-control" placeholder="#yaml,#ehs"><br>
+                        </div>
+                    </form>
+
+                    <button class="btn btn-primary">Save</button>
+                </div>
+                
+                <div class="col edit_col6">
+                    <h5>Manage Project Files</h5>
+                    <hr>
+                    
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupField01">
+                            <label class="custom-file-label" for = "inputGroupField01">Click here to open browser</label>
+                        </div>
+                    </div>
+                    <hr>
+                
+                    <div class="card">
+                        <div class="card-header">Project Files</div>
+                        <div class="card-body text-center">
+                            <h6 class="card-text text-muted">No file uploaded yet</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="jumbotron footer">Project Explorer &copy; 2020 <b>Edconnect</b></div>
+        <script src="js/app.js"></script>
+    </body>
+</html>

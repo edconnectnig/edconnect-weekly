@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <style>
+           .col4{
+               border: 1px solid #d5d5d2;
+               border-radius: 5px;
+               margin-right: 10px;
+               padding: 30px;
+           }
+           .heading{
+               margin: 50px 0px 20px 100px;
+           }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand navbar-dark bg-primary fixed-top">
+
+            <a class = "navbar-brand" href="index.html">Project Explorer</a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+
+            <form class="form-inline" role="form" name="prp">
+                <div class="form-group">
+                    <li class="nav-item">
+                    <input type="text" class="form-control" placeholder="Search Projects" id="search_item">
+                    </li>
+                </div>
+                    <li class="nav-item">
+                    <button type = "button" class = "btn btn-outline-light" id="mybutton">Search</button>
+                    </li>
+            </form>
+
+            <li class="nav-item">
+            <a href="search.html" class="nav-link">Projects</a>
+            </li>
+            
+            <li class="nav-item">
+            <a href="createProject.html" class="nav-link">Submit</a>
+            </li>
+
+            </ul>
+           
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+            <a href="register.html" class="nav-link">Sign in as: <div class="text-white">Ade Ade</div></a>
+            </li>
+
+             <li class="nav-item">
+            <a href="login.html" class="nav-link">Logout</a>
+            </li>
+
+            </ul>
+            </div>
+        </nav>
+    
+        <h3 class="search_h3">Project Gallery</h3>
+
+        <div class="jumbotron container search">
+            <div class="row">
+                <div class="col">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" name="searchTerm" class="form-control form-control-lg" placeholder="Search project names, authors, abstract, tags">
+                        </div>
+                     </div>
+                <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend2">Search By</span>
+                        </div>
+                        <select name="search_by" class = "form-control form-control-lg" id="search_by">
+                        <option value="0" >Name</option>
+                        <option value="1">Matriculation Number</option>
+                        <option value="2">Program</option>
+                    </select>
+                    </div>
+                </div>
+                
+                 <div class="col">
+                    <button class="btn btn-lg btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+
+       <div class="heading"><h4 class="search_h4">All Projects </h4><h5 class="search_h5 text-muted">(4 results)</h5></div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col col4">
+                    <h5 class="text-primary">Project 4</h5>
+                        Henry James,Bola Ade<br>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do euismod tempor incididunt
+                        ut labore et dolore magna aliqua.<br><br><div class="text-primary">#yaml, #ejs</div>
+                </div>
+                <div class="col col4">
+                    <h5 class="text-primary">Project 3</h5>
+                        Ben Rice,Ade Sola<br>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do euismod tempor incididunt
+                        ut labore et dolore magna aliqua.<br><br><div class="text-primary">#css, #html</div>
+                </div>
+                <div class="col col4">
+                    <h5 class="text-primary">Project 2</h5>
+                        Fried Lim,Tola Daniel<br>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do euismod tempor incididunt
+                        ut labore et dolore magna aliqua.<br><br><div class="text-primary">#ejs, #cl</div>
+                </div>
+                <div class="col col4">
+                    <h5 class="text-primary">Project 1</h5>
+                        James Li,Ade Brian<br>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do euismod tempor incididunt
+                        ut labore et dolore magna aliqua.<br><br><div class="text-primary">#javascript, #mongodb</div>
+                </div>
+            </div>
+        </div>
+            <div class="jumbotron footer">Project Explorer &copy; 2020 <b>Edconnect</b></div>
+          <script src="js/app.js"></script>  
+    </body>
+</html>
