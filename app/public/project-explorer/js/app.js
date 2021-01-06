@@ -54,11 +54,10 @@ var onClick = function(event){
         var data = await response.json();
         if(data.status === "ok"){
             document.cookie = `uid=${data.data.id};path=/`;
-            window.location.replace("http://localhost:4000/project-explorer/index.html");
+            window.location = "index.html";
         }else if(data.status !== "ok"){
             var error_message = new Array();
             error_message = data.errors;
-            console.log(error_message);
             var error = document.createElement("div");
             error.className = "alert alert-danger";
             error.innerHTML = error_message.join("<br>");
@@ -85,16 +84,13 @@ function getCookie(cname) {
 }
 
 window.onload = (event) => {
-    console.log(document.cookie);
     var user_cookie = getCookie("uid");
 
     if(user_cookie != ""){
-        console.log(user_cookie);
         fetch(`/api/users/${user_cookie}`,{
             method:'GET',
         }).then(async (response) => {
             var data = await response.json();
-            console.log(data);
             
             const signup = document.querySelector('a[href = "register.html"]');
             const login = document.querySelector('a[href = "login.html"]');
@@ -212,12 +208,9 @@ if(window.location.href.match("createProject.html")){
 if(window.location.href.match("index.html")){
 fetch("/api/projects").then(async(response)=>{
     var data = await response.json();
-    console.log(JSON.stringify(data));
-
     var div = document.querySelector("div[class ~= showcase]")
     
     for(var i=0;i < 4;i++){
-        console.log(data[i].name);
         var project = document.createElement("div");
         project.setAttribute("class","col columns");
         project.innerHTML = `<a href = "viewProject.html?id${data[i].id}" class = "text-primary">${data[i].name}</a> <br> ${data[i].authors} <br><br> ${data[i].abstract} <br><br> <h6 class="text-primary">${data[i].tags}</h6>`;
