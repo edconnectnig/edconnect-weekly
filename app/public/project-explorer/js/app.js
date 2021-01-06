@@ -219,7 +219,7 @@ fetch("/api/projects").then(async(response)=>{
 });}
 if(window.location.href.match("viewProject.html")){
     var id = location.search.substring(3);
-    console.log(id);
+    console.log("Project id = " + id);
 
     fetch(`/api/projects/${id}`).then(async (response)=>{
         var data = await response.json();
@@ -230,7 +230,6 @@ if(window.location.href.match("viewProject.html")){
         var ul = document.querySelector("ul[class ~= list-group-flush]");
         var div = document.getElementById("project_authors");
         var authors = data.authors;
-        console.log(data.createdBy);
         authors.forEach((author) => {
             var list = document.createElement("li");
             list.setAttribute("class","list-group-item");
@@ -245,8 +244,11 @@ if(window.location.href.match("viewProject.html")){
         div_tag.innerHTML = data.tags;
         div.append(div_tag);
 
-        fetch(`/api/users/${data.createdBy}`).then(async(response)=>{
+        var createdBy_id = data.createdBy;
+        console.log("User id = " + createdBy_id);
+        fetch(`/api/users/${createdBy_id}`).then(async(response)=>{
             var data = await response.json();
+            console.log(data);
             
             var createdBy = document.getElementById("project_author");
             createdBy.innerHTML = `Created By: <br> ${data.firstname + " " + data.lastname}`;
