@@ -205,31 +205,32 @@ if(window.location.href.match("createProject.html")){
         continue_button.addEventListener("click",createProject);}
     }
 }
+if(window.location.href.match("index.html")){
 fetch("/api/projects").then(async(response)=>{
     var data = await response.json();
     var div = document.querySelector("div[class ~= showcase]")
-    
-    var len = data.length;
-    if(len < 4){
-        len = len;
-    }else{
-        len = 4;
-    }
-    for(var i=0;i < len;i++){
+    console.log(data);
+    // var len = data.length;
+    // if(len < 4){
+    //     len = len;
+    // }else{
+    //     len = 4;
+    // }
+    for(var i=0;i < data.length;i++){
+        console.log(data[i]);
         var project = document.createElement("div");
         project.setAttribute("class","col columns");
-        project.innerHTML = `<a href = "viewProject.html?id${data[i].id}" class = "text-primary">${data[i].name}</a> <br> ${data[i].authors} <br><br> ${data[i].abstract} <br><br> <h6 class="text-primary">${data[i].tags}</h6>`;
+        project.innerHTML = `<a href = "viewProject.html?id=${data[i].id}" class = "text-primary">${data[i].name}</a> <br> ${data[i].authors} <br><br> ${data[i].abstract} <br><br> <h6 class="text-primary">${data[i].tags}</h6>`;
         div.append(project);
     }
-});
+});}
 if(window.location.href.match("viewProject.html")){
-    var id = location.search.substring(3);
+    var id = location.search.substring(4);
     console.log("Project id = " + id);
 
     fetch(`/api/projects/${id}`).then(async (response)=>{
         var data = await response.json();
-        console.log(data);
-
+    
         document.getElementById("project_name").textContent = `${data.name}`;
         document.getElementById("project_abstract").textContent = `${data.abstract}`;
         var ul = document.querySelector("ul[class ~= list-group-flush]");
@@ -253,7 +254,6 @@ if(window.location.href.match("viewProject.html")){
         console.log("User id = " + createdBy_id);
         fetch(`/api/users/${createdBy_id}`).then(async(response)=>{
             var data = await response.json();
-            console.log(data);
             
             var createdBy = document.getElementById("project_author");
             createdBy.innerHTML = `Created By: <br> ${data.firstname + " " + data.lastname}`;
