@@ -245,8 +245,7 @@ if(window.location.href.match("viewProject.html")){
         div.append(ul);
 
         var tags = data.tags;
-        var div_tag = document.createElement("div");
-        div_tag.setAttribute("class","card-footer text-primary");
+        var div_tag = document.getElementById("project_tags");
         div_tag.innerHTML = data.tags;
         div.append(div_tag);
 
