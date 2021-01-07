@@ -205,18 +205,23 @@ if(window.location.href.match("createProject.html")){
         continue_button.addEventListener("click",createProject);}
     }
 }
-if(window.location.href.match("index.html")){
 fetch("/api/projects").then(async(response)=>{
     var data = await response.json();
     var div = document.querySelector("div[class ~= showcase]")
     
-    for(var i=0;i < 4;i++){
+    var len = data.length;
+    if(len < 4){
+        len = len;
+    }else{
+        len = 4;
+    }
+    for(var i=0;i < len;i++){
         var project = document.createElement("div");
         project.setAttribute("class","col columns");
         project.innerHTML = `<a href = "viewProject.html?id${data[i].id}" class = "text-primary">${data[i].name}</a> <br> ${data[i].authors} <br><br> ${data[i].abstract} <br><br> <h6 class="text-primary">${data[i].tags}</h6>`;
         div.append(project);
     }
-});}
+});
 if(window.location.href.match("viewProject.html")){
     var id = location.search.substring(3);
     console.log("Project id = " + id);
