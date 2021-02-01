@@ -75,7 +75,7 @@ function getCookie(cname) {
   var ca = decodedCookie.split(';');
   for(var i = 0; i < ca.length; i++) {
     var c = ca[i];
-
+    console.log(c);
     if (c.indexOf(name) == 0) {
       return c.substring(name.length, c.length);
     }
@@ -85,12 +85,13 @@ function getCookie(cname) {
 
 window.onload = (event) => {
     var user_cookie = getCookie("uid");
-
+    console.log(user_cookie)
     if(user_cookie != ""){
         fetch(`/api/users/${user_cookie}`,{
             method:'GET',
         }).then(async (response) => {
             var data = await response.json();
+            console.log(data);
             
             const signup = document.querySelector('a[href = "register.html"]');
             const login = document.querySelector('a[href = "login.html"]');
@@ -210,12 +211,7 @@ fetch("/api/projects").then(async(response)=>{
     var data = await response.json();
     var div = document.querySelector("div[class ~= showcase]")
     console.log(data);
-    // var len = data.length;
-    // if(len < 4){
-    //     len = len;
-    // }else{
-    //     len = 4;
-    // }
+    
     for(var i=0;i < data.length;i++){
         console.log(data[i]);
         var project = document.createElement("div");
