@@ -43,12 +43,12 @@ const Project = () => {
 
         <>
         <Layout>
-        <h2 class="view_h2" controlid="project_name" className="p-2" style={{marginLeft:'70px',marginRight:'60px'}}>{data.name}</h2>
+        <h2 class="view_h2" id="project_name" className="p-2" style={{marginLeft:'70px',marginRight:'60px'}}>{data.name}</h2>
 
         <Jumbotron className="p-2" style={{marginLeft:'70px',marginRight:'60px'}}>
             
             <Row class="row" className="pl-4 pt-1">
-                <Col className="pl-4 pt-1" controlid="project_author">Created By: <br/> {projectData.firstname + " " + projectData.lastname}</Col>
+                <Col className="pl-4 pt-1" id="project_author">Created By: <br/> {projectData.firstname + " " + projectData.lastname}</Col>
                 <Col className="pl-4 pt-1">Date Created : <br/> 2020-08-04</Col>
                 <Col className="pl-4 pt-1">Last Updated : <br/> 2020-08-04</Col>
                 <Col className="pl-4 pt-1"><a href="editProject.html" class="btn btn-primary">Edit Project</a></Col>
@@ -60,7 +60,7 @@ const Project = () => {
                 <Col class="col">
                     <h5>Project Abstract</h5>
                     <hr/>
-                    <p controlid="project_abstract">{data.abstract}</p>
+                    <p id="project_abstract">{data.abstract}</p>
                     <h5>Comments</h5>
                     <textarea class= "form-control" rows="5"></textarea>
                     <Button id="view_submit" class="btn btn-primary">Submit</Button>
@@ -72,14 +72,14 @@ const Project = () => {
                     <h5>Project Details</h5>
                     <hr/>
 
-                    <Card controlid="project_authors" class="card">
+                    <Card id="project_authors" class="card">
                         <Card.Header class="card-header">Authors</Card.Header>
                         <ListGroup>
                             {authors && authors.map(author => (
                                 <ListGroup.Item>{author}</ListGroup.Item>
                             ))}
                         </ListGroup>
-                            <Card.Footer class="card-footer text-primary" controlid="project_tags">{data.tags}</Card.Footer>
+                            <Card.Footer class="card-footer text-primary" id="project_tags">{data.tags}</Card.Footer>
                     </Card><br/>
 
                      <Card class="card">

@@ -86,7 +86,7 @@ const CreateProject = () => {
     return (
         <>
             <Layout>
-                    <Form controlid="createProjectForm" className="p-3" style={{marginLeft:'350px',marginRight:'350px'}}>
+                    <Form id="createProjectForm" className="p-3" style={{marginLeft:'350px',marginRight:'350px'}}>
                         <h3>Submit Project</h3>
                         {errors ?<Alert variant="danger"style={{marginLeft:'0px', marginRight:'0px'}}>{errors.map((error) => <span key={error}>{error} <br/></span>)}</Alert>:null}
                             <Form.Label>Project Name:</Form.Label><br />

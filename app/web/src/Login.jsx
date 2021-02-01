@@ -70,7 +70,7 @@ const Login = () => {
         <>
 
             <Layout>
-                <Form className="p-5" style={{marginLeft: '300px',marginRight:'300px'}} controlid="loginForm" action="/api/login" method="POST">
+                <Form className="p-5" style={{marginLeft: '300px',marginRight:'300px'}} id="loginForm" action="/api/login" method="POST">
                     <h1>Login</h1>
                     {errors ? <Alert variant="danger" style={{marginLeft: '0px',marginRight:'0px'}}>{errors}</Alert> : null}
                     <Form.Group>
