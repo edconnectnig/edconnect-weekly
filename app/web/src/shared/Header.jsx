@@ -27,7 +27,6 @@ export function getCookie(cname) {
 
 //functional component Header
 const Header = () => {
-    const location = useLocation();
     const [data, setData] = useState();
     const history = useHistory();
 
@@ -37,7 +36,7 @@ const Header = () => {
     date.setDate(date.getDate() - 1);//sets Date to the previous date
     console.log(document.cookie)
     document.cookie = `uid=;path=/;expires=${date.toUTCString()}`;//sets cookie uid to empty
-    setData("");//sets the data which contains the response gptten from the server to empty
+    setData("");//sets the data which contains the response gotten from the server to empty
     history.push("/")//redirects to the home page
 }
     useEffect(() => {
@@ -52,7 +51,7 @@ const Header = () => {
         } else {// else statement executes if the cookie is empty
             console.log("No cookie")
         }
-    }, [location.pathname])//this useEffect hook onl runs anytime the current location changes.
+    }, [])//this useEffect hook only runs anytime the current location changes.
 
     /*This return statement indicates the value returned to the App.jsx file and is rendered on the screen
       It contains react bootstrap components, styling, and also basic html tags
