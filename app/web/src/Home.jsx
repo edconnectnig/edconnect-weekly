@@ -49,7 +49,7 @@ const Home = () => {
                         
                         <Card keys={item.id}> 
                             <Card.Body keys={item.id}>
-                                <Card.Link href = {`/projects/id=${item.id}`} keys={item.name}>{item.name}</Card.Link> 
+                                <Card.Link href = {`/projects/${item.id}`} keys={item.name}>{item.name}</Card.Link> 
                                 <br/> {item.authors} <br/><br/> {item.abstract}  <br/><br/>
                                 <Card.Link keys={item.tags}> {item.tags}</Card.Link>
                             </Card.Body>

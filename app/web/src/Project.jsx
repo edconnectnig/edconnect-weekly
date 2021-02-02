@@ -8,7 +8,6 @@ import { Jumbotron, Card,Row,Col,Container,Button,ListGroup,Form,InputGroup } fr
 const Project = () => {
     const {id} = useParams();//useParams is used to get the expression starting from the name "id" from the current url
     console.log(id)
-    const id_value = id.substring(3);//it is used to get the value from the id by deleting the first 3 characters
     //declaration of states and their corresponding functions used to update the states
     const [data,setData] = useState({});
     const [authors,setAuthors] = useState([]);
@@ -27,7 +26,7 @@ const Project = () => {
     //the useEffect hook contains a fetch request used to get the project details of a particular project 
     //using the id_value gotten. this useEffect hook runs only once.
     useEffect(() => {
-    fetch(`/api/projects/${id_value}`).then(async (response)=>{
+    fetch(`/api/projects/${id}`).then(async (response)=>{
         var data = await response.json();
         getProjectName(data.createdBy)//gets ProjectName using the value of createdBy gotten from the response
         setAuthors(data.authors)//sets project authors to all authors gotten from the response
