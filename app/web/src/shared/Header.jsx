@@ -1,6 +1,6 @@
 //import statement used to import react and react-bootstrap components
 import React, { useState, useEffect } from 'react';
-import { useLocation,useHistory } from 'react-router-dom';
+import {useHistory } from 'react-router-dom';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 
 /*The getCookie function takes a parameter which is the name of the cookie 

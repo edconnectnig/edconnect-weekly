@@ -63,11 +63,11 @@ const Signup = () => {
     })
     .then(async (response) =>{
         var data = await response.json();
-        if(data.status === "ok"){//checks if the response is ok and creates a cookie, redirects to home page
+        if(response.status === 200){//checks if the response is ok and creates a cookie, redirects to home page
             document.cookie = `uid=${data.data.id};path=/`;
             console.log(document.cookie);
             history.push('/')
-        }else if(data.status !== "ok"){//if response is false, error gotten fro the server is displayed on the screen
+        }else if(response.status !== 200){//if response is false, error gotten fro the server is displayed on the screen
             setErrors(data.errors)
         }
     })

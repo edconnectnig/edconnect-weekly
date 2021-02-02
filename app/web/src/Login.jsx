@@ -51,12 +51,12 @@ const Login = () => {
     })
     .then(async(response) => {
         var data = await response.json();
-
-        if(data.status === 'ok'){
+        console.log(response)
+        if(response.status === 200){
             document.cookie = `uid=${data.data.id};path=/`;
             console.log(document.cookie)
             history.push("/");//redirects to the home page
-        }else if(data.status !== 'ok'){
+        }else if(response.status !== 200){
            setErrors("Invalid email/password")
         }
     })
