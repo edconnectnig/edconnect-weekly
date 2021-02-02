@@ -81,7 +81,7 @@ const Header = () => {
                     </Nav>
                     :
                     <Nav className="justify-content-end">
-                        <Nav.Link href="/signup">Signup</Nav.Link>
+                        <Nav.Link href="/signup">Sign Up</Nav.Link>
                         <Nav.Link href="/login">Login</Nav.Link>
                     </Nav>
                 }
