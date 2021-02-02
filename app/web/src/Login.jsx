@@ -54,6 +54,7 @@ const Login = () => {
 
         if(data.status === 'ok'){
             document.cookie = `uid=${data.data.id};path=/`;
+            console.log(document.cookie)
             history.push("/");//redirects to the home page
         }else if(data.status !== 'ok'){
            setErrors("Invalid email/password")
