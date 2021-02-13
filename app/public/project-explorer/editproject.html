@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h1>Project Explorer</h1>
+      <h2>One Stop Database for Academic Projects</h2>
+    </header>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="search.html">Projects</a>
+      <a href=" login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="createproject.html">Submit</a>
+    </nav>
+
+    <main>
+      <section>
+        <h3>Project 1</h3>
+        <ul>
+          <li>Created by: John Doe</li>
+          <li>Date Created: 00/00/0000</li>
+          <li>Last Updated: 01/01/0001</li>
+        </ul>
+      </section>
+
+      <section>
+        <form name="editProject">
+          <label for="fname">Project Name:</label><br />
+          <input type="text" name="name" label="Project Name" /><br /><br />
+          <label for="fname">Project Abstract:</label><br />
+          <textarea id="fname" name="w3review" rows="4" cols="50"> </textarea>
+          <br /><br />
+          <label for="fname">Authors:</label><br />
+          <input type="text" name="authors" label="Authors" /><br /><br />
+          <label for="fname">Tag(s):</label><br />
+          <input type="text" name="tags" label="Project Name" /><br /><br />
+          <label for="fname">Upload File:</label><br />
+          <input
+            type="file"
+            name="projectFile"
+            label="Upload File"
+          /><br /><br />
+          <input type="submit" value="Submit" />
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
