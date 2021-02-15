@@ -31,16 +31,16 @@
     <main class="container mt-3">
       <section>
         <h4>Project Gallery</h4>
-        <form> 
+        <form name="searchTerm"> 
           <div class="form-row">
             <div class=" form-group bg-light p-3 col-9">
-              <input type="text" name="searchTerm" class="form-control form-control-lg" placeholder="Search project name, authors, abstract, tags">
+              <input type="text" class="form-control form-control-lg" placeholder="Search project name, authors, abstract, tags">
             </div>
             <div class="form-group mt-3" >
               <button class="btn btn-light"> Search By</button>
             </div>
             <div class="form-group mt-3">
-              <form >
+              <form name="searchForm">
                 <select name="searchType">
                   <option value="Name">Name</option>
                   <option value="Abstract">Abstract</option>
