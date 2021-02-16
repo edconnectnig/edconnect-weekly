@@ -52,39 +52,36 @@
         </div>
         <form>
           <h5>Edit Project</h5>
-            <div class="row form-row">
-              <div class=" form-group col-md-6">
-                <label>Project name</label>
-                <input type="text" name="name" class="form-control" placeholder="Project 1">
-                <label for="formGroupExampleInput">Project abstract</label> <br>
-                <textarea id="formGroupExampleInput" name="abstract"  class="form-control" rows="1" cols="4"> Project 1 is a very interesting project.</textarea> <br>
-                <label for="formGroupExampleInput">Author(s)</label>
-                <input type="text" name="authors" class="form-control" id="formGroupExampleInput" placeholder="Ade Chris">
-                <label for="formGroupExampleInput">Tag(s)</label>
-                <input type="text" name="tags" class="form-control" id="formGroupExampleInput" placeholder="#web">
-                <button type="submit" class="btn btn-primary mt-3">Save</button>
+          <div class="row">
+            <div class="col form-group">
+              <label>Project name</label>
+              <input type="text" name="name" class="form-control" placeholder="Project 1">
+              <label for="formGroupExampleInput">Project abstract</label> <br>
+              <textarea id="formGroupExampleInput" name="abstract"  class="form-control" rows="1" cols="4"> Project 1 is a very interesting project.</textarea> <br>
+              <label for="formGroupExampleInput">Author(s)</label>
+              <input type="text" name="authors" class="form-control" id="formGroupExampleInput" placeholder="Ade Chris">
+              <label for="formGroupExampleInput">Tag(s)</label>
+              <input type="text" name="tags" class="form-control" id="formGroupExampleInput" placeholder="#web">
+              <button type="submit" class="btn btn-primary mt-3">Save</button>
+            </div>
+
+            <div class="col form-group">
+              <h5>Manage Project files</h5>
+              <div class="custom-file mt-3">
+                <input type="file" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Click to open file browser</label>
               </div>
-              <div class=" form-group col">
-                <h5>Manage Project files</h5>
-                <div class="custom-file mt-3">
-                  <input type="file" class="custom-file-input" id="customFile">
-                  <label class="custom-file-label" for="customFile">Click to open file browser</label>
+              <div class="card mt-3">
+                <div class="card-header">
+                  Project files
                 </div>
-                <div class="card mt-3">
-                  <div class="card-header">
-                    Project files
-                  </div>
-                  <div class="card-body">
-                    <p class="card-text card text-center">No files uploaded yet</p>
-                  </div>
+                <div class="card-body">
+                  <p class="card-text card text-center">No files uploaded yet</p>
                 </div>
               </div>
             </div>
-      
-      </section>
-      
-      
-    
+          </div>
+      </section> 
     </main>
     <footer class="mt-3 float-right " >
       <p> Project Explorer @ 2020 -<strong>EdConnect</strong></p>
