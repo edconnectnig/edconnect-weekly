@@ -30,26 +30,26 @@
 
     <main class="container mt-3">
       
-        <h4>Project Gallery</h4>
-        <form> 
-          <div class="form-row">
-            <div class=" form-group bg-light p-3 col-9">
-              <input type="text" name='searchTerm' class="form-control form-control-lg" placeholder="Search project name, authors, abstract, tags">
-            </div>
-            <div class="form-group mt-3" >
-              <button class="btn btn-light"> Search By</button>
-            </div>
-            <div class="form-group mt-3">
-                <select name="searchType">
-                  <option value="Name">Name</option>
-                  <option value="Abstract">Abstract</option>
-                  <option value="Authors">Authors</option>
-                  <option value="Tags">Tags</option>
-                </select>
-                <button type="submit" class="btn btn-primary">Submit</button
-            </div>
+      <h4>Project Gallery</h4>
+      <form class=" bg-light p-3"> 
+        <div class="form-row">
+          <div class=" form-group col-9">
+            <input type="text" name='searchTerm' class="form-control form-control-lg" placeholder="Search project name, authors, abstract, tags">
           </div>
-        </form>
+          <div class="form-group mt-3" >
+            <button class="btn btn-light"> Search By</button>
+          </div>
+          <div class="form-group mt-3">
+              <select name="searchType">
+                <option value="Name">Name</option>
+                <option value="Abstract">Abstract</option>
+                <option value="Authors">Authors</option>
+                <option value="Tags">Tags</option>
+              </select>
+              <button type="submit" class="btn btn-primary">Submit</button
+          </div>
+        </div>
+      </form>
 
       <h5>All Projects <span class="badge badge-light">(0 results)</span></h5>
       <div class="row mt-3">
