@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+</head>
+<body>
+
+    <div class="container-fluid pt-3 pb-5">
+        <nav class="navbar navbar-expand navbar-dark bg-primary">
+            <a href="index.html" class="navbar-brand">Project Explorer</a>
+            <form name="searchForm" action="search.html" method="GET" class="form-inline">
+             <input type="text" name="search" class="mr-sm-2 form-control" placeholder="Search Projects" >
+                <button type="submit" class="btn btn-outline-light">Search</button>
+            </form>
+            <div class="mr-auto navbar-nav">
+            <a href="createproject.html" class="nav-link">Submit</a>
+            </div>
+            <div class="navbar-nav">
+            <a href="register.html" class="nav-link">Sign up</a>
+            <a href="login.html" class="nav-link">Login</a>
+        </div>
+        </nav>
+    <main>
+        <div class="container mt-5">
+            <h3>Project 1</h3>
+            <div class="container">
+                <div class="p-3 mt-3 mb-5 bg-light text-dark row">
+                <div class="col-3">
+                <p>Created by <br> Chika Noble</p>
+                </div>
+                <div class="col-3">
+                <p>Date Created <br> 19/04/2017</p>
+            </div>
+            <div class="col-3">
+                <p>Last Updated <br> 19/04/2020</p>
+            </div>
+            <div class="col-3 d-flex justify-content-end">
+                <button class="btn btn-primary btn-lg">Edit Project</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+        <h5>
+            Project Abstract
+        </h5>
+        <hr>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Incidunt error provident eaque ratione
+                     ut nihil nam delectus facilis, ad nisi! Minus eligendi enim tempora
+                      dicta ullam qui id assumenda quia.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, 
+                      hic perferendis illum pariatur ad nisi
+                      ducimus accusantium doloribus temporibus ullam quia,
+                       suscipit minima deserunt delectus, quidem debitis quas a ex.
+                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quam, 
+                       ipsa facilis minima nulla totam, quae ullam repudiandae dolor repellat, 
+                       deserunt accusamus! In sapiente libero nemo, dolorum assumenda consequatur accusamus!
+                    </p>
+            <div class="form-group">
+                <label for="comments" class="form-label font-weight-bold">Comments</label>
+                <textarea name="comments" id="" cols="20" rows="4" class="form-control"></textarea>
+            </div>
+            <button class="btn btn-primary">Submit</button>
+            <hr>
+            <p class="text-center">No comments added yet</p>
+    </div>
+    <div class="col-6">
+        <h5>Project Details</h5>
+        <hr>
+        <div class="card">
+            <div class="card-header">Authors(s)</div>
+            <div class="card-body">
+                <p class="card-text">Chika Noble</p>
+            </div>
+            <div class="card-footer text-primary">#web</div>
+        </div>
+        <div class="card mt-3">
+            <div class="card-header font-weight-bold">Project files</div>
+            <div class="card-body">
+                <p class="card-text text-center">No file uploaded yet</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </main>
+    <footer class="bg-light text-right m-5 p-2 ">Project Explorer &copy2021 <a href="http://edconnect.ng">.Edconnect</a> </footer>
+
+</body>
+</html>

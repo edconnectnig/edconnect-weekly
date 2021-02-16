@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid pt-3 pb-5">
+        <nav class="navbar navbar-expand navbar-dark bg-primary">
+            <a href="index.html" class="navbar-brand">Project Explorer</a>
+            <form name="searchForm" action="search.html" method="GET" class="form-inline">
+             <input type="text" name="search" class="mr-sm-2 form-control" placeholder="Search Projects" >
+                <button type="submit" class="btn btn-outline-light">Search</button>
+            </form>
+            <div class="mr-auto navbar-nav">
+            <a href="createproject.html" class="nav-link">Submit</a>
+            </div>
+            <div class="navbar-nav">
+            <a href="register.html" class="nav-link">Sign up</a>
+            <a href="login.html" class="nav-link">Login</a>
+        </div>
+        </nav>
+        <main>
+            <div class="mx-auto w-50 pt-3">
+        <h1>Login</h1>
+        <form action="" class="form-group ">
+            <label for="email" class="form-label">Email Address:</label><br>
+            <input type="email" class=" form-control" name="email" placeholder="Enter email"><br><br>
+            <label for="password" class="form-label">Password:</label><br>
+            <input type="password" class=" form-control" name="password" placeholder="Password"><br><br>
+            <button class="btn btn-primary">Login</button>
+        </form>
+    </div>
+    </main>
+    <footer class="bg-light text-right m-5 p-2 ">Project Explorer &copy2021 <a href="http://edconnect.ng">.Edconnect</a> </footer>
+</div>
+</body>
+</html>
