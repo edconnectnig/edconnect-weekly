@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <title>Example 1</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+      <a class="navbar-brand" href="#">Project Explorer</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <form class="form-inline my-2 my-lg-0 ">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search Projects" aria-label="Search"/>
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+          <button class="btn btn-sm btn-outline-secondary" type="button">Submit</button>
+        </form>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Sign Up <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+        </ul>
+        
+      </div>
+    </nav>
+    <div class="container" style="margin-top: 70px;">
+        <h4>Project</h4>
+          <div class="row">
+              <div class="col">
+                <p>Program <br> Computer Information Systems </p>
+              </div>
+              <div class="col">
+                <p>Matriculation number <br> 33/3333</p>
+              </div>
+              <div class="col">
+                <p>Graduation year <br> 2018</p>
+              </div>
+              <div class="col d-flex justify-content-end">
+                <button class="btn btn-lg btn-primary" type="submit">View Project</button>
+              </div>
+          </div>
+      </div>
+    <div class="row">
+        <div class="col">
+            <div class="container-fluid mx-auto" style="width: 480px; margin-top: 70px;">
+                <h4>Edit Project</h4>
+                <form>
+                    <div class="form-group">
+                        <label for="projectname" class="form-label">Project Name</label>
+                        <input class="form-control" name="projectName" type="text" placeholder="Project 1"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectname" class="form-label">Project Abstract</label>
+                        <textarea class="form-control" name="projectAbstract" type="text" rows="10">Project 1 is an interesting project</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectname" class="form-label">Author(s)</label>
+                        <input class="form-control" name="author" type="text" placeholder="Ade Chris"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectname" class="form-label">Tag(s)</label>
+                        <input class="form-control" name="tag" type="text" placeholder="#web"/>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-lg btn-primary" type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+        
+        </div>
+        <div class="col">
+            <div class="container-fluid mx-auto" style="width: 480px; margin-top: 70px;"></div>
+                <h4>Manage Project Files</h4><br>
+                <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" name="manageNewFile" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                      </div>
+                </div>
+                <div class="form-group">
+                    <div class="card">
+                        <div class="card-header">
+                          Featured
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text text-center">No file uploaded yet</p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container d-flex justify-content-end" style="margin-top: 50px;">
+        <p> Project Explorer &copy; Company 2020. <b>Edconnect</b></p>
+    </footer>
+  </body>
