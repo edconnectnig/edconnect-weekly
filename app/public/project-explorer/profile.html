@@ -17,7 +17,6 @@
          <a href="search.html">Projects</a>
          <a href="login.html">Login</a>
          <a href="register.html">Register</a>
-         <a href="createproject.html">Submit</a>
         </nav>
 
         <section>
@@ -37,21 +36,18 @@
           <label>Last Name: </label>
           <input type="text"  name = "lastName"> <br><br>
           <label>Email: </label>
-          <input type="text"  name = "email"> <br><br>
+          <input type="email"  name = "email"> <br><br>
           <label>Matric Number: </label>
           <input type="text"  name = "matricNumber"> <br><br>
           <label>Program:</label>
             <select name="program">
-              <optgroup>
               <option value="computer_science">Computer Science</option>
               <option value="computer_information_systems">Computer Information Systems</option>
               <option value="computer_technology">Computer Technology</option>
-              </optgroup>
             </select>
             <br><br>
-          <label>Graduation Year: </label> 
-          <select>
-           <optgroup label = "graduation year">
+          <label>Graduation Year:</label> 
+          <select name="graduationYear">
              <option value="2013">2013</option>
              <option value="2014">2014</option>
              <option value="2015">2015</option>
@@ -60,7 +56,6 @@
              <option value="2018">2018</option>
              <option value="2019">2019</option>
              <option value="2020">2020</option>
-            </optgroup>
           </select>
           <br><br>
           <input type="submit">
@@ -68,13 +63,13 @@
      
         <section>
 
-            <h1>Change Password</h1>
-            <form>
-              <label>Current Paasword</label>
+            <h2>Change Password</h2>
+            <form name="changePassword">
+              <label>Current Paasword:</label>
               <input type="password" name = " currentPassword"> <br><br>
-              <label>New Password</label>
+              <label>New Password:</label>
               <input type="password" name = "newPassword"><br><br>
-              <label>Confirm Paasword</label>
+              <label>Confirm Paasword:</label>
               <input type="password" name = " confirmPassword"><br><br>
               <input type = "submit">
             </form>
