@@ -77,7 +77,7 @@
           <div class="row">
                 <div class="form-group col-md-6 ">
                     <label for="email" class="form-label">Email Address</label>
-                    <input type="text" name="email" class="form-control" placeholder="Your Email Address">
+                    <input type="email" name="email" class="form-control" placeholder="Your Email Address">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="program" class="form-label">Program</label>
@@ -93,7 +93,9 @@
             </div>
             <div class="form-group col-md-6">
                   <label for="graduationyear" class="form-label">Graduate Year</label>
-                  <input type="text" name="graduateYear" class="form-control" placeholder="Choose">
+                  <select class="form-select form-control" name="graduationYear" aria-label="Default select example">
+                    <option selected>Choose</option>
+                  </select>
             </div> 
           </div> 
           <div class="mt-3">
@@ -110,17 +112,17 @@
             <form>
               <div class="row">
                 <div class="form-group col-md-4">
-                  <label for="firstname" class="form-label">Current Password</label>
-                  <input type="text" name="currentPassword" class="form-control" placeholder="Current Password">
+                  <label for="currentpassword" class="form-label">Current Password</label>
+                  <input type="password" name="currentPassword" class="form-control" placeholder="Current Password">
                 </div>
                 <div class="form-group col-md-4">
-                  <label for="lastname" class="form-label">New Password</label>
-                  <input type="text" name="newPassword" class="form-control" placeholder="Your New Password
+                  <label for="newpassword" class="form-label">New Password</label>
+                  <input type="password" name="newPassword" class="form-control" placeholder="Your New Password
                   ">
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="lastname" class="form-label">Confirm new Password </label>
-                    <input type="text" name="confirmNewPassword" class="form-control" placeholder="Confirm new Password">
+                    <label for="confirmpassword" class="form-label">Confirm new Password </label>
+                    <input type="password" name="confirmPassword" class="form-control" placeholder="Confirm new Password">
                   </div>
               </div>
             </form>
