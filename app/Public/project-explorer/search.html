@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Search Page</title>
+    </head>
+    <body>
+        <header>
+            <h1>Project Explorer</h1>
+            <h2>One Stop Database for Academic Projects</h2>
+        </header>
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="/search.html">Projects</a>
+            <a href="/login.html">Login</a>
+            <a href="/register.html">Register</a>
+            <a href="/createproject.html">Submit</a>
+        </nav>
+        <main>
+            <section>
+                <header>
+                    <h3>Search Project By</h3>
+                </header>
+                <form name="searchForm">
+                    <form>
+                        <input type="text" name="searchTerm" placeholder="Project Name, Authors, Abstract, Tags" />
+                    </form>
+                    <form><br>
+                        <label>Search By: </label><br>
+                        <select name="searchType"><br><br>
+                            <option value="Name">Name</option>
+                            <option value="Abstract">Abstract</option>
+                            <option value="Authors">Authors</option>
+                            <option value="Tags">Tags</option>
+                        </select>
+                        <form><br><br>
+                            <input type="submit" value="Search" />
+                        </form>
+                    </form>
+                </form>
+            </section>  
+            <section>
+                <header>
+                    <h2>Search Result</h2>
+                </header>
+                <div>
+                    <h3>Project 1</h3>
+                </div>
+                <div>
+                    <ul>
+                        <li>Name: Project 1</li>
+                        <li>Description: Give an executive summary of your project. The executive summary is like an abstract, but more detailed than an abstract.</li>
+                        <li>Program: Computer Science</li>
+                        <li>Authors: John Doe, Jane Doe</li>
+                        <li>Tags: #Asphyxia, #GSW</li>
+                        <li>Year: 2018</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
+
+    
