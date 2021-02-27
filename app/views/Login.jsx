@@ -41,7 +41,7 @@ const Login = (props) => {
             <Layout>
                 <Form className="p-5" style={{marginLeft: '300px',marginRight:'300px'}} id="loginForm" action="/login" method="post">
                     <h1>Login</h1>
-                    {errors.length > 0 ? <Alert variant="danger" id="error" style={{marginLeft: '0px',marginRight:'0px'}}>{errors}</Alert> : null}
+                  <div id="error">{errors.length > 0 ? <Alert variant="danger" id="error" style={{marginLeft: '0px',marginRight:'0px'}}>{errors}</Alert> : null}</div>
                     <Form.Group>
                         <Form.Label>Email Address: </Form.Label>
                         <InputGroup>

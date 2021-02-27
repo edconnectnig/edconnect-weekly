@@ -62,7 +62,7 @@ const Signup = (props) => {
 
             <Layout user={user}>
                 <h1 style={{ marginLeft: '125px', marginTop: '10px' }}>Sign Up</h1>
-                {errors?.length > 0 ? <Alert variant="danger" id="error" style={{ marginLeft: '120px', marginRight: '120px' }}>{errors.map((error) =><span key={error}>{error} <br /></span>)}</Alert> : null}
+                <div id="error"> {errors?.length > 0 ? <Alert variant="danger" id="error" style={{ marginLeft: '120px', marginRight: '120px' }}>{errors.map((error) =><span key={error}>{error} <br /></span>)}</Alert> : null} </div>
                 <Form className="mr-10" id="signupForm" action="/signup" method="post">
                     <Container>
                         <Row>

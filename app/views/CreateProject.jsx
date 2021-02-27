@@ -47,7 +47,7 @@ const CreateProject = (props) => {
             <Layout user = {user}>
                     <Form id="createProjectForm" className="p-3" method="post" action="/projects/submit" style={{marginLeft:'350px',marginRight:'350px'}}>
                         <h3>Submit Project</h3>
-                        {errors?.length > 0 ?<Alert variant="danger" id="error" style={{marginLeft:'0px', marginRight:'0px'}}>{errors.map((error) => <span key={error}>{error} <br/></span>)}</Alert>:null}
+                        <div id="error">{errors?.length > 0 ?<Alert variant="danger" style={{marginLeft:'0px', marginRight:'0px'}}>{errors.map((error) => <span key={error}>{error} <br/></span>)}</Alert>:null} </div>
                             <Form.Label>Project Name:</Form.Label><br />
                             <InputGroup>
                                 <Form.Control name="name" value={name} id="projectName" placeholder="Enter Project Name" onChange={handleInputChange}/>
