@@ -117,7 +117,7 @@ const Signup = () => {
      
         <Layout>
             <h1 style={{marginLeft:'125px', marginTop:'10px'}}>Sign Up</h1>
-            {errors ? <Alert variant="danger" style={{marginLeft:'120px', marginRight:'120px'}}>{errors.map((error) => <span key={error}>{error} <br/></span>)}</Alert> : null}
+            {errors ? <Alert variant="danger" id="error" style={{marginLeft:'120px', marginRight:'120px'}}>{errors.map((error) => <span key={error}>{error} <br/></span>)}</Alert> : null}
         <Form className="mr-10" id="signupForm" action="/api/register" method="POST">
         <Container>
             <Row>
