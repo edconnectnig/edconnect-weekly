@@ -11,22 +11,12 @@
             "graduationYear": "2020"
         },
         {
-            "id": "wwysott8i2s",
+            "id": "xq13rzeybgl",
             "firstname": "Blossom",
             "lastname": "Chikezie",
             "email": "chinanuchikezie515@gmail.com",
-            "password": "blossom",
+            "password": " dbdfgbdf",
             "matricNumber": "19/0000",
-            "program": "Computer Science",
-            "graduationYear": "2016"
-        },
-        {
-            "id": "xfnfex7h6tp",
-            "firstname": "Blossom",
-            "lastname": "Chikezie",
-            "email": "chinanuchikezie515@gmail.com12",
-            "password": "blosspom",
-            "matricNumber": "12/3333",
             "program": "Computer Science",
             "graduationYear": "2017"
         }
