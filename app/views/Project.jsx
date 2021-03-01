@@ -20,7 +20,7 @@ const Project = (props) => {
 
         <>
         <Layout user={current_user}>
-        <h2 id="project_name" className="p-2" style={{marginLeft:'70px',marginRight:'60px'}}>{data.name}</h2>
+        <h2 id="project_name" name="name" className="p-2" style={{marginLeft:'70px',marginRight:'60px'}}>{data.name}</h2>
 
         <Jumbotron className="p-2" style={{marginLeft:'70px',marginRight:'60px'}}>
             
@@ -37,7 +37,7 @@ const Project = (props) => {
                 <Col>
                     <h5>Project Abstract</h5>
                     <hr/>
-                    <p id="project_abstract">{data.abstract}</p>
+                    <p id="project_abstract" name="abstract">{data.abstract}</p>
                     <h5>Comments</h5>
                             <InputGroup>
                                 <Form.Control as = "textarea" rows="4" cols="10"/>
@@ -57,10 +57,10 @@ const Project = (props) => {
                         <Card.Header>Authors</Card.Header>
                         <ListGroup>
                             {authors && authors.map(author => (
-                                <ListGroup.Item key={author}>{author}</ListGroup.Item>
+                                <ListGroup.Item key={author} name="authors">{author}</ListGroup.Item>
                             ))}
                         </ListGroup>
-                            <Card.Footer id="project_tags"> <Card.Link>{data.tags}</Card.Link> </Card.Footer>
+                            <Card.Footer id="project_tags"> <Card.Link name="tags">{data.tags}</Card.Link> </Card.Footer>
                     </Card><br/>
 
                      <Card>

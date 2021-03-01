@@ -71,7 +71,7 @@ const Signup = (props) => {
                                 <Form.Group>
                                     <Form.Label>First Name: </Form.Label>
                                     <InputGroup>
-                                        <FormControl name="fname" placeholder="First Name" value={firstName} onChange={handleInputChange} />
+                                        <FormControl name="firstName" placeholder="First Name" value={firstName} onChange={handleInputChange} />
                                     </InputGroup>
                                 </Form.Group>
 
@@ -99,7 +99,7 @@ const Signup = (props) => {
                                 <Form.Group>
                                     <Form.Label>Last Name: </Form.Label>
                                     <InputGroup>
-                                        <FormControl name="lname" value={lastName} placeholder="Last Name" onChange={handleInputChange} />
+                                        <FormControl name="lastName" value={lastName} placeholder="Last Name" onChange={handleInputChange} />
                                     </InputGroup>
                                 </Form.Group>
 
@@ -115,14 +115,14 @@ const Signup = (props) => {
                                         <Form.Group>
                                             <Form.Label>Matriculation Number: </Form.Label>
                                             <InputGroup>
-                                                <FormControl name="mnumber" value={matricNumber} placeholder="e.g 16/2020" onChange={handleInputChange} />
+                                                <FormControl name="matricNumber" value={matricNumber} placeholder="e.g 16/2020" onChange={handleInputChange} />
                                             </InputGroup>
                                         </Form.Group>
                                     </Col>
                                     <Col>
                                         <Form.Group>
                                             <Form.Label>Graduation Year: </Form.Label>
-                                            <Form.Control as="select" name="year" value={year} onChange={handleInputChange}>
+                                            <Form.Control as="select" name="graduationYear" value={year} onChange={handleInputChange}>
                                                 <option>Choose</option>
                                                 {years && years.map((year) => (
                                                     <option key={year}>{year}</option>
