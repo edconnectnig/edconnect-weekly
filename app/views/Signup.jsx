@@ -25,7 +25,7 @@ const Signup = (props) => {
 
         //checks which name is currently being changed
         switch (name) {
-            case 'fname':
+            case 'firstName':
                 setFirstName(value);
                 break; 
             case 'email':
@@ -34,16 +34,16 @@ const Signup = (props) => {
             case 'program':
                 setProgram(value);
                 break;
-            case 'lname':
+            case 'lastName':
                 setLastName(value);
                 break;
             case 'password':
                 setPassword(value);
                 break;
-            case 'mnumber':
+            case 'matricNumber':
                 setMatricNumber(value);
                 break;
-            case 'year':
+            case 'graduationYear':
                 setYear(value);
                 break;
             default:
