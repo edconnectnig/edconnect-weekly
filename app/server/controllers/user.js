@@ -14,13 +14,13 @@ router.get('/signup', (req,res) => {
 router.post('/signup',(req,res) => {
     req.flash('input_body',req.body);
     
-    const firstname = req.body.fname;
-    const lastname = req.body.lname;
+    const firstname = req.body.firstName;
+    const lastname = req.body.lastName;
     const email = req.body.email;
     const password = req.body.password;
-    const matricNumber = req.body.mnumber;
+    const matricNumber = req.body.matricNumber;
     const program = req.body.program;
-    const graduationYear = req.body.year;
+    const graduationYear = req.body.graduationYear;
     const result = user.create({firstname, lastname, email, password, matricNumber, program, graduationYear});
 
     if(result[0] === true){
