@@ -13,12 +13,12 @@ const getFileAsJson = (file) => JSON.parse(fs.readFileSync(file));
 const saveProjectsToFile = (data) => saveJsonFile(projectsFile, data);
 const id = () => Math.random().toString(36).substring(2);
 
-// populate projects with data from file.
-const projects = new Projects();
-projects.data = getFileAsJson(projectsFile).data;
-
 /* Create new project */
 const create = ({ name, abstract, authors, tags, createdBy }) => {
+  // populate projects with data from file.
+  const projects = new Projects();
+  projects.data = getFileAsJson(projectsFile).data;
+
   const project = new Project(
     id(),
     name,
@@ -37,10 +37,18 @@ const create = ({ name, abstract, authors, tags, createdBy }) => {
 
 /* Return project with specified id */
 const getById = (id) => {
+  // populate projects with data from file.
+  const projects = new Projects();
+  projects.data = getFileAsJson(projectsFile).data;
+
   return projects.getById(id);
 };
 /* Return all projects */
 const getAll = () => {
+  // populate projects with data from file.
+  const projects = new Projects();
+  projects.data = getFileAsJson(projectsFile).data;
+
   return projects.getAll();
 };
 

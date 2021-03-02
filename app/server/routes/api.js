@@ -21,12 +21,6 @@ const saveJsonFile = (file, data) => {
 const saveUsersDb = (data) => saveJsonFile(usersFile, data);
 const saveProjectsDb = (data) => saveJsonFile(projectsFile, data);
 
-const users = new Users();
-users.data = getFileAsJson(usersFile).data;
-
-const projects = new Projects();
-projects.data = getFileAsJson(projectsFile).data;
-
 const id = () => Math.random().toString(36).substring(2);
 
 const getCookie = (req, name) => {
@@ -66,6 +60,8 @@ api.post("/register", (req, res) => {
     program,
     graduationYear,
   } = req.body;
+  const users = new Users();
+  users.data = getFileAsJson(usersFile).data;
 
   const user = new User(
     id(),
@@ -86,6 +82,8 @@ api.post("/register", (req, res) => {
 
 api.post("/login", (req, res) => {
   const { email, password } = req.body;
+  const users = new Users();
+  users.data = getFileAsJson(usersFile).data;
 
   const success = users.authenticate(email, password);
   if (success) {
@@ -100,23 +98,33 @@ api.get("/logout", (req, res) => {
 });
 
 api.get("/users", (req, res) => {
+  const users = new Users();
+  users.data = getFileAsJson(usersFile).data;
   res.json(users.getAll());
 });
 
 api.get("/users/:id", (req, res) => {
+  const users = new Users();
+  users.data = getFileAsJson(usersFile).data;
   res.json(users.getById(req.params.id));
 });
 
 api.get("/projects", (req, res) => {
-  res.json(projects.getAll());
+  const projects = new Projects();
+  projects.data = getFileAsJson(projectsFile).data;
+  res.json(projects.getAll().reverse());
 });
 
 api.get("/projects/:id", (req, res) => {
+  const projects = new Projects();
+  projects.data = getFileAsJson(projectsFile).data;
   res.json(projects.getById(req.params.id));
 });
 
 api.post("/projects", requireLogin, (req, res) => {
   const { name, abstract, authors, tags } = req.body;
+  const projects = new Projects();
+  projects.data = getFileAsJson(projectsFile).data;
 
   const project = new Project(
     id(),

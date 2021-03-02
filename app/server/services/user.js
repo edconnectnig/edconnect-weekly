@@ -13,10 +13,6 @@ const getFileAsJson = (file) => JSON.parse(fs.readFileSync(file));
 const saveUsersToFile = (data) => saveJsonFile(usersFile, data);
 const id = () => Math.random().toString(36).substring(2);
 
-// populate users with data from file.
-const users = new Users();
-users.data = getFileAsJson(usersFile).data;
-
 /* Creates new user */
 const create = ({
   firstname,
@@ -27,6 +23,10 @@ const create = ({
   program,
   graduationYear,
 }) => {
+  // populate users with data from file.
+  const users = new Users();
+  users.data = getFileAsJson(usersFile).data;
+
   const user = new User(
     id(),
     firstname,
@@ -47,6 +47,10 @@ const create = ({
 
 /* Authenticate a user */
 const authenticate = (email, password) => {
+  // populate users with data from file.
+  const users = new Users();
+  users.data = getFileAsJson(usersFile).data;
+
   if (users.authenticate(email, password)) {
     return [true, users.getByEmail(email)];
   } else {
@@ -56,11 +60,19 @@ const authenticate = (email, password) => {
 
 /* Return user with specified id */
 const getById = (id) => {
+  // populate users with data from file.
+  const users = new Users();
+  users.data = getFileAsJson(usersFile).data;
+
   return users.getById(id);
 };
 
 /* Return all users */
 const getAll = () => {
+  // populate users with data from file.
+  const users = new Users();
+  users.data = getFileAsJson(usersFile).data;
+
   return users.getAll();
 };
 
