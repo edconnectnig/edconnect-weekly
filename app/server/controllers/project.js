@@ -21,6 +21,7 @@ router.post('/projects/submit',(req,res) => {
     const authors = req.body.authors.split(',');
     const tags = req.body.tags.split(' ' || ',');
     const createdBy = req.session.user.id;
+    console.log(createdBy,"CreatedBy");
     const result = project.create({name,abstract,authors,tags,createdBy});
    
     if(result[0] === true){
@@ -33,9 +34,12 @@ router.post('/projects/submit',(req,res) => {
 
 router.get('/project/:id', (req,res) => {
     const current_user = req.session.user;
+    console.log(current_user, "Current user")
     const id = req.params.id;
     const project_by_id = project.getById(id);
+    console.log(project_by_id,"Project");
     const user = users.getById(project_by_id.createdBy);
+    console.log(user,"User");
     res.render('Project',{project_by_id,user,current_user});
 });
 
