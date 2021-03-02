@@ -17,10 +17,6 @@ app.use((req, res, next) => {
 
 register(app).then(() => {
 
- 
-
-})
-
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -44,3 +40,5 @@ app.use(express.static('public'));
 
 
 app.listen(SERVER_PORT, () => console.log('Server listening on port ' + SERVER_PORT));
+
+})
