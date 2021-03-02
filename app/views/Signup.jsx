@@ -10,12 +10,12 @@ const Signup = (props) => {
     
     // declaration of states and their functions using useState();
     const [program, setProgram] = useState(body[0]?.program || '');
-    const [year, setYear] = useState(body[0]?.year || '');
-    const [firstName, setFirstName] = useState(body[0]?.fname || '');
+    const [year, setYear] = useState(body[0]?.graduationYear || '');
+    const [firstName, setFirstName] = useState(body[0]?.firstName || '');
     const [email, setEmail] = useState(body[0]?.email || '');
-    const [lastName, setLastName] = useState(body[0]?.lname || '');
+    const [lastName, setLastName] = useState(body[0]?.lastName || '');
     const [password, setPassword] = useState(body[0]?.password || '');
-    const [matricNumber, setMatricNumber] = useState(body[0]?.mnumber || '');
+    const [matricNumber, setMatricNumber] = useState(body[0]?.matricNumber || '');
 
     
     //function that handles changes made to input firlds such as typing letters, erasing letters, etc
