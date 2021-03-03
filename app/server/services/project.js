@@ -49,7 +49,7 @@ const getAll = () => {
   const projects = new Projects();
   projects.data = getFileAsJson(projectsFile).data;
 
-  return projects.getAll();
+  return projects.getAll().reverse();
 };
 
 module.exports = {
