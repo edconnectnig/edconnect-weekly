@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
+    <a href="#" class="navbar-brand">Project Explorer</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <form action="" class="form-inline" name="searchForm">
+            <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Search Projects">
+            <button class="btn btn-outline-light mb-2">Search</button>
+        </form>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="createproject.html">Submit</a>
+        </li>          
+      </ul>
+
+  <ul class="navbar-nav">
+    <li class="nav-item">      
+      <a class="nav-link" href="login.html">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="register.html">Signup</a>
+    </li>
+  </ul>
+</nav>
+  </header>
+  <main class="container">
+    
+    <section>
+      <div>
+          <h3>Project 1</h3>
+      </div>
+
+      <div class="row bg-light">
+          <div class="col">
+              <p>Created By</p>
+              <p>Amos Ozagha</p>
+          </div>
+          <div class="col">
+              <p>Date Created</p>
+              <p>2021-03-08</p>
+          </div>
+          <div class="col">
+              <p>Last Updated</p>
+              <p>2021-03-08</p>
+          </div>
+          <div class="col">
+              <div class="d-flex justify-content-end"><a href="viewproject.html" class=" btn btn-primary">View
+                      Project</a>
+                    </div>
+          </div>
+      </div>
+  </section>
+
+    <section class="row">
+            <div class="col">
+                <form>
+                    <div class="mx-auto">
+                        <h5>Edit Project</h5>
+                        <div class="form-group">
+                            <label for="name">Project Name</label>
+                            <input name="name" id="name" class="form-control" type="text" aria-describedby="name"
+                                placeholder="Project 1">
+                        </div>
+                        <div class="form-group">
+                            <label for="abstract">Project Abstract</label>
+                            <textarea id="abstract" class="form-control" rows="5"
+                                name="abstract">Project 1 is very interesting</textarea>
+                        </div>
+                        <div class="form-group">
+                          
+                            <label for="authors">Author(s)</label>
+                            <input name="authors" id="authors" class="form-control" type="text" placeholder="Amos Ozagha">
+                        </div>
+                        <div class="form-group">
+                            <label for="tags">Tag(s)</label>
+                            <input name="tags" id="tags" type="text" class="form-control" placeholder="#web">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+
+
+            </div>
+            <div class="col">
+              <h5>Manage Project files</h5>
+                <div>
+                    <form>
+                        <div class="form-row">
+                            <div class="col-9">
+                                <label for="searchText"></label>
+                                <input type="text" class="form-control" placeholder="Click to open file browser" id="searchText">
+                            </div>
+                            <br>
+                            <div class="col-3">
+                                <label for=""></label>
+                                <input type="file" class="form-control-file" id="">
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+                <div class="card">
+                    <div class="card-header text-center">
+                        <b>Project files</b>
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            No file uploaded yet
+                        </blockquote>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+  
+</body>
+<footer class="text-right p-3 bg-light">Project Explorer &copy2021. <strong>Edconnect</strong></footer> 
+</html>
