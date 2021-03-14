@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="fluid-container">
+        <nav class="navbar navbar-light bg-primary navbar-expand-lg">
+            <div class="m-2 text-white p-2">
+                <h1>Project Explorer</h1>
+            </div>
+            <form class="form-inline">
+                <label class="sr-only" for="searchForm">searchForm</label>
+                <input class="form-control  mt-4 mr-2 " type="text" placeholder="Search Projects" name="searchForm">
+                <button type="button" class="btn btn-outline-light mt-4">Search</button>
+            </form>
+            <div class="mr-auto p-2">
+                <a class=" text-white p-2" href="createproject.html">Submit</a>
+            </div>
+            <div>
+                <a class="text-white p-2" href="register.html">Sign Up </a>
+                <a class="text-white p-2" href="login.html">Login</a>
+            </div>
+            <!-- Navbar content -->
+          </nav>
+    </header>    
+    <main>
+        <h2 class="container">Project 1</h2>
+        <div class="container">
+            <div class="row d-flex justify-content-between bg-light">
+            <div class="p-2">
+                Created By <br>Timi Ojo
+            </div>
+            <div class="p-2">
+                Date Created <br> 2020-03-20
+            </div>
+            <div class="p-2">
+                Last Updated <br> 2020-03-20
+            </div >
+            <div>
+                <input class="btn btn-primary m-3" type="submit" value="View Project" >
+            </div>
+        </div>
+            </div>
+        <div>
+            <div class=" container row mx-auto d-flex justify-content-around">
+                <div class="col">
+                    <div class=" pt-5">
+                        <h4>
+                            Project Abstract
+                        </h4>
+                    </div>
+                    <div>
+                        <p>
+                            Lorem Ipsum is simply dummy text of<br> the printing and typesetting industry.<br>
+                             Lorem Ipsum has been the industry's<br> standard dummy text ever since the 1500s,<br> 
+                             when an unknown printer took a galley <br>of type and scrambled it to make a type<br>  
+                             specimen book. It has survived not only<br> five centuries, but also <br>the leap into 
+                             electronic typesetting.
+                        </p>
+                        <h4>
+                            Comments
+                        </h4>
+                        <form action="">
+                            <textarea name="Comments" id="" cols="40" rows="5" placeholder="Leave a Comment"></textarea>
+                        </form>
+                        <input class="btn btn-primary" type="submit" value="submit">
+                    </div>
+                    <div class="pl-5 pt-3">No Comment Added Yet</div>
+                </div>
+                <div class="col">
+                    <div class="p-5 w-100">
+                        <div class="col card-header">
+                            Author(s)
+                        </div>
+                        <div class="col card-body">
+                            Timi Ojo
+                        </div>
+                        <div class="card-footer">
+                            <a href="">#web</a>
+                        </div>
+                    </div>
+                    <div class="p-5 w-100">
+                        <div class="col justify-content-center card-header">
+                            Project Files
+                        </div>
+                        <div class="col card-body">
+                            No Files Uploaded Yet
+                        </div>
+                    </div>
+                </div>
+              </div>
+    </main>
+    <footer>
+        <div class="container bg-light d-flex justify-content-end ">
+            <div class="row">
+                <div class="mt-3 mb-3 mr-1 text-muted">
+                    Project Explorer C 2020-
+                </div>
+                <div class="mt-3 mb-3 mr-1">Edconnect</div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
