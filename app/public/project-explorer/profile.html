@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Project Explorer App</title>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Project Explorer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <form class="form-inline">
+          <label class="sr-only" for="inlineFormInputName2">Name</label>
+          <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search Projects">
+          <button type="buttton" class="btn btn-outline-light"> Search</button>
+          <button type="submit" class="btn btn-primary ">Submit</button>
+        </form>
+
+        <form class="form-inline">
+          <button class="btn btn-primary my-2 my-lg-0" type="button">Sign Up</button>
+          <button class="btn btn-primary" type="button">Log In</button>
+        </form>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div class="row mt-5">
+        <h3>Ade Chucks<span class="btn btn-light">ade@edconnect.ng</span> </h3>
+      </div>
+      <div class="mb-3"> 
+        <div class="row">
+          <div class="col-4 btn-light ">
+            <p> Program </p> 
+            <p> Computer Information Systems</p>          
+          </div>
+          <div class="col-4 btn-light">
+            <p> Matriculation Number </p> 
+            <p> 33/3333</p>          
+          </div>
+          <div class="col-4 btn-light">
+            <p> Graduation year</p> 
+            <p> 2018</p>          
+          </div>
+        </div>
+      </div>
+
+      <h4>Update Profile</h4>
+      <form class=" mb-5">
+        <div class="form-row ">
+          <div class=" form-group col-md-4 offset-2">
+            <label> First Name</label>
+            <input type="text" name="firstName" class="form-control" placeholder="First name">
+          </div>
+          <div class=" form-group col-md-4">
+            <label> Last Name </label>
+            <input type="text" name="lastName" class="form-control" placeholder="Last name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class=" form-group col-md-4 offset-2">
+            <label> Email Address</label>
+            <input type="email" name="email" class="form-control" placeholder="Your Email Address">
+          </div>
+          <div class=" form-group col-md-4">
+            <label for id="inlineFormCustomSelector"> Program</label>
+            <select class=" form-control custom-select mr-sm-2" name="program" id="inlineFormCustomSelect">
+              <option selected>Choose...</option>
+              <option value="1">Computer Science</option>
+              <option value="2">Computer Technology</option>
+              <option value="3">Computer Information Systems</option>
+            </select>
+          </div> 
+        </div>
+        <div class="form-row">
+          <div class=" form-group col-md-4 offset-2">
+            <label> Matriculation Number </label>
+            <input type="text" name="matricNumber" class="form-control" placeholder="Your Matric Number">
+          </div>
+          <div class=" form-group col-md-4">
+            <label for id="inlineFormCustomSelector"> Graduation Year</label>
+            <select class="form-control custom-select mr-sm-2" name="graduationYear" id="inlineFormCustomSelect">
+              <option selected>Choose...</option>
+              <option value="1">2013</option>
+              <option value="2">2014</option>
+              <option value="3">2015</option>
+              <option value="4">2016</option>
+              <option value="5">2017</option>
+              <option value="6">2018</option>
+              <option value="7">2019</option>
+              <option value="8">2020</option>
+              <option value="9">2021</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary offset-2">Update Profile</button>
+      </form>
+      <h4> Change Password</h4>
+      <form>
+        <div class="form-row mt-4">
+          <div class=" form-group col-md-3 offset-2">
+            <label> Current Password</label>
+            <input type="password" name="currentPassword" class="form-control" placeholder="Current Password">
+          </div>
+          <div class=" form-group col-md-3">
+            <label> New Password</label>
+            <input type="password" name="newPassword" class="form-control" placeholder="Your new password">
+          </div>
+          <div class=" form-group col-md-3">
+            <label> Confirm Password</label>
+            <input type="password" name="confirmPassword" class="form-control" placeholder="Confirm new password">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary offset-2">Change Password</button>
+  
+      </form>
+      
+    </main>
+    <footer class="mt-3 float-right" >
+      <p> Project Explorer @ 2020 -<strong>EdConnect</strong></p>
+    </footer>
+  </body>
+</html>

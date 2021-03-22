@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Project Explorer App</title>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
+        <a class="navbar-brand" href="#">Project Explorer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <form class="form-inline">
+          <label class="sr-only" for="inlineFormInputName2">Name</label>
+          <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search Projects">
+          <button type="buttton" class="btn btn-outline-light"> Search</button>
+          <button type="submit" class="btn btn-primary ">Submit</button>
+        </form>
+
+        <form class="form-inline">
+          <button class="btn btn-primary my-2 my-lg-0" type="button">Sign Up</button>
+          <button class="btn btn-primary" type="button">Log In</button>
+        </form>
+      </nav>
+    </header>
+    <main>
+      <section class="container">
+        <h4 class="mb-3 "> Project 1</h4>
+        <div> 
+          <div class="row">
+            <div class="col btn-light ">
+              <p>Created By</p> 
+              <p> Ade Chris</p>          
+            </div>
+            <div class="col btn-light">
+              <p>Date Created</p> 
+              <p> 2020-08-30</p>          
+            </div>
+            <div class="col btn-light">
+              <p>Last Updated</p> 
+              <p>2020-08-30</p>          
+            </div>
+            <div class="col btn-light">
+              <a class="btn btn-primary justify-content-end" href="viewproject.html"><button class="btn btn-primary">View Project </button> </a>
+            </div>
+          </div>
+        </div>
+        <form>
+          <h5>Edit Project</h5>
+          <div class="row">
+            <div class="col form-group">
+              <label>Project name</label>
+              <input type="text" name="name" class="form-control" placeholder="Project 1">
+              <label for="formGroupExampleInput">Project abstract</label> <br>
+              <textarea id="formGroupExampleInput" name="abstract"  class="form-control" rows="1" cols="4"> Project 1 is a very interesting project.</textarea> <br>
+              <label for="formGroupExampleInput">Author(s)</label>
+              <input type="text" name="authors" class="form-control" id="formGroupExampleInput" placeholder="Ade Chris">
+              <label for="formGroupExampleInput">Tag(s)</label>
+              <input type="text" name="tags" class="form-control" id="formGroupExampleInput" placeholder="#web">
+              <button type="submit" class="btn btn-primary mt-3">Save</button>
+            </div>
+
+            <h5>Manage Project files</h5>
+            <div class="col form-group"> 
+              <div class="custom-file mt-3">
+                <input type="file" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Click to open file browser</label>
+              </div>
+              <div class="card mt-3">
+                <div class="card-header">
+                  Project files
+                </div>
+                <div class="card-body text-center">
+                  <p class="card-text">No files uploaded yet</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section> 
+    </main>
+    <footer class="mt-3 float-right " >
+      <p> Project Explorer @ 2020 -<strong>EdConnect</strong></p>
+    </footer>
+  </body>
+</html>

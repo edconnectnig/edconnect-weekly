@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Project Explorer App</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Project Explorer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <form class="form-inline">
+          <label class="sr-only" for="inlineFormInputName2">Name</label>
+          <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search Projects">
+          <button type="buttton" class="btn btn-outline-light"> Search</button>
+          <button type="submit" class="btn btn-primary ">Submit</button>
+        </form>
+
+        <form class="form-inline">
+          <button class="btn btn-primary my-2 my-lg-0" type="button">Sign Up</button>
+          <button class="btn btn-primary" type="button">Log In</button>
+        </form>
+      </nav>
+    </header>
+
+    <main>
+      <div class="mx-auto w-75 mt-3 ">
+        <h4> Submit Project</h4>
+        <form>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Project name</label>
+            <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="Enter project name">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Project abstract</label> <br>
+            <textarea id="formGroupExampleInput" class="form-control" name="abstract" rows="8" cols="140"> </textarea>
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Author(s)</label>
+            <input type="text" name="authors" class="form-control" id="formGroupExampleInput" placeholder="Enter author names(separated by comma)">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Tag(s)</label>
+            <input type="text" name="tags" class="form-control" id="formGroupExampleInput" placeholder="Use # to tag project with different topics(e.g, #javascript, #mongodb)">
+          </div>
+          <button type="submit" class="btn btn-primary">Continue</button>
+        </form>
+        
+      </div>
+    </main>
+    <footer class="mt-3 float-right " >
+      <p> Project Explorer @ 2020 -<strong>EdConnect</strong></p>
+    </footer>
+  </body>
+</html>
