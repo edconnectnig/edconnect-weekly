@@ -24,31 +24,29 @@
       </nav>
 
           </header>
-          <main>
-          <div class="mx-auto w-50 p-3">
-            <h1>Submit Project</h1>
-            <form name="submitProject">
-            <div class="form-group"><h6>Project name</h6>
-            <label for="project name" class="form-label"></label>
-            <input type="text" name="name" class="form-control" placeholder="Enter project name">
-          </div>
-            <div class=form-group><h6>Project abstract</h6>
-            <label for="project abstract" class="form-label"></label>
-            <textarea id="abstract" name="abstract" class="form-control" width="250%" height="250%">
-          </div>
-            <div class="form-group"><h6>Author(s)</h6>
-            <label for="author" class="form-label"></label>
-            <input type="text" name="authors" class="form-control" placeholder="Enter author names (seperated by comma)"> 
-          </div>
-            <div class="form-group"><h6>Tag(s)</h6>
-            <label for="tag" class="form-label"></label>
-            <input type="text" name="tags" class="form-control" class="form-control-lg" placeholder="Use # to tag project with different topics (e.g. #javascript #mongodb)">
-          </div>
-            <button type="submit" class="btn btn-primary">Continue</button>
-          </form>
-
-
-        </main>
+          <main class="mx-auto w-50 p-3">
+            <h3>Submit Project</h3>
+            <form name="submitProject"> 
+                <div class="form-group">
+                    <label for="name" class="form-label">Project Name:</label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter project name">
+                  </div>
+                  <div class="form-group">
+                    <label for="abstract" class="form-label">Project Abstract:</label>
+                    <textarea class="form-control" name="abstract" rows="4" cols="100"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="authors" class="form-label">Author(s):</label>
+                    <input type="text" class="form-control" name="authors" placeholder="Enter author names (seperated by comma)">
+                  </div>
+                  <div class="form-group">
+                    <label for="tags" class="form-label">Tag(s):</label>
+                    <input type="text" class="form-control" name="tags" placeholder="Use # to tag project with different topics">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Continue</button>
+            </form>
+        </main><br>
+        
 <style>
     .footer {
       position: static;
