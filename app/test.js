@@ -15,10 +15,13 @@ let users = new Users();
 
 assert(users.save(john) === true, `saving a user should return true for a valid user`);
 assert(users.save(jones) === true, `saving a user should return true for a valid user`);
+assert(users.errors.length === 0, `error array should be empty after successfully creating a valid user`);
 assert(users.save(james) === false, `saving a user should return false for an invalid user : duplicate email`);
+assert(users.errors.length === 1, `error array should have error when attempting to save user with duplicate email`);
 assert(users.save(judas) === false, `saving a user should return false for an invalid user : duplicate matric number`);
 assert(users.save(jerry) === false, `saving a user should return false for an invalid user : password length less than 7`);
 assert(users.save(empty) === false, `saving a user should return false for an invalid user : empty properties`);
+assert(users.errors.length === 8, `error array should have multiple errors when attempting to save a user with empty properties`);
 assert(users.getAll().length === 2, `users.getAll() method should return 2`);
 assert(users.getById(john.id).getFullName() === 'john doe');
 assert(users.getByEmail(john.email).getFullName() === 'john doe');
@@ -39,16 +42,19 @@ let projects = new Projects();
 
 assert(projects.save(edconnect) === true, `saving a project should return true for a valid project`);
 assert(projects.save(capex) === true, `saving a project should return true for a valid project`);
+assert(projects.errors.length === 0, `error array should be empty after successfully creating a valid project`);
 assert(projects.save(busa) === false, `saving a project should return false for an invalid project : tags and authors should be of the type array`);
+assert(projects.errors.length === 2, `error array should have errors when attempting to save project with non-array tags or authors`);
 assert(projects.save(winslow) === false, `saving a project should return false for an invalid project : empty properties`);
+assert(projects.errors.length === 3, `error array should have multiple errors when attempting to save a project with empty properties`);
 assert(projects.getAll().length === 2, `projects.getAll() method should return 2`);
 assert(projects.update({ authors: ['tola', 'kunle'], tags: ['ed', 'teach', 'connect'] }, edconnect.id) === true);
 assert(projects.getById(edconnect.id).authors.length === 2, `project detail is not being updated by the update method`);
 assert(projects.getById(edconnect.id).tags.length === 3, `project detail is not being updated by the update method`);
 
 
-function id(){
+function id() {
     return Math.random()
-                .toString(36)
-                .substring(2);
+        .toString(36)
+        .substring(2);
 }
