@@ -1,0 +1,85 @@
+.logout {
+    display: none;
+}
+
+.username {
+    display: none;
+    text-decoration: none;
+    cursor: default;
+}
+
+.jumbotron {
+    padding: 70px 30px 70px 30px;
+    background-color: beige;
+}
+
+.footer {
+    margin: 30px auto;
+}
+
+.footer-row {
+    padding: 0px 15px 0px 15px;
+}
+
+.footer-col {
+    background-color: beige;
+}
+
+.profile-header {
+    margin: 30px 0;
+    font-size: xx-large;
+}
+
+.profile-body {
+    background-color: cornflowerblue;
+    margin: 0 auto 0 1px;
+}
+
+.heading {
+    margin: 40px 0 20px 0px;
+    font-weight: bold;
+}
+
+.search {
+    height: 45px;
+    padding: 0 20px 0 20px;
+    font-size: large;
+}
+
+.row-search {
+    background-color: beige;
+    margin: 0 2px 0 0;
+    padding: 10px;
+}
+
+.card-custom {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 20px;
+    margin-bottom: 0px;
+    color: dodgerblue
+}
+
+.card-tag {
+    color: dodgerblue
+}
+
+/* viewproject html styles */
+
+.card-text {
+    padding: 10px 0 0 20px;
+}
+
+.upload-file {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px
+}
+
+#project_name {
+    margin: 40px 0 20px 146px;
+    font-weight: bold;
+    font-size: 30px;
+}

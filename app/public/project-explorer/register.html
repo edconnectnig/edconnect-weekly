@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <title>Project Explorer</title>
+        
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+    </head>
+    <body id="registerhtml">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+            <a href="index.html" class="navbar-brand">Project Explorer</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsive-nav" aria-controls="#responsive-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="#responsive-nav">
+                <form class="form-inline my-2 my-lg-0 pull-xs-left" method="POST" action="" enctype="text/plain">
+                    <input class="form-control" type="search" aria-label="Search" placeholder="Search Projects">&nbsp;
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="viewproject.html" title="Projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="createproject.html" title="Submit Project">Submit</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav mr-sm-2">
+                    <li class="nav-item" id="hidesignup">
+                        <a class="nav-link" href="#" title="Sign up">Sign up</a>
+                    </li>
+                    <li class="nav-item" id="hidelogin">
+                        <a class="nav-link" href="login.html" title="Login Page">Login</a>
+                    </li>
+                    <li class="nav-item logout" id="logout">
+                        <a class="nav-link" href="index.html" title="Logout">Logout</a>
+                    </li>
+                    <li class="nav-item username" id="username">
+                        <a class="nav-link" id="usernametext" ></a>
+                    </li>
+                </ul>    
+            </div>
+        </nav>
+
+        <main role="main">
+
+            <div class="container" style="width: 900px; margin: auto;">
+                <div class="row">
+                    <div class="col">
+                        <div class="alert alert-danger" role="alert" style="display: none;" id="alert">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-12 heading">
+                        <h2>Sign up</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="POST" action="" enctype="text/plain" name="signupForm" id="signupForm">
+                            
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    
+                                    <div class="row">
+                                        
+                                        <div class="col-12 col-md-6">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <label for="firstname" class="col-form-label">First name</label>
+                                                </div>
+                                                <div class="col-12">
+                                                    <input class="form-control" type="text" name="firstName" id="firstName" size="74" maxlength="30" placeholder="First name">
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="col-12 col-md-6">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <label for="lastname" class="col-form-label">Last name</label>
+                                                </div>
+                                                <div class="col-12">
+                                                    <input class="form-control" type="text" name="lastName" id="lastName" size="74" maxlength="30" placeholder="Last name">
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="row">
+                                        
+                                        <div class="col-12 col-md-6">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <label for="email" class="col-form-label">Email Address</label>
+                                                </div>
+                                                <div class="col-12">
+                                                    <input class="form-control" type="email" name="email" id="email" size="74" maxlength="50" placeholder="Your Email address">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <label for="password" class="col-form-label">Password</label>
+                                                </div>
+                                                <div class="col-12">
+                                                    <input class="form-control" type="password" name="password" id="password" size="74" maxlength="30" placeholder="Your Password">
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="row">
+
+                                        <div class="col-12 col-md-6">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <label for="program" class="col-form-label">Program</label>
+                                                </div>
+                                                <div class="col-12">
+                                                    <select class="form-control" name="program" id="program">
+                                                        <option>Choose...</option>
+                                                        <!--<option>Computer Science</option>
+                                                        <option>(B. A. Hons), HISTORY & INTERNATIONAL STUDIES</option>
+                                                        <option>B.A .FRENCH AND INTERNATIONAL RELATIONS</option>
+                                                        <option>B.A Christian Religious Studies</option>
+                                                        <option>B.A Music</option>
+                                                        <option>B.A. (Ed) ENGLISH LANGUAGE EDUCATION</option>
+                                                        <option>B.ED. EDUCATIONAL PLANNING & ADMINISTRATION</option>
+                                                        <option>B.Sc (Ed) Business Education</option>
+                                                        <option>B.Sc (Hons) in Business Administration</option>
+                                                        <option>B.Sc Accounting</option>
+                                                        <option>B.Sc Agricultural Economics and Extension</option>
+                                                        <option>B.Sc Animal Science</option>
+                                                        <option>B.Sc Biochemistry</option>
+                                                        <option>B.Sc Computer Science</option>
+                                                        <option>B.Sc Economics</option>
+                                                        <option>B.Sc Finance</option>
+                                                        <option>B.Sc MASS COMMUNICATION</option>
+                                                        <option>B.Sc Microbiology</option>
+                                                        <option>B.Sc Physics</option>
+                                                        <option>B.Sc Physiology</option>
+                                                        <option>B.Sc Software Engineering</option>
+                                                        <option>B.SC. (ED) ECONOMICS EDUCATION</option>
+                                                        <option>B.Sc. (Ed) GUIDANCE AND COUNSELING</option>
+                                                        <option>Bachelor in Information Resources Management (BIRM)</option>
+                                                        <option>Bachelor of Agriculture in Agronomy and Landscape Design</option>
+                                                        <option>Bachelor of Medical Laboratory Science Degree (BMLS)</option>
+                                                        <option>BACHELOR OF SCIENCE (B.Sc. Hons) BIOLOGY</option>
+                                                        <option>Bachelors in Social Work and Human Services</option>
+                                                        <option>BSc. Public Health</option>
+                                                        <option>English Studies (B.A)</option>
+                                                        <option>MEDICINE (MBBS)</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-12 col-md-6">
+                                            <div class="row">
+                                                
+                                                <div class="col-12 col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <label for="matricnumber" class="col-form-label">Matriculation Number</label>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <input class="form-control" type="text" name="matricNumber" id="matricNumber" size="34px" maxlength="8" placeholder="e.g. 16/2020">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <label for="graduationyear" class="col-form-label">Graduation Year</label>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <select class="form-control" name="graduationYear" id="graduationYear">
+                                                                <option>Choose...</option>
+                                                                <!--<option>2018</option>
+                                                                <option>2020</option>
+                                                                <option>2019</option>
+                                                                <option>2018</option>
+                                                                <option>2017</option>
+                                                                <option>2016</option>
+                                                                <option>2015</option>
+                                                                <option>2014</option>
+                                                                <option>2013</option>
+                                                                <option>2012</option>
+                                                                <option>2011</option>
+                                                                <option>2010</option>
+                                                                <option>2009</option>
+                                                                <option>2008</option>
+                                                                <option>2007</option>
+                                                                <option>2006</option>
+                                                                <option>2005</option>
+                                                                <option>2004</option>
+                                                                <option>2003</option>-->
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <button class="btn btn-primary" type="submit">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row footer-row">
+                    <div class="col-12 text-right footer-col">
+                        <small class="text-muted">
+                            Project Explorer &copy; 2020 . <strong>Edconnect</strong>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
+        <script src="js/app.js"></script>
+    </body>
+</html>

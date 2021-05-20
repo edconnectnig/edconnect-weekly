@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <title>Project Explorer</title>
+        
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+            <a href="index.html" class="navbar-brand">Project Explorer</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsive-nav" aria-controls="#responsive-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="#responsive-nav">
+                <form class="form-inline my-2 my-lg-0 pull-xs-left" method="POST" action="" enctype="text/plain">
+                    <input class="form-control" type="search" aria-label="Search" placeholder="Search Projects">&nbsp;
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="viewproject.html" title="Projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="createproject.html" title="Submit Project">Submit</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav mr-sm-2">
+                    <li class="nav-item" id="hidesignup">
+                        <a class="nav-link" href="register.html" title="Sign up">Sign up</a>
+                    </li>
+                    <li class="nav-item" id="hidelogin">
+                        <a class="nav-link" href="login.html" title="Login Page">Login</a>
+                    </li>
+                    <li class="nav-item logout" id="logout">
+                        <a class="nav-link" href="index.html" title="Logout">Logout</a>
+                    </li>
+                    <li class="nav-item username" id="username">
+                        <a class="nav-link" id="usernametext" ></a>
+                    </li>
+                </ul>    
+            </div>
+        </nav>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-12 heading">
+                    <h2>Project Gallery</h2>
+                </div>
+            </div>
+
+            <div class="row row-search">
+                <div class="col-12">
+                    <form class="form-inline" method="POST" action="" enctype="text/plain">
+                        <div class="form-group">
+                            <input class="form-control form-control-lg" name="searchTerm" size="70" type="text" placeholder="Search Project name, authors, abstract, tags"> &nbsp;
+                        </div>
+                        <div class="form-group">
+                            <label class="badge badge-secondary search">Search by</label>
+                            <select class="form-control form-control-lg" name="authorName">
+                                <option>Name</option>
+                            </select> &nbsp;
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <p style="margin: 40px 40px 20px 110px"></p>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col mb-3">
+                    <b>All Projects</b> <small class="text-muted">(4 results)</small>
+                </div>
+            </div>
+
+            <div class="row">
+                
+                <div class="col-12 col-md-3 order-4">
+                    <div class="card card-custom">
+                        <div class="card-block">
+                            <h6 class="card-title">Project 1</h6>
+                            <small class="text-muted">James Li, Ade Brian</small>
+                            <p class="card-text">This project is to explore computer networking, find problems with networking in the 21st century.<br>
+                            <span class="card-tag">#javascript, #mongodb</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-3 order-3">
+                    <div class="card card-custom">
+                        <div class="card-block">
+                            <h6 class="card-title">Project 2</h6>
+                            <small class="text-muted">Fried Lim, Tola Daniel</small>
+                            <p class="card-text">Researching the health status of the less-privileged people, their access to health care and solutions.<br>
+                            <span class="card-tag">#ejs, #ci</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-3 order-2">
+                    <div class="card card-custom">
+                        <div class="card-block">
+                            <h6 class="card-title">Project 3</h6>
+                            <small class="text-muted">Ben Rice, Ade Sola</small>
+                            <p class="card-text">A survey on information transmission in Nigeria, the problems associated with it and possible solutions.<br>
+                            <span class="card-tag">#css, #html</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-3 order-1">
+                    <div class="card card-custom">
+                        <div class="card-block">
+                            <h6 class="card-title">Project 4</h6>
+                            <small class="text-muted">Henry James, Bola Ade</small>
+                            <p class="card-text">A survey on information transmission in Nigeria, the problems associated with it and possible solutions.<br>
+                            <span class="card-tag">#yaml, #ejs</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    
+        <footer class="footer">
+            <div class="container">
+                <div class="row footer-row">
+                    <div class="col-12 text-right footer-col">
+                        <small class="text-muted">
+                            Project Explorer &copy; 2020 . <strong>Edconnect</strong>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/app.js"></script>
+    </body>
+</html>            
