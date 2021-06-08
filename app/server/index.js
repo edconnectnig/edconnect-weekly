@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const session = require('express-session');
+const mongoose = require('mongoose');
 const app = express();
 const register = require("@react-ssr/express/register");
 const flash = require("express-flash");
@@ -41,4 +42,37 @@ app.use(express.static('public'));
 
 app.listen(SERVER_PORT, () => console.log('Server listening on port ' + SERVER_PORT));
 
+mongoose.set("bufferCommands", false);
+
+ mongoose.connect(
+
+   process.env.MONGODB_URI, // connection string from .env file
+
+   {
+
+     useNewUrlParser: true,
+
+     useUnifiedTopology: true,
+
+     useCreateIndex: true,
+
+   },
+
+   // callback that’s called when connection succeeds or fails.
+
+   (err) => {
+
+     if (err) {
+
+       console.log("Error connecting to db: ", err);
+
+     } else {
+
+       console.log(`Connected to MongoDB @ ${process.env.MONGODB_URI}`);
+
+     }
+
+   }
+
+ );
 })

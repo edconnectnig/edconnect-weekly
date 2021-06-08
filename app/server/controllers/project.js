@@ -14,15 +14,16 @@ router.get('/projects/submit',(req,res) => {
     }
 });
 
-router.post('/projects/submit',(req,res) => {
+router.post('/projects/submit', async (req,res) => {
     req.flash('body',req.body);
+    console.log(req.body, "Body");
     const name = req.body.name;
     const abstract = req.body.abstract;
     const authors = req.body.authors.split(',');
     const tags = req.body.tags.split(' ' || ',');
-    const createdBy = req.session.user.id;
+    const createdBy = req.session.user._id;
     console.log(createdBy,"CreatedBy");
-    const result = project.create({name,abstract,authors,tags,createdBy});
+    const result = await project.create({name,abstract,authors,tags,createdBy});
    
     if(result[0] === true){
         res.redirect('/');
@@ -32,13 +33,13 @@ router.post('/projects/submit',(req,res) => {
     }
 });
 
-router.get('/project/:id', (req,res) => {
+router.get('/project/:id', async (req,res) => {
     const current_user = req.session.user;
     console.log(current_user, "Current user")
     const id = req.params.id;
-    const project_by_id = project.getById(id);
+    const project_by_id = await project.getById(id);
     console.log(project_by_id,"Project");
-    const user = users.getById(project_by_id.createdBy);
+    const user = await users.getById(project_by_id.createdBy._id);
     console.log(user,"User");
     res.render('Project',{project_by_id,user,current_user});
 });

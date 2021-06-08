@@ -1,55 +1,39 @@
-// imports
-const fs = require("fs");
-const path = require("path");
-const Projects = require("../models/projects").Projects;
-const Project = require("../models/projects").Project;
-
-// load data file
-const projectsFile = path.join(__dirname, "../projects.json");
-
-// helper functions
-const saveJsonFile = (file, data) => fs.writeFileSync(file, JSON.stringify({ data }));
-const getFileAsJson = (file) => JSON.parse(fs.readFileSync(file));
-const saveProjectsToFile = (data) => saveJsonFile(projectsFile, data);
-const id = () => Math.random().toString(36).substring(2);
-
+const Project = require("../models/project");
+const helper = require("../models/mongo_helper");
 /* Create new project */
-const create = ({ name, abstract, authors, tags, createdBy }) => {
+const create = async ({ name, abstract, authors, tags, createdBy }) => {
   // populate projects with data from file.
-  const projects = new Projects();
-  projects.data = getFileAsJson(projectsFile).data;
-
-  const project = new Project(
-    id(),
+  try{
+  const project = new Project({
     name,
     abstract,
     authors,
     tags,
     createdBy
-  );
-  if (projects.save(project)) {
-    saveProjectsToFile(projects.data);
+  });
+  console.log(project, "Yeasssss");
+  const save = await project.save();
+  if (save) {
     return [true, project];
-  } else {
-    return [false, projects.errors];
+  } 
+}
+  catch(err) {
+    return [false, helper.translateError(err)];
   }
 };
 
 /* Return project with specified id */
-const getById = (id) => {
+const getById = async (id) => {
   // populate projects with data from file.
-  const projects = new Projects();
-  projects.data = getFileAsJson(projectsFile).data;
-
-  return projects.getById(id);
+    const find_by_id = await Project.findById(id).populate('createdBy');
+    return find_by_id;
 };
 /* Return all projects */
-const getAll = () => {
+const getAll = async () => {
   // populate projects with data from file.
-  const projects = new Projects();
-  projects.data = getFileAsJson(projectsFile).data;
-
-  return projects.getAll().reverse();
+  const all = await Project.find();
+  console.log(all, "All projects");
+  return all;
 };
 
 module.exports = {

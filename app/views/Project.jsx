@@ -10,7 +10,7 @@ const Project = (props) => {
     const [data,setData] = useState(project_by_id || {});
     const [authors,setAuthors] = useState(project_by_id.authors || []);
     const [projectData,setProjectData] = useState(user || '');
-
+   
     /*This return statement indicates the value returned to the App.jsx file and is rendered on the screen
       It contains react bootstrap components, styling, and also basic html tags
       The <Layout></Layout> is a component that houses the header(navbar), the main content(which is what is returned),
@@ -26,8 +26,8 @@ const Project = (props) => {
             
             <Row class="row" className="pl-4 pt-1">
                 <Col id="project_author">Created By: <br/> {projectData.firstname + " " + projectData.lastname}</Col>
-                <Col >Date Created : <br/> 2020-08-04</Col>
-                <Col >Last Updated : <br/> 2020-08-04</Col>
+                <Col >Date Created : <br/>{new Date(project_by_id.createdAt).toLocaleDateString()}</Col>
+                <Col >Last Updated : <br/>{new Date(project_by_id.updatedAt).toLocaleDateString()}</Col>
                 <Col ><Button variant="primary">Edit Project</Button></Col>
             </Row>
         </Jumbotron>

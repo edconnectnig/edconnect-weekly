@@ -1,20 +1,8 @@
-// imports
-const fs = require("fs");
-const path = require("path");
-const Users = require("../models/users").Users;
-const User = require("../models/users").User;
-
-// load data file
-const usersFile = path.join(__dirname, "../users.json");
-
-// helper functions
-const saveJsonFile = (file, data) => fs.writeFileSync(file, JSON.stringify({ data }));
-const getFileAsJson = (file) => JSON.parse(fs.readFileSync(file));
-const saveUsersToFile = (data) => saveJsonFile(usersFile, data);
-const id = () => Math.random().toString(36).substring(2);
-
+const User = require("../models/user");
+const helper = require("../models/mongo_helper");
 /* Creates new user */
-const create = ({
+console.log("Before creating user");
+const create = async ({
   firstname,
   lastname,
   email,
@@ -23,12 +11,10 @@ const create = ({
   program,
   graduationYear,
 }) => {
-  // populate users with data from file.
-  const users = new Users();
-  users.data = getFileAsJson(usersFile).data;
-
-  const user = new User(
-    id(),
+  console.log("Hello");
+  console.log(firstname + lastname);
+  try{
+  const user = new User({
     firstname,
     lastname,
     email,
@@ -36,44 +22,48 @@ const create = ({
     matricNumber,
     program,
     graduationYear
-  );
-  if (users.save(user)) {
-    saveUsersToFile(users.data);
+  });
+  console.log(user);
+  
+  user.setPassword(password);
+  const save = await user.save();
+  console.log("User saved");
+  if (save) {
     return [true, user];
-  } else {
-    return [false, users.errors];
+  }}
+  catch (err){
+    return[false, helper.translateError(err)];
   }
 };
 
 /* Authenticate a user */
-const authenticate = (email, password) => {
-  // populate users with data from file.
-  const users = new Users();
-  users.data = getFileAsJson(usersFile).data;
+const authenticate = async (em, password) => {
+  const email1 = await User.findOne({email: em});
+  const valid = await email1.validPassword(password);
 
-  if (users.authenticate(email, password)) {
-    return [true, users.getByEmail(email)];
-  } else {
-    return [false, ["Invalid email/password"]];
+  if (email1 != null && valid == true) {
+    return [true, email1];
+  }
+  else{
+    return [false, "Invalid email/password" ];
   }
 };
 
 /* Return user with specified id */
-const getById = (id) => {
+const getById = async (id) => {
   // populate users with data from file.
-  const users = new Users();
-  users.data = getFileAsJson(usersFile).data;
+  const users = await User.findById(id);
+  console.log(users);
 
-  return users.getById(id);
+  return users;
 };
 
 /* Return all users */
-const getAll = () => {
-  // populate users with data from file.
-  const users = new Users();
-  users.data = getFileAsJson(usersFile).data;
+const getAll = async () => {
+  const all = await User.find();
+  console.log(all, "All projects");
 
-  return users.getAll();
+  return all;
 };
 
 module.exports = {

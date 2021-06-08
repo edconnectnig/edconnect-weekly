@@ -19,6 +19,8 @@
 		"express": "^4.17.1",
 		"express-flash": "0.0.2",
 		"express-session": "^1.17.1",
+		"mongodb": "^3.6.9",
+		"mongoose": "^5.12.12",
 		"morgan": "^1.10.0",
 		"react": "^17.0.1",
 		"react-bootstrap": "^1.4.3",
