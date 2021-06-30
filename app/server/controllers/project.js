@@ -1,4 +1,5 @@
 const express = require('express');
+const url = require('url');
 const router = express.Router();
 const project = require('../services/project');
 const users = require('../services/user');
@@ -20,10 +21,12 @@ router.post('/projects/submit', async (req,res) => {
     const name = req.body.name;
     const abstract = req.body.abstract;
     const authors = req.body.authors.split(',');
-    const tags = req.body.tags.split(' ' || ',');
+    const tags = req.body.tags.split(',');
+    console.log(tags, 'Tags');
     const createdBy = req.session.user._id;
     console.log(createdBy,"CreatedBy");
-    const result = await project.create({name,abstract,authors,tags,createdBy});
+    const lastVisited = null;
+    const result = await project.create({name,abstract,authors,tags,createdBy,lastVisited});
    
     if(result[0] === true){
         res.redirect('/');
@@ -35,13 +38,40 @@ router.post('/projects/submit', async (req,res) => {
 
 router.get('/project/:id', async (req,res) => {
     const current_user = req.session.user;
-    console.log(current_user, "Current user")
     const id = req.params.id;
     const project_by_id = await project.getById(id);
-    console.log(project_by_id,"Project");
     const user = await users.getById(project_by_id.createdBy._id);
-    console.log(user,"User");
     res.render('Project',{project_by_id,user,current_user});
 });
+
+router.get('/projects/search', async(req, res) => {
+    let result = ''
+
+    const url_page = req.url;
+    console.log(url_page);
+    var q = url.parse(url_page, true)
+    console.log(q.query, "query");
+    var searchTerm = q.query.searchTerm;
+    var searchBy = q.query.search_by;
+    switch(searchBy){
+        case 'name':
+            result = await project.getProjectsByName(searchTerm);
+            break;
+        case 'abstract':
+            result = await project.getProjectsByAbstract(searchTerm);
+            break;
+        case 'authors':
+            result = await project.getProjectsByAuthors(searchTerm);
+            break;
+        case 'tags':
+            if(!searchTerm.startsWith("#"))
+            searchTerm = "#" + searchTerm;
+            result = await project.getProjectsByTags(searchTerm);
+            break;
+    }
+
+    res.render('SearchPage', {result, searchTerm, searchBy});
+});
+
 
 module.exports = router;

@@ -9,11 +9,16 @@ router.get('/', async (req, res) => {
   // as a props
   const user = req.session.user;
   const projectData = await projects.getAll()
-  console.log(projectData, "Blabla");
+  //console.log(projectData, "Blabla");
   res.render('Home',{projectData,user});
   
 });
 
+// router.post('/updateProject' , async (req, res) => {
+//   //extract the id
+//   const id = req.body.id;
+//   console.log(id, "Id for project");
+// })
 router.get('/logout',(req,res) => {
   req.session.destroy();
   res.redirect('/');

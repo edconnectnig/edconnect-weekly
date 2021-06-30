@@ -53,7 +53,7 @@ const authenticate = async (em, password) => {
 const getById = async (id) => {
   // populate users with data from file.
   const users = await User.findById(id);
-  console.log(users);
+  //console.log(users);
 
   return users;
 };
@@ -61,7 +61,7 @@ const getById = async (id) => {
 /* Return all users */
 const getAll = async () => {
   const all = await User.find();
-  console.log(all, "All projects");
+  //console.log(all, "All projects");
 
   return all;
 };

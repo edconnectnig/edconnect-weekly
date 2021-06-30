@@ -11,7 +11,7 @@ const Footer = () => {
     */
     return(
         <>
-            <Jumbotron style={{marginLeft :'80px', marginRight: '80px', marginTop: '30px', padding:'20px',width:'1210px'}}>
+            <Jumbotron style={{marginLeft :'70px', marginRight: '80px', marginTop: '30px', padding:'20px',width:'1200px'}}>
                 Project Explorer &copy; 2020 - <b>Edconnect</b>
             </Jumbotron>
         </>

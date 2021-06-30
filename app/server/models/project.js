@@ -21,6 +21,10 @@ let ProjectSchema = new mongoose.Schema({
         type: mongoose.ObjectId,
         required: true,
         ref: 'User'
+    },
+    lastVisited: {
+        type: String,
+        default: ''
     }
 }, {timestamps : true});
 
