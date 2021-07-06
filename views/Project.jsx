@@ -19,10 +19,11 @@ const Project = (props) => {
     return (
 
         <>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <Layout user={current_user}>
-        <h2 id="project_name" name="name" className="p-2" style={{marginLeft:'70px',marginRight:'60px'}}>{data.name}</h2>
+        <h2 id="project_name" name="name" className="p-2" style={{marginLeft:'7vw', marginTop:'2vw'}}>{data.name}</h2>
 
-        <Jumbotron className="p-2" style={{marginLeft:'70px',marginRight:'60px'}}>
+        <Jumbotron className="p-2" style={{marginLeft:'7vw',marginRight:'7vw'}}>
             
             <Row class="row" className="pl-4 pt-1">
                 <Col id="project_author">Created By: <br/> {projectData.firstname + " " + projectData.lastname}</Col>

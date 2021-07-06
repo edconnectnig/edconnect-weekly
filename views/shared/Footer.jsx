@@ -1,7 +1,7 @@
 //import statement used to import react components and react-bootstrap components to be used in the code
 import React from 'react';
 import {Jumbotron} from 'react-bootstrap';
-
+import '../App.css'
 //functional component Footer 
 const Footer = () => {
     /*This return indicates the value returned to the App.jsx file and is rendered on the screen
@@ -11,7 +11,8 @@ const Footer = () => {
     */
     return(
         <>
-            <Jumbotron style={{marginLeft :'70px', marginRight: '80px', marginTop: '30px', padding:'20px',width:'1200px'}}>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <Jumbotron style={{margin :'2vw 5vw 0vw 5vw', padding:'2%', backgroundSize: "cover" , backgroundPosition: "center"}}>       
                 Project Explorer &copy; 2020 - <b>Edconnect</b>
             </Jumbotron>
         </>

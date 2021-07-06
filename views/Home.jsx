@@ -1,6 +1,7 @@
 //imports react components used in the code
 import { Row, Col, Jumbotron, Container, Button, Card } from 'react-bootstrap';
 import React from 'react'
+import './App.css'
 import Layout from './shared/Layout';
 
 //functional component named Home
@@ -18,7 +19,8 @@ const Home = (props) => {
     return (
         <>
             <Layout user={user}>
-                <Jumbotron style={{ marginLeft: '60px', marginRight: '60px', marginTop: '30px' }}>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <Jumbotron style={{marginLeft :'5vw', marginRight: '5vw', marginTop: '2vw', padding:'3%', backgroundSize: "cover" , backgroundPosition: "center"}}>
                     <div>
                         <h1>Welcome to Project Explorer</h1>
                     </div>
@@ -27,19 +29,22 @@ const Home = (props) => {
                     submit your project and search projects submitted by others to learn from.<br /><br />
 
                     </p>
+                    <div>
                     <Button href="/signup" variant="primary">Get Started</Button>
                     <Button href="/login" variant="secondary">Login</Button>
+                    </div>
                 </Jumbotron>
 
+                <div style={{alignContent:"center"}}>
                 <Container>
 
-                    <Row className="showcase">
+                    <Row className="showcase" style={{alignContent:"center"}}>
 
                         {projectData && projectData.slice(-4).reverse().map((item) => (
 
                             <Col keys={item._id}>
-                                <Card keys={item._id} style={{ width: "15rem;" }}>
-                                    <Card.Body keys={item._id} >
+                                <Card keys={item._id}>
+                                    <Card.Body keys={item._id} style={{width:"100%"}}>
                                         <a href={`/project/${item._id}`} keys={item.name}>{item.name}</a>
                                         <br /> {item.authors} <br /><br /> {item.abstract}  <br /><br />
                                         {<span>{item.lastVisited === '' ? "Not yet visited" : `Last visited: ${item.lastVisited}`}</span>} <br />
@@ -47,15 +52,14 @@ const Home = (props) => {
                                             <a href={`/projects/search?search_by=tags&searchTerm=${item.substring(1)}`} keys={item}> {item}</a>
                                         ))}
                                     </Card.Body>
-                                </Card>
-                                <br />
+                                </Card><br/>
+                               
                             </Col>
-
                         ))}
 
                     </Row>
                 </Container>
-
+            </div>
             </Layout>
         </>
     );

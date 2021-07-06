@@ -6,6 +6,7 @@ const users = require('../services/user');
 
 router.get('/projects/submit',(req,res) => {
     const errors = req.flash('errors');
+    console.log(errors, "Get errors");
     const body = req.flash('body');
     if(req.session.user === undefined){
         res.redirect('/login');
@@ -17,7 +18,7 @@ router.get('/projects/submit',(req,res) => {
 
 router.post('/projects/submit', async (req,res) => {
     req.flash('body',req.body);
-   
+   console.log(req.body, "Body")
     const name = req.body.name;
     const abstract = req.body.abstract;
     const authors = req.body.authors.split(',');
@@ -25,7 +26,7 @@ router.post('/projects/submit', async (req,res) => {
     const createdBy = req.session.user._id;
     const lastVisited = null;
     const result = await project.create({name,abstract,authors,tags,createdBy,lastVisited});
-   
+    console.log(result,"Result")
     if(result[0] === true){
         res.redirect('/');
     }else if(result[0] === false){

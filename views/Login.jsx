@@ -37,21 +37,23 @@ const Login = (props) => {
     */
     return (
         <>
-
             <Layout>
-                <Form className="p-5" style={{marginLeft: '300px',marginRight:'300px'}} id="loginForm" action="/login" method="post">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <Form className="p-5" style={{margin:"0vw 10vw 0vw 10vw"}} id="loginForm" action="/login" method="post">
+                    
                     <h1>Login</h1>
-                  <div id="error">{errors.length > 0 ? <Alert variant="danger" id="error" style={{marginLeft: '0px',marginRight:'0px'}}>{errors}</Alert> : null}</div>
+                  <div id="error" style={{width:"60vw"}}>{errors.length > 0 ? <Alert variant="danger" id="error">{errors}</Alert> : null}</div>
+                    
                     <Form.Group>
-                        <Form.Label>Email Address: </Form.Label>
-                        <InputGroup>
+                        <Form.Label className="contentNoWrap">Email Address: </Form.Label>
+                        <InputGroup class="col-15" style={{width : "60vw"}}>
                             <FormControl type="email" name="email" placeholder="Enter email" value={email} onChange={handleInputChange}/>
                         </InputGroup>
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>Password: </Form.Label>
-                        <InputGroup>
+                        <InputGroup class="col-15" style={{width : "60vw"}}>
                             <FormControl type="password" name="password" placeholder="Password" value={password} onChange={handleInputChange}/>
                         </InputGroup>
                     </Form.Group>

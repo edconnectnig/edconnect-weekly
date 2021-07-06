@@ -1,0 +1,24 @@
+/* Small devices (landscape phones, 544px and up) */
+.contentNoWrap{
+	white-space: nowrap;
+}
+@media (max-width: 544px) {  
+ #submit_h3,.search_text {font-size:1.5rem;} /*1rem = 16px*/
+ #createProjectForm{margin: auto}
+}
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+  #submit_h3,.search_text {font-size:2rem;} /*1rem = 16px*/
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  #submit_h3,.search_text {font-size:2.5rem;} /*1rem = 16px*/
+
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+  #submit_h3,.search_text {font-size:3rem;} /*1rem = 16px*/    
+}

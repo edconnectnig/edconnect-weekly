@@ -4,13 +4,13 @@ import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 
 //functional component Header
 const Header = (props) => {
-    const {user} = props;
+    const { user } = props;
     const [data, setData] = useState(user || '');
     const [searchWord, setSearchWord] = useState('');
     var val = '';
 
     const handleInputChange = event => {
-        const {value} = event.target;
+        const { value } = event.target;
         setSearchWord(value);
     }
 
@@ -22,32 +22,40 @@ const Header = (props) => {
 
     return (
         <>
-            <Navbar bg="primary" variant="dark" className="justify-content-between">
-                <Nav>
-                    <Navbar.Brand href="/">Project Explorer</Navbar.Brand>
-
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <Navbar bg="primary" expand="lg" variant="dark" className="justify-content-between" position="fixed">
+                <Navbar.Brand href="/">Project Explorer</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    
                     <Form inline method="get" action={`/projects/search?search_by=name&searchTerm=${searchWord}`}>
-                        <FormControl placeholder="Search Projects"  name="searchTerm" value={searchWord} id="search_item" onChange={handleInputChange}/>
-                        <input type="hidden" value="name" name="search_by" />
-                        <Button variant="outline-light" disabled={searchWord ? false : true} type="submit" id="mybutton">Search</Button>
+                            <FormControl placeholder="Search Projects" name="searchTerm" value={searchWord} id="search_item" onChange={handleInputChange} />
+                            <input type="hidden" value="name" name="search_by" />
+                            <Button variant="outline-light" disabled={searchWord ? false : true} type="submit" id="mybutton">Search</Button>
                     </Form>
-                    <Nav>
-                        <Nav.Link href="/projects/search">Projects</Nav.Link>
-                        <Nav.Link href="/projects/submit" id="nav_submit">Sumbit</Nav.Link>
+                    <Nav
+                        className="mr-auto my-2 my-lg-0"
+                        style={{ maxHeight: '100px',display:"inline-block" }}
+                        navbarscroll
+                    >
+                        <Nav>
+                            <Nav.Link href="/projects/search"><span class="text-light">Projects</span></Nav.Link>
+                            <Nav.Link href="/projects/submit"><span class="text-light">Submit</span></Nav.Link>
+                        </Nav>
                     </Nav>
-                </Nav>
 
-                {data ?
-                    <Nav className="justify-content-end">
-                        <Nav.Link href="/logout">Logout</Nav.Link>
-                        <Nav.Link id="username">Hi {data.firstname}</Nav.Link>
-                    </Nav>
-                    :
-                    <Nav className="justify-content-end">
-                        <Nav.Link href="/signup">Sign Up</Nav.Link>
-                        <Nav.Link href="/login">Login</Nav.Link>
-                    </Nav>
-                }
+                    {data ?
+                        <Nav className="justify-content-end">
+                            <Nav.Link href="/logout"><span class="text-light">Logout</span></Nav.Link>
+                            <Nav.Link id="username"><span class="text-light">Hi {data.firstname}</span></Nav.Link>
+                        </Nav>
+                        :
+                        <Nav className="justify-content-end">
+                            <Nav.Link href="/signup"><span class="text-light">Sign Up</span></Nav.Link>
+                            <Nav.Link href="/login"><span class="text-light">Login</span></Nav.Link>
+                        </Nav>
+                    }
+                </Navbar.Collapse>
             </Navbar>
         </>
     );//end of return statement
