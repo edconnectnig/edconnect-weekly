@@ -7,8 +7,7 @@
 	"scripts": {
 		"dev": "nodemon server/index.js",
 		"start": "node server/index.js",
-		"test": "jest",
-		"postinstall": "react-scripts build"
+		"test": "jest"
 	},
 	"license": "ISC",
 	"dependencies": {
