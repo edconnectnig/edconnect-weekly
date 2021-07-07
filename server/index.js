@@ -12,7 +12,7 @@ const flash = require("express-flash");
 var MongoDBStore = require('connect-mongodb-session')(session);
 const SERVER_PORT = process.env.PORT || 4000;
 
-var store = new MongoDBStore({
+const store = new MongoDBStore({
   uri:  process.env.MONGODB_URI,
   collection: 'mySessions'
 });
