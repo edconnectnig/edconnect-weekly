@@ -13,7 +13,7 @@ var MongoDBStore = require('connect-mongodb-session')(session);
 const SERVER_PORT = process.env.PORT || 3000;
 
 const store = new MongoDBStore({
-  uri:  process.env.MONGODB_URI,
+  uri:  "mongodb+srv://blossom123:vTjXsUW7CuaqU3t@cluster0.wlx9y.mongodb.net/project-explorer",
   collection: 'mySessions'
 });
 
@@ -54,7 +54,7 @@ mongoose.set("bufferCommands", false);
 
  mongoose.connect(
 
-   process.env.MONGODB_URI, // connection string from .env file
+   "mongodb+srv://blossom123:vTjXsUW7CuaqU3t@cluster0.wlx9y.mongodb.net/project-explorer", // connection string from .env file
 
    {
 
