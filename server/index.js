@@ -10,7 +10,7 @@ const register = require("@react-ssr/express/register");
 const flash = require("express-flash");
 
 var MongoDBStore = require('connect-mongodb-session')(session);
-const SERVER_PORT = process.env.PORT || 4000;
+const SERVER_PORT = process.env.PORT || 80;
 
 var store = new MongoDBStore({
   uri:  process.env.MONGODB_URI,
