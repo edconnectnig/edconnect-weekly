@@ -47,6 +47,8 @@ app.use("/", require("./controllers/user"));
 app.use("/", require("./controllers/project"));
 app.use(express.static('public'));
 
+console.log("starting server at " + SERVER_PORT);
+console.log(process.env.NODE_ENV);
 
 app.listen(SERVER_PORT, () => console.log('Server listening on port ' + SERVER_PORT));
 
