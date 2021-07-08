@@ -23,6 +23,9 @@ app.use((req, res, next) => {
     next();
 });
 
+console.log("starting server at " + SERVER_PORT);
+console.log(process.env.NODE_ENV);
+
 register(app).then(() => {
 
 app.use(morgan('combined'));
