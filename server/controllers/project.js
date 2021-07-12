@@ -51,8 +51,6 @@ router.get('/project/:id', async (req, res) => {
 
 router.get('/projects/search', async (req, res) => {
     const current_user = req.session.user;
-    let projectsUserViewed = await viewProject.findAllViewedProjectsOfCurrentUser(current_user._id);
-
     let result = ''
     const url_page = req.url;
     var q = url.parse(url_page, true)
@@ -77,7 +75,8 @@ router.get('/projects/search', async (req, res) => {
     }
    
     /**Checks if there is a search term and then updates the last visited of the projects the user has viewed */
-    if (searchTerm !== undefined) {
+    if (current_user !== undefined) {
+        let projectsUserViewed = await viewProject.findAllViewedProjectsOfCurrentUser(current_user._id);
         result.forEach(async (project) => {
             project.lastVisited = null;
             let viewedData = projectsUserViewed.find((obj) => obj.projectId.equals(project._id));
