@@ -1,4 +1,5 @@
 const Project = require("../models/project");
+const viewProject = require("./viewProject");
 const helper = require("../models/mongo_helper");
 
 /* Create new project */
@@ -22,21 +23,13 @@ const create = async ({ name, abstract, authors, tags, createdBy }) => {
   }
 };
 
-/* Return project with specified id */
-const getById = async (id) => {
-  //an array that stores the month names
-  const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
+/* Return project with specified id and saves or updates the date it was viewed*/
+const getById = async (id, current_user) => {
   // populate projects with data from database.
   const project_by_id = await Project.findById(id).populate('createdBy');
- 
-  var date = new Date();
-  var date_format = date.getDate() + ' ' + monthNames[date.getMonth()] + ' ' + date.getFullYear();
-
-  project_by_id.lastVisited = date_format;
-  project_by_id.save();
-  
+  const saveViewedUser = await viewProject.saveViewedProject(current_user.firstname, project_by_id.name, current_user._id, project_by_id._id, new Date());
+  project_by_id.lastVisited = saveViewedUser.date;
+  await project_by_id.save();
   return project_by_id;
 };
 

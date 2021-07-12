@@ -23,16 +23,14 @@ app.use((req, res, next) => {
     next();
 });
 
-console.log("starting server at " + SERVER_PORT);
-console.log(process.env.NODE_ENV);
-
 register(app).then(() => {
 
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
-}));
+}
+));
 
 app.use(session({
     secret: 'secret',
@@ -49,9 +47,6 @@ app.use("/", require("./controllers/home"));
 app.use("/", require("./controllers/user"));
 app.use("/", require("./controllers/project"));
 app.use(express.static('public'));
-
-console.log("starting server at " + SERVER_PORT);
-console.log(process.env.NODE_ENV);
 
 app.listen(SERVER_PORT, () => console.log('Server listening on port ' + SERVER_PORT));
 

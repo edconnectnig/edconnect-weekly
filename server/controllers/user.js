@@ -4,8 +4,8 @@ const school = require('../services/school');
 const user = require('../services/user');
 
 router.get('/signup', (req,res) => {
-    const errors = req.flash('error_messages');
-    var body = req.flash('input_body');
+    let errors = req.flash('error_messages');
+    let body = req.flash('input_body');
     const programs = school.getPrograms();
     const years = school.getGradYears();
     res.render('Signup', {programs,errors,years,body});
@@ -33,8 +33,8 @@ router.post('/signup', async(req,res) => {
 });
 
 router.get('/login',(req,res) => {
-    const login_errors = req.flash('login_errors');
-    const login_body = req.flash('login_body');
+    let login_errors = req.flash('login_errors');
+    let login_body = req.flash('login_body');
     res.render('Login',{login_errors,login_body});
 });
 

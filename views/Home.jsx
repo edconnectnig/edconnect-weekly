@@ -8,9 +8,7 @@ import Layout from './shared/Layout';
 const Home = (props) => {
 
     //destructing props
-    const { projectData, user } = props;
-
-    
+    const { allFourProjects, user } = props;
     /*This return indicates the value returned to the App.jsx file and is rendered on the screen
       It contains react bootstrap components, styling, and also basic html tags
       The <Layout></Layout> is a component that houses the header(navbar), the main content(which is what is returned),
@@ -19,8 +17,8 @@ const Home = (props) => {
     return (
         <>
             <Layout user={user}>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                <Jumbotron style={{marginLeft :'5vw', marginRight: '5vw', marginTop: '2vw', padding:'3%', backgroundSize: "cover" , backgroundPosition: "center"}}>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <Jumbotron style={{ marginLeft: '5vw', marginRight: '5vw', marginTop: '2vw', padding: '3%', backgroundSize: "cover", backgroundPosition: "center" }}>
                     <div>
                         <h1>Welcome to Project Explorer</h1>
                     </div>
@@ -30,36 +28,36 @@ const Home = (props) => {
 
                     </p>
                     <div>
-                    <Button href="/signup" variant="primary">Get Started</Button>
-                    <Button href="/login" variant="secondary">Login</Button>
+                        <Button href="/signup" variant="primary">Get Started</Button>
+                        <Button href="/login" variant="secondary">Login</Button>
                     </div>
                 </Jumbotron>
 
-                <div style={{alignContent:"center"}}>
-                <Container>
+                <div style={{ alignContent: "center" }}>
+                    <Container>
 
-                    <Row className="showcase" style={{alignContent:"center"}}>
+                        <Row className="showcase" style={{ alignContent: "center" }}>
 
-                        {projectData && projectData.slice(-4).reverse().map((item) => (
+                            {allFourProjects && allFourProjects.map((item) => (
 
-                            <Col keys={item._id}>
-                                <Card keys={item._id}>
-                                    <Card.Body keys={item._id} style={{width:"100%"}}>
-                                        <a href={`/project/${item._id}`} keys={item.name}>{item.name}</a>
-                                        <br /> {item.authors} <br /><br /> {item.abstract}  <br /><br />
-                                        {<span>{item.lastVisited === '' ? "Not yet visited" : `Last visited: ${item.lastVisited}`}</span>} <br />
-                                        {item.tags.map((item) => (
-                                            <a href={`/projects/search?search_by=tags&searchTerm=${item.substring(1)}`} keys={item}> {item}</a>
-                                        ))}
-                                    </Card.Body>
-                                </Card><br/>
-                               
-                            </Col>
-                        ))}
+                                <Col keys={item._id}>
+                                    <Card keys={item._id}>
+                                        <Card.Body keys={item._id} style={{ width: "100%" }}>
+                                            <a href={`/project/${item._id}`} keys={item.name}>{item.name}</a>
+                                            <br /> {item.authors} <br /><br /> {item.abstract}  <br /><br />
+                                            {user !== undefined ? <Card.Text>{<span keys={item._id}>{item.lastVisited === null ? "Not yet viewed. To view a project, Click on the Project name" : `Last viewed: ${item.lastVisited}`}</span>}</Card.Text> : ""}
+                                            {item.tags.map((item) => (
+                                                <a href={`/projects/search?search_by=tags&searchTerm=${item.substring(1)}`} keys={item}> {item}</a>
+                                            ))}
+                                        </Card.Body>
+                                    </Card><br />
 
-                    </Row>
-                </Container>
-            </div>
+                                </Col>
+                            ))}
+
+                        </Row>
+                    </Container>
+                </div>
             </Layout>
         </>
     );

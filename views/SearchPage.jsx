@@ -4,7 +4,7 @@ import './App.css'
 import { Row, Col, Jumbotron, Container, Button, Card } from 'react-bootstrap';
 
 //Pagination function that implements the next and previous buttons
-function Pagination({ data, dataLimit }) {
+function Pagination({ data, dataLimit,current_user }) {
 		const [numberOfPages] = useState(Math.ceil(data.length / dataLimit));//number of pages
 		const [currentPage, setCurrentPage] = useState(0);
 
@@ -12,9 +12,7 @@ function Pagination({ data, dataLimit }) {
 		and it sets the currentPage to the next page index
 		e.g If currentPage is 1, when this function is called,
 		currentPage = 2 */}
-		console.log(numberOfPages);
-		console.log(currentPage);
-
+	
 		function nextPage() {
 			setCurrentPage((page) => page + 1);
 		}
@@ -57,7 +55,7 @@ function Pagination({ data, dataLimit }) {
 											<a keys={item._id} href={`/project/${item._id}`} keys={item.name}>{item.name}</a><br />
 											<Card.Text>{item.authors}</Card.Text> 
 											<Card.Text>{item.abstract}</Card.Text>
-											<Card.Text>{<span keys={item._id}>{item.lastVisited === undefined ? "Not yet visited" : `Last visited: ${item.lastVisited}`}</span>}</Card.Text>
+							{current_user !== undefined ? <Card.Text>{<span keys={item._id}>{item.lastVisited === null ? "Not yet viewed. To view a project, Click on the Project name" : `Last viewed: ${item.lastVisited}`}</span>}</Card.Text> : "" }
 												{item.tags.map((item) => (
 												<a keys={item._id} href={`/projects/search?search_by=tags&searchTerm=${item.substring(1)}`} keys={item}> {item}</a>
 												))}
@@ -103,7 +101,7 @@ function Pagination({ data, dataLimit }) {
 	}//end of Pagination
 const Search = (props) => {
 
-	const { result, searchTerm } = props;	//destructuring the props gotten when the page was rendered.
+	const { result, searchTerm, current_user } = props;	//destructuring the props gotten when the page was rendered.
 	const [searchInput, setSearchInput] = useState(searchTerm || '');	//whatever the user searches for is stored here
 
 	//function that updates the searchInput state everytime a user enters a value
@@ -115,7 +113,7 @@ const Search = (props) => {
 	//The html that is rendered on the page when it opens
 	return (
 		<>
-			<Layout>
+			<Layout user={current_user}>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<h3 className="search_h3" style={{ marginLeft:"5vw", marginTop:"2vw" }}>Project Gallery</h3>
 				<form inline method="get" id="searchForm">
@@ -156,6 +154,7 @@ const Search = (props) => {
 						<Pagination
 							data={result}
 							dataLimit={8}
+							current_user={current_user}
 						/>
 						:
 						//this is shown when the projectResults are undefined
