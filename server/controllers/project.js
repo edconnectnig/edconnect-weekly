@@ -76,7 +76,6 @@ router.get('/projects/search', async (req, res) => {
     if (result && current_user != undefined) {
         result = await viewProject.updatedProjectsWithTheirLastVisitedToBePassedToTheView(current_user._id, result);
     }
-    console.log(result, "Result")
     let count = await project.countProjects(searchTerm, searchBy);
     res.render('SearchPage', { result, searchTerm, current_user, searchBy, count });
 });

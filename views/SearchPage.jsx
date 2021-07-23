@@ -10,12 +10,17 @@ const Search = (props) => {
 	const { result, searchTerm, current_user, searchBy, count } = props;	//destructuring the props gotten when the page was rendered.
 	const [searchInput, setSearchInput] = useState(searchTerm || '');	//whatever the user searches for is stored here
 	const [pageSize] = useState(8);//the limit of documents per page
-	const [searchResult, setSearchResult] = useState(result ? result : []);
+	const [searchResult, setSearchResult] = useState(result);
 	const [pageIndex, setPageIndex] = useState(1);//the current page index
 	const [numberOfPages] = useState(Math.ceil(count / pageSize));//number of pages
-	
+	const isInitialMount = useRef(true);
+
 	//useEffect that uses an ajax call to get next projects to be displayed when the pageIndex changes.
 	useEffect(() => {
+		if (isInitialMount.current) {
+			isInitialMount.current = false;
+		} else {
+			// Your useEffect code here to be run on update
 		$.ajax({
 			url: '/projects/next',
 			type: 'GET',
@@ -28,12 +33,13 @@ const Search = (props) => {
 			success: function () {
 				console.log('form submitted.');
 			},
-			error: function (err) {
+			error: function () {
 				console.log('something went wrong - debug it!');
 			}
 		}).done(function (data) {
 			setSearchResult(data);
 		});
+	}
 	}, [pageIndex])
 
 	//function that updates the searchInput state everytime a user enters a value
@@ -101,15 +107,15 @@ const Search = (props) => {
 										maps through each project and displays then in a card
 										*/}
 										{searchResult && searchResult.slice(0, 4).map((item) => (
-											<Col keys={item._id}>
-												<Card className="project-card" keys={item._id}>
-													<Card.Body keys={item._id} >
-														<a keys={item._id} href={`/project/${item._id}`} keys={item.name}>{item.name}</a><br />
+											<Col keys={item.id}>
+												<Card className="project-card" keys={item.id}>
+													<Card.Body keys={item.id} >
+														<a keys={item.id} href={`/project/${item.id}`} keys={item.name}>{item.name}</a><br />
 														<Card.Text>{item.authors}</Card.Text>
 														<Card.Text>{item.abstract}</Card.Text>
-														{current_user !== undefined ? <Card.Text>{<span keys={item._id}>{item.lastVisited === null ? "Not yet viewed. To view a project, Click on the Project name" : `Last viewed: ${item.lastVisited}`}</span>}</Card.Text> : ""}
+														{current_user !== undefined ? <Card.Text>{<span keys={item.id}>{item.lastVisited === null ? "Not yet viewed. To view a project, Click on the Project name" : `Last viewed: ${item.lastVisited}`}</span>}</Card.Text> : ""}
 														{item.tags.map((item) => (
-															<a keys={item._id} href={`/projects/search?search_by=tags&searchTerm=${item.substring(1)}&pageSize=8&pageIndex=1`} keys={item}> {item}</a>
+															<a keys={item.id} href={`/projects/search?search_by=tags&searchTerm=${item.substring(1)}&pageSize=8&pageIndex=1`} keys={item}> {item}</a>
 														))}
 													</Card.Body>
 												</Card>
