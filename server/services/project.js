@@ -12,7 +12,7 @@ const create = async ({ name, abstract, authors, tags, createdBy }) => {
       tags,
       createdBy
     });
-    
+
     const save = await project.save();
     if (save) {
       return [true, project];
@@ -22,14 +22,17 @@ const create = async ({ name, abstract, authors, tags, createdBy }) => {
     return [false, helper.translateError(err)];
   }
 };
-
+const saveProjectDetails = async (project_by_id, current_user) => {
+  let response = await viewProject.saveViewedProject(current_user.firstname, project_by_id.name, current_user._id, project_by_id._id, new Date());
+  if (response)
+    return true;
+  else
+    return false;
+}
 /* Return project with specified id and saves or updates the date it was viewed*/
-const getById = async (id, current_user) => {
+const getById = async (id) => {
   // populate projects with data from database.
   const project_by_id = await Project.findById(id).populate('createdBy');
-  const saveViewedUser = await viewProject.saveViewedProject(current_user.firstname, project_by_id.name, current_user._id, project_by_id._id, new Date());
-  project_by_id.lastVisited = saveViewedUser.date;
-  await project_by_id.save();
   return project_by_id;
 };
 
@@ -39,60 +42,67 @@ const getAll = async () => {
   return all;
 };
 
-/**Return all projects with names corresponding with the name value passed in as a parameter */
-const getProjectsByName = async (value) => {
-  const all = await Project.aggregate([{
-    $match: {
-      "name": { "$regex": value, "$options": "$i" }
-    }
-  }
-  ])
+/**Returns the four last projects created */
+const getLastFour = async () => {
+  const all = await Project.find().sort({ createdAt: -1 }).limit(4);
+  return all;
+};
 
+/**Returns 8 search results of projects per page */
+const getSearchProjectResults = async (value, searchBy, pageIndex, pageSize) => {
+  let all = '';
+  pageIndex = Number(pageIndex);
+  pageSize = Number(pageSize);
+
+  switch (searchBy) {
+    case 'name':
+      all = await Project.find({ "name": { "$regex": value, "$options": "$i" } }).skip((pageIndex - 1) * pageSize).limit(pageSize);
+      break;
+
+    case 'abstract':
+      all = await Project.find({ "abstract": { "$regex": value, "$options": "$i" } }).skip((pageIndex - 1) * pageSize).limit(pageSize);
+      break;
+
+    case 'authors':
+      all = await Project.find({ "authors": { "$regex": value, "$options": "$i" } }).skip((pageIndex - 1) * pageSize).limit(pageSize);
+      break;
+
+    case 'tags':
+      all = await Project.find({ "tags": { "$regex": value, "$options": "$i" } }).skip((pageIndex - 1) * pageSize).limit(pageSize);
+      break;
+  }
+  return all;
+};
+
+/*counts the number of projects gotten from each search*/
+const countProjects = async (value, searchBy) => {
+  let all = '';
+  
+  switch (searchBy) {
+    case 'name':
+      all = await Project.find({ "name": { "$regex": value, "$options": "$i" } }).count();
+      break;
+
+    case 'abstract':
+      all = await Project.find({ "abstract": { "$regex": value, "$options": "$i" } }).count();
+      break;
+
+    case 'authors':
+      all = await Project.find({ "authors": { "$regex": value, "$options": "$i" } }).count();
+      break;
+
+    case 'tags':
+      all = await Project.find({ "tags": { "$regex": value, "$options": "$i" } }).count();
+      break;
+  }
   return all;
 }
-
-/**Return all projects with abstracts corresponding with the abstract value passed in as a parameter */
-const getProjectsByAbstract = async (value) => {
-  const all = await Project.aggregate([{
-    $match: {
-      "abstract": { "$regex": value, "$options": "$i" }
-    }
-  }
-  ])
-
-  return all;
-}
-
-/**Return all projects with authors corresponding with the author value passed in as a parameter */
-const getProjectsByAuthors = async (value) => {
-  const all = await Project.aggregate([{
-    $match: {
-      "authors": { "$regex": value, "$options": "$i" }
-    }
-  }
-  ])
-
-  return all;
-}
-
-/**Return all projects with tags corresponding with the tag value passed in as a parameter */
-const getProjectsByTags = async (value) => {
-  const all = await Project.aggregate([{
-    $match: {
-      "tags": { "$regex": value, "$options": "$i" }
-    }
-  }
-  ])
-
-  return all;
-}
-
 module.exports = {
   getAll,
   create,
   getById,
-  getProjectsByName,
-  getProjectsByAbstract,
-  getProjectsByAuthors,
-  getProjectsByTags
+  countProjects,
+  getLastFour,
+  saveProjectDetails,
+  getSearchProjectResults
 };

@@ -45,8 +45,34 @@ const findAllViewedProjectsOfCurrentUser = async (id) => {
 	const viewedProjects = await ViewProject.find({userId: id});
 	return viewedProjects;
 }
+
+/**Updates projects last visisted by storing projects in another array of objects different from that of the project schema object*/
+const updatedProjectsWithTheirLastVisitedToBePassedToTheView = async(currentUserId, projectResults) => {
+	let items = [];
+	
+        let projectsUserViewed = await findAllViewedProjectsOfCurrentUser(currentUserId);
+
+        projectResults.forEach(async (project) => {
+            let displayProject = {
+                id: project._id,
+                name: project.name,
+                abstract: project.abstract,
+                authors: project.authors,
+                tags: project.tags,
+                lastVisited: null
+            }
+            let viewedData = projectsUserViewed.find((obj) => obj.projectId.equals(project._id));
+
+            if (viewedData) {
+                displayProject.lastVisited = new Date(viewedData.date).toLocaleString("en-NG");
+            }
+            items.push(displayProject)
+	});
+	return items;
+}
 module.exports = {
   saveViewedProject,
   updateViewedProject,
-  findAllViewedProjectsOfCurrentUser
+  findAllViewedProjectsOfCurrentUser,
+  updatedProjectsWithTheirLastVisitedToBePassedToTheView
 };

@@ -4,28 +4,15 @@ const viewProject = require('../services/viewProject');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-
   const user = req.session.user;
-  const projectData = await projects.getAll();
-  const allFourProjects = projectData.slice(-4).reverse();//limits the projects to the last four
-  let projectsUserViewed = '';
+  let projectData = await projects.getLastFour();
  
-  /**Checks if a user is logged in and finds all project the user has viewed */
-  if (user !== undefined){
-    projectsUserViewed = await viewProject.findAllViewedProjectsOfCurrentUser(user._id);
-   
-    allFourProjects.forEach(async (project) => {
-        project.lastVisited = null;
-        let viewedData = projectsUserViewed.find((obj) => obj.projectId.equals(project._id));
-
-        if (viewedData) {
-            project.lastVisited = viewedData.date;
-            await project.save()
-        }
-    });
+  /**Checks if a user is logged in and finds gets all updated projects to be passed to the view*/
+  if (projectData && user !== undefined){
+    projectData = await viewProject.updatedProjectsWithTheirLastVisitedToBePassedToTheView(user._id, projectData);
   }
-  res.render('Home', { allFourProjects, user });
-
+  
+  res.render('Home', { projectData, user });
 });
 
 router.get('/logout', (req, res) => {

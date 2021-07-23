@@ -33,9 +33,14 @@ router.post('/signup', async(req,res) => {
 });
 
 router.get('/login',(req,res) => {
+    const current_user = req.session.user;
+    if(current_user !== undefined){
+        req.session.destroy();
+        res.redirect('/');
+    }
     let login_errors = req.flash('login_errors');
     let login_body = req.flash('login_body');
-    res.render('Login',{login_errors,login_body});
+    res.render('Login',{current_user,login_errors,login_body});
 });
 
 router.post('/login',async (req,res) => {
@@ -43,8 +48,7 @@ router.post('/login',async (req,res) => {
    const email = req.body.email;
    const password = req.body.password;
    const result = await user.authenticate(email,password);
-   console.log(result + "result");
-
+   
    if(result[0] === true){
        req.session.user = result[1];
        res.redirect('/');

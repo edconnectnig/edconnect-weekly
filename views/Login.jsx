@@ -6,7 +6,7 @@ import Layout from './shared/Layout';
 
 //functional component Login that houses all code
 const Login = (props) => {
-    const {login_errors,login_body} = props;
+    const {current_user, login_errors,login_body} = props;
     //declaration of states and their function using useState 
     const [email,setEmail] = useState(login_body[0]?.email || '');
     const [password, setPassword] = useState(login_body[0]?.password || '');
@@ -37,7 +37,7 @@ const Login = (props) => {
     */
     return (
         <>
-            <Layout>
+            <Layout user={current_user}>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <Form className="p-5" style={{margin:"0vw 10vw 0vw 10vw"}} id="loginForm" action="/login" method="post">
                     

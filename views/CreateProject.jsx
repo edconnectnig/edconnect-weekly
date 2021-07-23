@@ -8,8 +8,7 @@ import { Form,InputGroup,Button,Alert } from 'react-bootstrap';
 const CreateProject = (props) => {
 
     const {user,errors,body} = props;
-    console.log(errors, "Error error");
-    //declaration of states and theri corresponding function used to update the states
+    //declaration of states and their corresponding function used to update the states
     const [name,setName] = useState(body[0]?.name || '');
     const [abstract,setAbstract] = useState(body[0]?.abstract || '');
     const [authors,setAuthors] = useState(body[0]?.authors || []);

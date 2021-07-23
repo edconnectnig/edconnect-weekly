@@ -7,9 +7,9 @@ import { Jumbotron, Card,Row,Col,Container,Button,ListGroup,Form,InputGroup } fr
 const Project = (props) => {
     const {project_by_id,user,current_user} = props;
     //declaration of states and their corresponding functions used to update the states
-    const [data,setData] = useState(project_by_id || {});
-    const [authors,setAuthors] = useState(project_by_id.authors || []);
-    const [projectData,setProjectData] = useState(user || '');
+    const [data] = useState(project_by_id || {});
+    const [authors] = useState(project_by_id.authors || []);
+    const [projectData] = useState(user || '');
    
     /*This return statement indicates the value returned to the App.jsx file and is rendered on the screen
       It contains react bootstrap components, styling, and also basic html tags

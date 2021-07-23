@@ -25,7 +25,7 @@ router.post('/projects/submit', async (req, res) => {
     const createdBy = req.session.user._id;
     const lastVisited = null;
     const result = await project.create({ name, abstract, authors, tags, createdBy, lastVisited });
-    console.log(result,"result from submit");
+
     if (result[0] === true) {
         res.redirect('/');
     } else if (result[0] === false) {
@@ -39,8 +39,9 @@ router.get('/project/:id', async (req, res) => {
 
     if (current_user !== undefined) {
         const id = req.params.id;
-        const project_by_id = await project.getById(id, current_user);
+        const project_by_id = await project.getById(id);
         const user = await users.getById(project_by_id.createdBy._id);
+        await project.saveProjectDetails(project_by_id, current_user);
 
         res.render('Project', { project_by_id, user, current_user });
     }
@@ -51,44 +52,52 @@ router.get('/project/:id', async (req, res) => {
 
 router.get('/projects/search', async (req, res) => {
     const current_user = req.session.user;
-    let result = ''
+    let result = []
     const url_page = req.url;
     var q = url.parse(url_page, true)
-
-    var searchTerm = q.query.searchTerm;
-    var searchBy = q.query.search_by;
-    switch (searchBy) {
-        case 'name':
-            result = await project.getProjectsByName(searchTerm);
-            break;
-        case 'abstract':
-            result = await project.getProjectsByAbstract(searchTerm);
-            break;
-        case 'authors':
-            result = await project.getProjectsByAuthors(searchTerm);
-            break;
-        case 'tags':
-            if (!searchTerm.startsWith("#"))
-                searchTerm = "#" + searchTerm;
-            result = await project.getProjectsByTags(searchTerm);
-            break;
+    var searchTerm = q.query.searchTerm || '';
+    var searchBy = q.query.search_by || '';
+    /*
+    checks if the searhTerm ends with a #. I set this functionality because
+    if a project tag has a '#' at the beginning and i search for that project
+    then everything after the '#' in the url query becomes a comment and thats 
+    affects my output. So i removed it from the begeinning and added it to the end
+    as that is my last value in my url query.
+    */
+    if (searchBy && searchBy === "tags" && searchTerm && searchTerm.endsWith("#")) {
+        searchTerm = "#" + searchTerm;
+        result = await project.getSearchProjectResults(searchTerm, searchBy);
+    }else{
+        result = await project.getSearchProjectResults(searchTerm, searchBy);
     }
-   
-    /**Checks if there is a search term and then updates the last visited of the projects the user has viewed */
-    if (current_user !== undefined) {
-        let projectsUserViewed = await viewProject.findAllViewedProjectsOfCurrentUser(current_user._id);
-        result.forEach(async (project) => {
-            project.lastVisited = null;
-            let viewedData = projectsUserViewed.find((obj) => obj.projectId.equals(project._id));
 
-            if (viewedData) {
-                project.lastVisited = viewedData.date;
-                await project.save()
-            }
-        });
+    if (result && current_user != undefined) {
+        result = await viewProject.updatedProjectsWithTheirLastVisitedToBePassedToTheView(current_user._id, result);
     }
-    res.render('SearchPage', { result, searchTerm, current_user });
+
+    let count = await project.countProjects(searchTerm, searchBy);
+    res.render('SearchPage', { result, searchTerm, current_user, searchBy, count });
 });
 
+/**this route was created for the next and previous page. Though it looks like the '/projects/search' route 
+ * and this route do the same thing. There's some sort of conflict with the res.send() and res.render()
+ * And this affects my output so I had to differentiate them. I'm open to suggestions
+ */
+router.get('/projects/next', async (req, res) => {
+    const current_user = req.session.user;
+    var pageSize = req.query.pageSize;
+    var pageIndex = req.query.pageIndex;
+    var searchTerm = req.query.searchTerm || '';
+    var searchBy = req.query.search_by || '';
+    let result = await project.getSearchProjectResults(searchTerm, searchBy, pageIndex, pageSize);
+
+    if (searchBy && searchBy === "tags" && searchTerm && !searchTerm.startsWith("#"))
+        searchTerm = "#" + searchTerm;
+
+    if (current_user != undefined && result) {
+        result = await viewProject.updatedProjectsWithTheirLastVisitedToBePassedToTheView(current_user._id, result);
+        res.send(result);
+    }
+});
 
 module.exports = router;
