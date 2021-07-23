@@ -57,6 +57,8 @@ router.get('/projects/search', async (req, res) => {
     var q = url.parse(url_page, true)
     var searchTerm = q.query.searchTerm || '';
     var searchBy = q.query.search_by || '';
+    let pageIndex = 1;
+    let pageSize = 8;
     /*
     checks if the searhTerm ends with a #. I set this functionality because
     if a project tag has a '#' at the beginning and i search for that project
@@ -66,15 +68,15 @@ router.get('/projects/search', async (req, res) => {
     */
     if (searchBy && searchBy === "tags" && searchTerm && searchTerm.endsWith("#")) {
         searchTerm = "#" + searchTerm;
-        result = await project.getSearchProjectResults(searchTerm, searchBy);
+        result = await project.getSearchProjectResults(searchTerm, searchBy, pageIndex, pageSize);
     }else{
-        result = await project.getSearchProjectResults(searchTerm, searchBy);
+        result = await project.getSearchProjectResults(searchTerm, searchBy, pageIndex, pageSize);
     }
 
     if (result && current_user != undefined) {
         result = await viewProject.updatedProjectsWithTheirLastVisitedToBePassedToTheView(current_user._id, result);
     }
-
+    console.log(result, "Result")
     let count = await project.countProjects(searchTerm, searchBy);
     res.render('SearchPage', { result, searchTerm, current_user, searchBy, count });
 });
@@ -89,15 +91,15 @@ router.get('/projects/next', async (req, res) => {
     var pageIndex = req.query.pageIndex;
     var searchTerm = req.query.searchTerm || '';
     var searchBy = req.query.search_by || '';
-    let result = await project.getSearchProjectResults(searchTerm, searchBy, pageIndex, pageSize);
-
     if (searchBy && searchBy === "tags" && searchTerm && !searchTerm.startsWith("#"))
         searchTerm = "#" + searchTerm;
 
-    if (current_user != undefined && result) {
+    let result = await project.getSearchProjectResults(searchTerm, searchBy, pageIndex, pageSize);
+  
+    if (current_user != undefined) {
         result = await viewProject.updatedProjectsWithTheirLastVisitedToBePassedToTheView(current_user._id, result);
-        res.send(result);
     }
+    res.send(result);
 });
 
 module.exports = router;

@@ -12,8 +12,8 @@ const Search = (props) => {
 	const [pageSize] = useState(8);//the limit of documents per page
 	const [searchResult, setSearchResult] = useState(result ? result : []);
 	const [pageIndex, setPageIndex] = useState(1);//the current page index
-	const [numberOfPages] = useState(Math.ceil(result.length / pageSize));//number of pages
-
+	const [numberOfPages] = useState(Math.ceil(count / pageSize));//number of pages
+	
 	//useEffect that uses an ajax call to get next projects to be displayed when the pageIndex changes.
 	useEffect(() => {
 		$.ajax({
@@ -28,7 +28,7 @@ const Search = (props) => {
 			success: function () {
 				console.log('form submitted.');
 			},
-			error: function () {
+			error: function (err) {
 				console.log('something went wrong - debug it!');
 			}
 		}).done(function (data) {
@@ -122,7 +122,7 @@ const Search = (props) => {
 										{/*Checks that the projects are not undefined and then
 										maps through each project and displays then in a card
 										*/}
-										{searchResult && searchResult.slice(4, searchResult.length).map((item) => (
+										{searchResult && searchResult.slice(4).map((item) => (
 											<Col keys={item._id}>
 												<Card className="project-card" keys={item._id}>
 													<Card.Body keys={item._id} >
