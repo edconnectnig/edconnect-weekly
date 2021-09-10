@@ -9,7 +9,10 @@ class DataModel {
     }
 
     getById(id) {
-
+        var result = this.data.find(obj => {
+            return obj.id === id
+          }) || null
+        return result;
     }
 
     save(obj) {
@@ -19,12 +22,40 @@ class DataModel {
         }
         return false;
     }
-
+    
     update(obj, id) {
-
+        let found = false;
+        for (let user of this.data) {
+            for (let prop in user) {
+                if (user[prop] === id) {
+                    found = true;
+                    Object.assign(user,obj);
+                }
+            }
+        }
+        
+        if (found === true) {
+            return true;
+        } else {
+            return false;
+        }
     }
-
     delete(id) {
+        //check if object with id property is found in the data array.
+        let found = false;
+        //check if object with id property is found in the data array.
+        for (let obj of this.data) {
+            for (let prop in obj) {
+                if (obj[prop] === id) {
+                    found = true;
+                    this.data = this.data.filter(user => user.id != id)                }
+            }
+        }
+        if (found === true) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 
