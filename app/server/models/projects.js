@@ -24,6 +24,14 @@ validate(obj) {
         } 
         if (Array.isArray(obj.tags) === false) {
             this.errors.push("Tags should be an array");
+        } if (obj.id === "" || obj.id === undefined || obj.id === null) {
+            this.errors.push("id should not be empty");
+        } if (obj.name === "" || obj.name === undefined || obj.name === null) {
+            this.errors.push("name should not be empty");
+        } if (obj.abstract === "" || obj.abstract === undefined || obj.abstract === null) {
+            this.errors.push("abstract should not be empty");
+        } if (obj.createdBy === "" || obj.createdBy === undefined || obj.createdBy === null) {
+            this.errors.push("createdBy should not be empty");
         }
         
         if (this.errors.length === 0) {
