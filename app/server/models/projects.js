@@ -15,14 +15,14 @@ class Projects extends DataModel {
 validate(obj) {
         this.errors = [];
         for (let prop in obj) {
-            if (obj[prop].length === 0) {
+            if (obj[prop].length == 0) {
                 this.errors.push(`${prop} should not be empty`)
             }
         }
-        if (Array.isArray(obj.authors) === false) {
+        if (!Array.isArray(obj.authors)) {
             this.errors.push("Authors should be an array");
         } 
-        if (Array.isArray(obj.tags) === false) {
+        if (!Array.isArray(obj.tags)) {
             this.errors.push("Tags should be an array");
         } if (obj.id === "" || obj.id === undefined || obj.id === null) {
             this.errors.push("id should not be empty");
@@ -34,7 +34,7 @@ validate(obj) {
             this.errors.push("createdBy should not be empty");
         }
         
-        if (this.errors.length === 0) {
+        if (this.errors.length == 0) {
             return true;
         } else {
             return false;
