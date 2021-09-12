@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\bootstrap.min.css">
+    <title>Document</title>
+    </head>
+    <body>
+<header>
+
+</header>
+<nav>
+</nav>
+<nav class="navbar navbar-expand-md navbar-dark bg-primary mb-4">
+    <a class="navbar-brand" href="#">Project Explorer</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse-navbar-collapse" id="navbarcollapse">
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search Projects" aria-label="Search">
+    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+  </form></div>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Submit<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav mr-sm-2">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Sign up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Login</a>
+      </li>
+    </ul>               
+  </nav>
+<main>
+  <div class="container">
+    <div class="d-flex hd-highlight">
+    <h4 class="flex hd-highlight">Project 1</h4>
+    
+  </div>
+  <div class="bg-light" style{ width: 100%
+  padding: right 15px;
+  padding: left: 15px;
+  margin: right: auto;
+  margin: left: auto; }>
+   <div class="container">
+    <div class="row">
+      <div class="col">
+        <ul style="list-style-type: none;">
+          <li>Created by</li>
+          <li>John Doe</li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul style="list-style-type: none;">
+          <li>Date Created</li>
+          <li>00/00/2000</li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul style="list-style-type: none;">
+          <li>Last Updated</li>
+          <li>00/02/2008</li>
+        </ul>
+      
+      </div>
+      <div class="col">
+        <div class="d-flex justify-content-end">
+          <a type="submit" class="btn btn-primary" role="botton" href="viewproject.html">View Project</a>
+        </div>
+      
+      </div>
+
+    </div>
+</div>
+  </div>
+</main>
+  <main>
+    <div class="container">
+      <div class="row row-col">
+          <div class="col">
+            <h6>Edit Project</h6><hr>
+            <form>
+              <div class="form-group">
+                <label for="form-label">Project Name:</label><br>
+                <input class="form-control" name="name" type="text" placeholder="project 1"/>
+                </div>
+                <div class="form-group">
+                    <label for="form-label" >Project Abstract:</label><br>
+                <textarea name="abstract" rows="6" class="form-control" placeholder="project 1 is a very interesting project"></textarea> 
+                </div>
+                <div class="form-group">
+                    <label for="form-label">Authors:</label><br>
+                <input class="form-control" name="authors" type="text" placeholder="sultan"/>
+                </div>
+                <div class="form-group">
+                    <label for="form-label">Tag(s):</label><br>
+                <input class="form-control" name="tags" type="text" placeholder="#web" />
+                </div>
+                <div>
+                  <button class="btn btn-primary">Save</button>
+                </div>
+            </form>
+          </div>
+          <div class="col">
+            <h6>Manage project files</h6><hr>
+            <div class="custom-file">
+              <div class="form-group">
+                <label class="custom-file-label" for="form-label">click to open file browser</label>
+                <input type="file" class="form-control" id="customfile"/>
+              </div>
+
+            </div>
+            <div class="card">
+              <h6 class="card-header">Project files</h6>
+              <div class="card-body">
+                <p class="text-center">No file uploaded yet</p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </main>
+
+<footer>
+  <div class="container">
+    <div class="card-footer text-right">
+      <p>Project Explorer &copy; 2020 - Edconnect</p>
+    </div>
+
+  </div>
+</footer>
+
+
+
+
+    </body>
+</html>
