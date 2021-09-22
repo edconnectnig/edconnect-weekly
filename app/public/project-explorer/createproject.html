@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+
+
+        </style>
+      </head>
+    
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Project Explorer</a>
+        <form class="form-inline" name="searchForm">
+            <input class="form-control" type="text" placeholder="Search Projects">
+            <button class="btn btn-outline-light" type="submit">Search</button>
+            <a class="navbar nav" href="#">Submit</a>
+        </form>
+    
+    
+        <a class="navbar nav ml-auto" href="#">Sign Up</a>
+        <a class="navbar nav" href="#">Login</a>
+      </nav>
+
+          </header>
+          <main class="mx-auto w-50 p-3">
+            <h3>Submit Project</h3>
+            <form name="submitProject"> 
+                <div class="form-group">
+                    <label for="name" class="form-label">Project Name:</label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter project name">
+                  </div>
+                  <div class="form-group">
+                    <label for="abstract" class="form-label">Project Abstract:</label>
+                    <textarea class="form-control" name="abstract" rows="4" cols="100"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="authors" class="form-label">Author(s):</label>
+                    <input type="text" class="form-control" name="authors" placeholder="Enter author names (seperated by comma)">
+                  </div>
+                  <div class="form-group">
+                    <label for="tags" class="form-label">Tag(s):</label>
+                    <input type="text" class="form-control" name="tags" placeholder="Use # to tag project with different topics">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Continue</button>
+            </form>
+        </main><br>
+        
+<style>
+    .footer {
+      position: static;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: lightgray;
+      color: gray;
+      text-align: right;
+    }
+    </style>
+    
+    <div class="footer">
+      <p>Project Explorer(c)2020. <b>Edconnect</b></p>
+    </div>
+
+
+
+</html>
