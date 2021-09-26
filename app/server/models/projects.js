@@ -17,23 +17,18 @@ validate(obj) {
         for (let prop in obj) {
             if (obj[prop].length == 0) {
                 this.errors.push(`${prop} should not be empty`)
-            }
+            } 
         }
-        if (!Array.isArray(obj.authors)) {
+        if (Array.isArray(obj.authors) === false || obj.authors === "") {
             this.errors.push("Authors should be an array");
         } 
-        if (!Array.isArray(obj.tags)) {
+        if (Array.isArray(obj.tags) === false || obj.tags === "") {
             this.errors.push("Tags should be an array");
-        } if (obj.id === "" || obj.id === undefined || obj.id === null) {
-            this.errors.push("id should not be empty");
-        } if (obj.name === "" || obj.name === undefined || obj.name === null) {
-            this.errors.push("name should not be empty");
-        } if (obj.abstract === "" || obj.abstract === undefined || obj.abstract === null) {
-            this.errors.push("abstract should not be empty");
-        } if (obj.createdBy === "" || obj.createdBy === undefined || obj.createdBy === null) {
-            this.errors.push("createdBy should not be empty");
-        }
         
+        } 
+
+    
+
         if (this.errors.length == 0) {
             return true;
         } else {

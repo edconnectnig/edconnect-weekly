@@ -36,14 +36,13 @@ class DataModel {
         
         if (found === true) {
             return true;
-        } else {
-            return false;
+         
         }
     }
     delete(id) {
-        //check if object with id property is found in the data array.
+        
         let found = false;
-        //check if object with id property is found in the data array.
+
         for (let obj of this.data) {
             for (let prop in obj) {
                 if (obj[prop] === id) {
@@ -53,8 +52,6 @@ class DataModel {
         }
         if (found === true) {
             return true;
-        } else {
-            return false;
         }
 
     }
