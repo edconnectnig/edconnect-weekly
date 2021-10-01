@@ -25,7 +25,16 @@ validate(obj) {
         if (Array.isArray(obj.tags) === false || obj.tags === "") {
             this.errors.push("Tags should be an array");
         
-        } 
+        } if (obj.id === "") {
+            this.errors.push("id should not be empty");
+        } if (obj.name === "") {
+            this.errors.push("name should not be empty");
+        } if (obj.abstract === "") {
+            this.errors.push("abstract should not be empty");
+        } if (obj.createdBy === "") {
+            this.errors.push("createdBy should not be empty");
+        }
+    
 
     
 
