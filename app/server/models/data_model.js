@@ -36,7 +36,8 @@ class DataModel {
         
         if (found === true) {
             return true;
-         
+        } else {
+            return false;
         }
     }
     delete(id) {
@@ -52,8 +53,10 @@ class DataModel {
         }
         if (found === true) {
             return true;
+        } else {
+            return false;    
         }
-
+        
     }
 
     // this method will be overriden in the sub classes
