@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid pt-3 pb-5">
+        <nav class="navbar navbar-expand navbar-dark bg-primary">
+            <a href="index.html" class="navbar-brand">Project Explorer</a>
+            <form name="searchForm" action="search.html" method="GET" class="form-inline">
+             <input type="text" name="search" class="mr-sm-2 form-control" placeholder="Search Projects" >
+                <button type="submit" class="btn btn-outline-light">Search</button>
+            </form>
+            <div class="mr-auto navbar-nav">
+            <a href="createproject.html" class="nav-link">Submit</a>
+            </div>
+            <div class="navbar-nav">
+            <a href="register.html" class="nav-link">Sign up</a>
+            <a href="login.html" class="nav-link">Login</a>
+        </div>
+        </nav>
+    <main>
+        <div class="container mt-5">
+        <h3>Project 1</h3>
+        <div class="container">
+            <div class="p-3 mt-3 mb-5 bg-light text-dark row">
+            <div class="col">
+            <p>Created by <br> Chika Noble</p>
+            </div>
+            <div class="col">
+            <p>Date Created <br> 19/04/2017</p>
+        </div>
+        <div class="col">
+            <p>Last Updated <br> 19/04/2020</p>
+        </div>
+        <div class="col">
+            <div class="d-flex justify-content-end">
+            <a href="viewproject.html" class="btn btn-primary btn-lg">View Project</a>
+        </div>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col">
+            <h5>
+                Edit Project
+            </h5>
+            <hr>
+            <form action="" name="editProject" class="form-group">
+                <label for="name" class="form-label">Project Name</label><br>
+                <input type="text" name="name" class="form-control" placeholder="Project 1">  <br>
+                <label for="abstract" class="form-label">Project Abstract</label><br>
+                <textarea name="abstract" class="form-control" id="abstract" cols="30" rows="10" placeholder="Project 1 is an interesting project">
+
+                </textarea><br>
+                <label for="authors" class="form-label">Authors(s)</label><br>
+                <input type="text" name="authors" class="form-control" placeholder="Enyinnaya Noble"><br>
+                <label for="tags" class="form-label">Tag(s)</label><br>
+                <input type="text" name="tags" class="form-control" placeholder="#web"><br>
+                
+                <button class="btn btn-primary">Save</button>
+            </form>
+
+            </div>
+        
+        <div class="col">
+            <h5>
+                Manage Project files
+            </h5>
+            <hr>
+            <div class="custom custom-file">
+                <label class="custom-file-label form-label" for="file-name">Click to open file browser</label>
+                <input multiple="" class="form-control" type="file" id="file-name" class="custom-file-input" name="projectFile" />
+            </div>
+                <hr>
+                <div class="card">
+                    <div class="card-header">
+                        Project files
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text text-center">
+                            No file uploaded yet
+                        </p>
+                    </div>
+                </div>
+    </div>
+</div>
+</div>
+    </main>
+    <footer class="bg-light text-right m-5 p-2 ">Project Explorer &copy2021 <a href="http://edconnect.ng">.Edconnect</a> </footer>
+
+    </div>
+</body>
+</html>
