@@ -1,1 +1,44 @@
-{"data":[{"id":"uqdecg701wb","firstname":"efe","lastname":"amad","email":"efe@gmail.com","password":"passME123","matricNumber":"06/1234","program":"comp tech","graduationYear":"2020"}]}
+{
+  "data": [
+    {
+      "id": "uqdecg701wb",
+      "firstname": "efe",
+      "lastname": "amad",
+      "email": "efe@gmail.com",
+      "password": "passME123",
+      "matricNumber": "06/1234",
+      "program": "comp tech",
+      "graduationYear": "2020"
+    },
+    {
+      "id": "jtq9kcts11",
+      "firstname": "Anthony",
+      "lastname": "Edgal",
+      "email": "tonyedgal@gmail.com",
+      "password": "aaaaaaaa",
+      "matricNumber": "16/2020",
+      "program": "Computer Science",
+      "graduationYear": "2016"
+    },
+    {
+      "id": "n7f3m39fbs",
+      "firstname": "Tony",
+      "lastname": "Edgal",
+      "email": "edgaltony@gmail.com",
+      "password": "aaaaaaaa",
+      "matricNumber": "16/2021",
+      "program": "Computer Science",
+      "graduationYear": "2015"
+    },
+    {
+      "id": "x2dr1mdrh6",
+      "firstname": "Sam",
+      "lastname": "Lito",
+      "email": "Lito@gmail.com",
+      "password": "aaaaaaaa",
+      "matricNumber": "16/2022",
+      "program": "Computer technology",
+      "graduationYear": "2020"
+    }
+  ]
+}

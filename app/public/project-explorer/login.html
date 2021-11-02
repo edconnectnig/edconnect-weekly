@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <title>Project Explorer</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+      <a class="navbar-brand" href="index.html">Project Explorer</a>
+      <form name="searchForm" class="form-inline">
+        <input
+          type="search"
+          class="form-control mr-sm-2"
+          placeholder="Search Projects"
+        />
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+      <div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="createproject.html">Submit</a>
+          </li>
+        </ul>
+      </div>
+      <div class="ml-auto">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="register.html">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main class="container">
+      <h1 class="mx-auto pt-5 w-75">Login</h1>
+      <form class="mx-auto w-75" id="loginForm">
+        <div class="form-group">
+          <label for="email" class="form-label">Email Address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Email Address"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            id="password"
+            name="password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </main>
+    <footer class="mx-5 my-4 text-right bg-light">
+      <p class="py-3 mr-2 text-muted">
+        Project Explorer &copy; 2021 . <span class="text-dark">Edconnect</span>
+      </p>
+    </footer>
+    <script src="./js/App.js"></script>
+  </body>
+</html>

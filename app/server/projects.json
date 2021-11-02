@@ -1,1 +1,36 @@
-{"data":[{"id":"qqg8jtk5iso","name":"edconnect","abstract":"hello this is an abstract","authors":["efe","john"],"tags":["e-learning"],"createdBy":"uqdecg701wb"}]}
+{
+  "data": [
+    {
+      "id": "qqg8jtk5iso",
+      "name": "edconnect",
+      "abstract": "hello this is an abstract",
+      "authors": ["efe", "john"],
+      "tags": ["e-learning"],
+      "createdBy": "uqdecg701wb"
+    },
+    {
+      "id": "7zbvovylkp",
+      "name": "Face Recognition App",
+      "abstract": "This app using ML to detect human faces",
+      "authors": ["Sam Lito"],
+      "tags": ["#AI", "#ML", "#TensorFlow"],
+      "createdBy": "x2dr1mdrh6"
+    },
+    {
+      "id": "zmh9o8tc3dn",
+      "name": "Real-time Voting App",
+      "abstract": "This app lets people code in real-time",
+      "authors": ["Tony Danza"],
+      "tags": ["#sockets"],
+      "createdBy": "n7f3m39fbs"
+    },
+    {
+      "id": "npipare7o9r",
+      "name": "Shopping coupon App",
+      "abstract": "This app lets people source coupons for shopping",
+      "authors": ["Anthony Edgal"],
+      "tags": ["#javascript"],
+      "createdBy": "jtq9kcts11"
+    }
+  ]
+}
