@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Project Explorer</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css"></link>
+            <nav class="navbar navbar-expand-lg navbar-blue bg-secondary justify-content-between">
+            <a class="navbar-brand "href="#">Project Explorer</a>
+            <div class="collapse navbar-collapse">
+             <form class="form-inline">
+             <input class="form-control" type="text" placeholder="Search Projects" />
+             <button class="btn btn-outline-light btn-mg-10 btn-primary" type="button">Search</button>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Submit</a>    
+                </li>
+              </ul>
+             </form>
+            </div>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+            </ul>    
+        </nav>           
+    </head><br><br>      
+        <main> 
+        <h3>Project Gallery</h3><br><br>    
+        <div class="bg-light p-3">
+            <form>
+            <div class="form-group my-2 col">
+            <div class="form-row">
+                <div class="col-6">    
+                <input type="text" class="form-control form-control-lg" name="searchTerm" id="searchTerm" placeholder="Project Name, Authors, Abstract, Tags"/>
+                </div>
+                <div class="form-group">
+                <a class="nav-link" href="#">Search by</a>
+                </div>
+                <div class="form-group">
+                <select id="searchTerm" class="form-control form-control-lg">
+                    <option selected>Name</option>
+                    <option>...</option>
+                </select>
+                </div>    
+                <button class="btn btn-lg btn-primary" type="button">Submit</button>
+            </div>
+            </div>    
+                <h5>All Projects (0 results)</h5><br>
+            <div class="row">
+                <div class="col">
+                <div class="card">
+                    <div class="card-body text-center">
+                    <h5 class="card-title">Project Title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Author 1, Author 2</h6><br><br>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">#html</a>
+                    <a href="#" class="card-link">#css</a>
+                    <a href="#" class="card-link">#javascript</a>
+                    </div>
+                </div>
+                </div>
+                <div class="col">
+                <div class="card">    
+                    <div class="card-body text-center">
+                    <h5 class="card-title">Project Title</h5>
+                    <h6 class="card-subtitle">Author 1, Author 2</h6><br><br>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">#html</a>
+                    <a href="#" class="card-link">#css</a>
+                    <a href="#" class="card-link">#javascript</a>
+                    </div>
+                </div>
+                </div>
+            </div>    
+            </form>
+        <div>    
+        </main>
+        <footer>
+                  <div class="d-flex justify-content-end">
+                  <h6>Project Explorer c 2020 . <strong>Edconnect</strong><h6>
+                  </div>
+        </footer> 
+</html>

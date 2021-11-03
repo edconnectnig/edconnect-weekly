@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Project Explorer</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css"></link>
+            <nav class="navbar navbar-expand-lg navbar-blue bg-secondary justify-content-between">
+            <a class="navbar-brand "href="#">Project Explorer</a>
+            <div class="collapse navbar-collapse">
+             <form class="form-inline">
+             <input class="form-control" type="text" placeholder="Search Projects" />
+             <button class="btn btn-outline-light btn-mg-10 btn-primary" type="button">Search</button>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Submit</a>    
+                </li>
+              </ul>
+             </form>
+            </div>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+            </ul>    
+        </nav>           
+    </head><br><br>  
+        <main>   
+        <form>
+            <div class="form-group col mx-auto w-75">
+                <h3>Signup</h3>
+                <div class="form-row">
+                    <div class="col-6">
+                    <label for="firstName" class="form-label">First name</label>
+                    <input type="text" name="firstName" class="form-control" id="firstName" placeholder="First Name" />
+                    </div>
+                    <div class="col-6">
+                    <label for="lastName" class="form-label">Last name</label>
+                    <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Last name" /><br>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-6">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Your Enter email" />
+                    </div>
+                    <div class="col-6">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Your Password" /><br>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-6">            
+                    <label for="program" class="form-label">Program</label>
+                    <select id="program" class="form-control" name="program">
+                         <option value="choose">Choose...</option>
+                        <option value="computer_science">Computer Science</option>
+                        <option value="computer_information_systems">Computer Information Systems</option>
+                        <option value="computer_technology">Computer Technology</option>
+                    </select>
+                    </div>
+                    <div class="col-3">
+                    <label for="matricNumber" class="form-label">Matriculation Number</label>
+                    <input type="text" name="matricNumber" class="form-control" id="matricNumber" placeholder="e.g. 16/0000" />
+                    </div>
+                    <div class="col-3">
+                    <label for="graduationYear">Graduation Year</label>
+                    <select class="form-control" name="graduationYear" id="graduationYear">
+                        <option value="choose">Choose...</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                    </select>
+                    </div>   
+                </div>     
+                    <button class="btn btn-primary" type="button">Sign Up</button>
+            </form>
+             <footer>
+                  <div class="d-flex justify-content-end">
+                  <h6>Project Explorer c 2020 . <strong>Edconnect</strong><h6>
+                  </div>
+            </footer> 
+        </main>
+</html>

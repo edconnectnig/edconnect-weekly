@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Project Explorer</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css"></link>
+            <nav class="navbar navbar-expand-lg navbar-blue bg-secondary justify-content-between">
+            <a class="navbar-brand "href="#">Project Explorer</a>
+            <div class="collapse navbar-collapse">
+             <form class="form-inline">
+             <input class="form-control" type="text" placeholder="Search Projects" />
+             <button class="btn btn-outline-light btn-mg-10 btn-primary" type="button">Search</button>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Submit</a>    
+                </li>
+              </ul>
+             </form>
+            </div>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+            </ul>    
+        </nav>           
+    </head><br><br>   
+        <main>
+        <div class="container">
+            <h3>Project 1</h3><br>
+                <div class="row">
+                    <div class="col">
+                    <h6>Created By</h6>
+                    <h6>Ade Chris</h6>
+                    </div>
+                    <div class="col">
+                    <h6>Date Created</h6>
+                    <h6>2020-08-30</h6>
+                    </div>
+                    <div class="col">
+                    <h6>Last Updated</h6>
+                    <h6>2020-08-30</h6>
+                    </div>
+                    <div class="d-flex justify-content-end col">
+                    <a class="btn btn-primary" href="viewproject.html" role="button">View Project</a>
+                    </div>
+                </div><br><br>
+        <form>        
+        <div class="form-group">
+        <div class="row">
+            <div class="col">     
+                <h4>Edit Project</h4><br><br>
+                <label for="name" class="form-label">Project name</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Project 1"/>
+                <label for="projectAbstract" class="form-label">Project abstract</label>
+                <textarea class="form-control" name="abstract" id="projectAbstract" rows="3" placeholder="Project 1 is a very interesting project"></textarea>
+                <label for="authors" class="form-label">Author(s)</label>
+                <input type="text" class="form-control" name="authors" id="authors" placeholder="Ade Chris"/>
+                <label for="tags" class="form-label">Tag(s)</label>
+                <input type="text" class="form-control" name="tags" id="tags" placeholder="#web"/>
+                 <button class="btn btn-primary" type="button">Save</button>
+            </div>
+            <div class="col">
+                <h4>Manage Project Files</h4><br><br>
+                <input type="text" class="form-control" placeholder="Click to open File Browser" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-secondary" type="button" id="button-addon2">Browse</button>
+                <div class="card">    
+                    <div class="card-body">
+                        <div class="card-header">Project files</div>
+                        <p class="card-text text-center">No file uploaded yet</p>
+                    </div>
+                </div>    
+            </div> 
+        </div>
+        </div>
+        </div>
+        </form>       
+        <footer>
+            <div class="d-flex justify-content-end">
+                <h6>Project Explorer c 2020.<strong>Edconnect</strong><h6>
+            </div>
+        </footer>     
+        </main>  
+</html>
