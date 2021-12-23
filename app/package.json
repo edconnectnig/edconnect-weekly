@@ -10,12 +10,21 @@
 	},
 	"license": "ISC",
 	"dependencies": {
+		"@react-ssr/core": "^0.24.0",
+		"@react-ssr/express": "^0.24.0",
 		"axios": "^0.19.2",
 		"body-parser": "^1.19.0",
+		"bootstrap": "^4.6.0",
+		"cookie-parser": "^1.4.6",
 		"dotenv": "^8.2.0",
-		"express": "^4.17.1",
+		"express": "^4.17.2",
+		"express-flash": "0.0.2",
 		"express-session": "^1.17.1",
-		"morgan": "^1.10.0"
+		"fs-monkey": "^1.0.3",
+		"morgan": "^1.10.0",
+		"react": "^17.0.2",
+		"react-bootstrap": "^1.5.2",
+		"react-dom": "^17.0.2"
 	},
 	"devDependencies": {
 		"cross-env": "^7.0.2",
