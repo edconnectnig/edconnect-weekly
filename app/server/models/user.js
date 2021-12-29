@@ -4,15 +4,44 @@ const crypto = require("crypto");
 
 const UserSchema = new Schema(
   {
-    firstname: { type: String, required: true },
-    lastname: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, minlength: 7, required: true },
-    salt: { type: String, required: true },
-    matricNumber: { type: String, required: true },
-    program: { type: String },
-    graduationYear: { type: String },
+    firstname: {
+      type: String,
+      required: [true, "please enter your first name"],
+      lowercase: true,
+      trim: true,
+    },
+
+    lastname: {
+      type: String,
+      required: [true, "please enter your last name"],
+      lowercase: true,
+      trim: true,
+    },
+
+    email: {
+      type: String,
+      required: [true, "please enter an email"],
+      unique: true,
+      lowercase: true,
+      trim: true,
+    },
+
+    password: { type: String, required: [true, "please enter a password"] },
+
+    salt: { type: String, required: [true, "salt is required"] },
+
+    matricNumber: {
+      type: String,
+      required: [true, "please enter your matric number"],
+      lowercase: true,
+      trim: true,
+    },
+
+    program: String,
+
+    graduationYear: String,
   },
+
   { timestamps: true }
 );
 
@@ -27,11 +56,12 @@ UserSchema.methods.setPassword = function (password) {
   }
 };
 
-UserSchema.methods.validPassword = function (result, password) {
-  return (
-    result.password ===
-    crypto.pbkdf2Sync(password, result.salt, 1000, 64, "sha512").toString("hex")
-  );
+UserSchema.statics.validPassword = function (user, password) {
+  const salt = user.salt;
+  const hashed = crypto
+    .pbkdf2Sync(password, salt, 1000, 64, "sha512")
+    .toString("hex");
+  return hashed;
 };
 
 const User = mongoose.model("users", UserSchema);

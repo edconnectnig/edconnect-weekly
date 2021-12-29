@@ -1,18 +1,18 @@
 require("dotenv").config();
 
 const express = require("express");
+const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const session = require("express-session");
-const register = require("@react-ssr/express/register");
 const flash = require("express-flash");
-const mongoose = require("mongoose");
 const app = express();
+
+const register = require("@react-ssr/express/register");
+
 const SERVER_PORT = process.env.SERVER_PORT;
 
 register(app).then(() => {
-  // move all app code here
-
   app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header(
@@ -23,14 +23,10 @@ register(app).then(() => {
   });
 
   app.use(morgan("combined"));
-  /* app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({
-        extended: true
-    })); */
-
-  app.use(express.json());
+  app.use(flash());
+  app.use(bodyParser.json());
   app.use(
-    express.urlencoded({
+    bodyParser.urlencoded({
       extended: true,
     })
   );
@@ -47,12 +43,10 @@ register(app).then(() => {
   );
 
   app.use("/api", require("./routes/api"));
-  app.use(flash());
   app.use("/", require("./controllers/home"));
   app.use("/", require("./controllers/user"));
   app.use("/", require("./controllers/project"));
   app.use(express.static("public"));
-
   app.listen(SERVER_PORT, () =>
     console.log("Server listening on port " + SERVER_PORT)
   );
@@ -69,8 +63,6 @@ register(app).then(() => {
 
       useCreateIndex: true,
     },
-
-    // callback that’s called when connection succeeds or fails.
 
     (err) => {
       if (err) {

@@ -1,57 +1,63 @@
 const express = require("express");
 const router = express.Router();
-const school = require("../services/school");
-const user = require("../services/user");
+const User = require("../services/user");
 
 router.get("/signup", (req, res) => {
-  // add code to render the Signup Component, and pass in the programs and gradyears as props
-  const error = req.flash("error");
-  res.render("Signup", {
-    props1: school.getPrograms(),
-    props2: school.getGradYears(),
-    props3: error,
-    user: req.session.user,
-  });
+  const user = req.session.user;
+  const response = require("../services/school");
+  const programs = response.getPrograms();
+  const graduationYears = response.getGradYears();
+  const errorJson = req.flash("signupError")[0];
+  const inputJson = req.flash("signupInput")[0];
+
+  let error;
+  let input;
+  if (errorJson && inputJson) {
+    error = JSON.parse(errorJson);
+    input = JSON.parse(inputJson);
+  }
+
+  if (user) {
+    res.render("Signup", { programs, graduationYears, error, input, user });
+  } else {
+    res.render("Signup", { programs, graduationYears, error, input });
+  }
 });
 
 router.post("/signup", async (req, res) => {
-  let regInfo = {
-    firstname: req.body.firstName,
-    lastname: req.body.lastName,
-    email: req.body.email,
-    password: req.body.password,
-    matricNumber: req.body.matricNumber,
-    program: req.body.program,
-    graduationYear: req.body.graduationYear,
-  };
-  const results = await user.create(regInfo);
-  if (results[0] === true) {
-    req.session.user = results[1];
+  const { firstName, lastName, ...others } = req.body;
+  const body = { firstname: firstName, lastname: lastName, ...others };
+  const user = await User.create(body);
+  if (user[0]) {
+    req.session.user = user[1];
     res.redirect("/");
   } else {
-    const error = results[1];
-    req.flash("error", error);
+    req.flash("signupInput", JSON.stringify(req.body));
+    req.flash("signupError", JSON.stringify(user[1]));
     res.redirect(303, "/signup");
   }
 });
 
 router.get("/login", (req, res) => {
-  // add code to render the Login Component
-  const error = req.flash("error");
-  res.render("Login", { props: error, user: req.session.user });
-});
-
-router.post("/login", async (req, res) => {
-  const results = await user.authenticate(req.body.email, req.body.password);
-  if (results[0] === true) {
-    req.session.user = results[1];
-    //console.log(req.session.user)
-    res.redirect("/");
+  const user = req.session.user;
+  const error = req.flash("loginError")[0];
+  if (user) {
+    res.render("Login", { error, user });
   } else {
-    const error = results[1];
-    req.flash("error", error);
-    res.redirect(303, "/login");
+    res.render("Login", { error });
   }
 });
 
+router.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  const isValid = await User.authenticate(email, password);
+
+  if (isValid[0]) {
+    req.session.user = isValid[1];
+    res.redirect("/");
+  } else {
+    req.flash("loginError", "true");
+    res.redirect(303, "/login");
+  }
+});
 module.exports = router;

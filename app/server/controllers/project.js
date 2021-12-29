@@ -1,45 +1,67 @@
 const express = require("express");
 const router = express.Router();
-//const User = require("../models/user");
-//const Project = require("../models/project");
-const project = require("../services/project");
-const user = require("../services/user");
+const projectRes = require("../services/project");
+const userRes = require("../services/user");
 
 router.get("/projects/submit", (req, res) => {
-  // add code to render the CreateProject Component
-  const error = req.flash("error");
-  res.render("CreateProject", { props: error, user: req.session.user });
-  !req.session.user && res.redirect("/login");
+  const user = req.session.user;
+  const errorJson = req.flash("projectError");
+
+  let error;
+  if (errorJson.length > 0) {
+    error = JSON.parse(errorJson[0]);
+  }
+
+  if (!user) {
+    res.redirect("/login");
+  } else {
+    res.render("CreateProject", { error, user });
+  }
 });
 
 router.post("/projects/submit", async (req, res) => {
-  let projectInfo = {
-    name: req.body.name,
-    abstract: req.body.abstract,
-    tags: req.body.tags.split(","),
-    authors: req.body.authors.split(","),
-    createdBy: req.session.user._id,
-  };
+  try {
+    const { body } = req;
+    const { name, abstract } = body;
+    const tags = body.tags.split(", ");
+    const authors = body.authors.split(", ");
 
-  const results = await project.create(projectInfo);
-  if (results[0] === true) {
+    const newProject = await projectRes.create({
+      name,
+      abstract,
+      authors,
+      tags,
+      createdBy: req.session.user._id,
+    });
+
+    if (!newProject[0]) {
+      throw "ProjectCreateError";
+    }
+
     res.redirect("/");
-  } else {
-    const error = results[1];
-    req.flash("error", error);
-    res.redirect(303, "/projects/submit");
+  } catch (e) {
+    if (e === "ProjectCreateError") {
+      req.flash("projectError", JSON.stringify(newProject[1]));
+      res.redirect(303, "/projects/submit");
+    }
   }
 });
 
 router.get("/project/:id", async (req, res) => {
-  // add code to render the CreateProject Component
-  const params = req.params.id;
-  const userParams = await project.getById(params);
-  res.render("Project", {
-    props1: userParams,
-    props2: await user.getById(userParams.createdBy),
-    user: req.session.user,
-  });
+  const projectId = req.params.id;
+  const project = await projectRes.getById(projectId);
+  const userId = project.createdBy;
+  const creator = await userRes.getById(userId);
+  const user = req.session.user;
+
+  if (!project) {
+    res.redirect("/");
+  }
+  if (user) {
+    res.render("Project", { project, user, creator });
+  } else {
+    res.render("Project", { project, creator });
+  }
 });
 
 module.exports = router;
