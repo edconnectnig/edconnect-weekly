@@ -1,21 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const projects = require("../services/project");
 
-router.get("/", (req, res) => {
-  const response = require("../services/project");
-  const data = response.getAll();
+router.get("/", async (req, res) => {
+  // add code to render the Home Component, and pass in the projects as a props
+  const project = await projects.getAll();
   const user = req.session.user;
-
-  if (user) {
-    res.render("Home", { data, user });
-  } else {
-    res.render("Home", { data });
-  }
+  res.render("Home", { project, user });
 });
 
 router.get("/logout", (req, res) => {
+  // add code to destroy the session/cookie
   req.session.destroy();
-
   res.redirect("/");
 });
 

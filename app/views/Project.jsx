@@ -1,135 +1,115 @@
-import React, { useState } from "react";
-import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
+import React from "react";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Form,
+  InputGroup,
+  Row,
+} from "react-bootstrap";
 import Layout from "./shared/Layout";
 
-const Project = ({ project, user, creator }) => {
+const Project = (props) => {
+  //console.log(props)
   return (
-    <Layout user={user}>
+    <Layout user={props.user}>
       <main>
-        <div className="mx-auto w-50 mt-5">
-          <Container>
-            <Row>
-              <strong>
-                <h2 id="project_name">{project?.name}</h2>
-              </strong>
-            </Row>
-
-            <Row className="bg-light p-3">
-              <Col id="project_author">
-                Created by: <br />{" "}
-                {creator?.firstname + " " + creator?.lastname}
-              </Col>
-              <Col>
-                Date created: <br /> 2020-01-12
-              </Col>
-              <Col>
-                Last updated: <br /> 2021-03-29
-              </Col>
-              <Button href="/createproject" className="align-middle pt-2">
+        {" "}
+        <br />
+        <br />
+        <Container>
+          <Row>
+            <h3 id="project_name">
+              <strong>{props.props1.name}</strong>
+            </h3>
+          </Row>
+          <Row className="bg-light p-3">
+            <Col>
+              <p>Created By</p>
+              <p id="project_author">{`${props.props2.firstname} ${props.props2.lastname}`}</p>
+            </Col>
+            <Col>
+              <p>Date Created</p>
+              <p>{new Date(props.props1.createdAt).toLocaleDateString()}</p>
+            </Col>
+            <Col>
+              <p>Last Updated</p>
+              <p>{new Date(props.props1.updatedAt).toLocaleDateString()}</p>
+            </Col>
+            <Col className="mx-auto justify-content-end">
+              <Button href="/createproject" variant="primary" size="lg">
                 Edit Project
               </Button>
-            </Row>
-          </Container>
-        </div>
-
-        <div className="mx-auto w-50 mt-5 d-flex">
-          <Container>
-            <Row>
-              <Col>
-                <strong>
-                  <h4>Project Abstract</h4>
-                </strong>
-              </Col>
-            </Row>
-
-            <hr className="mb-4" />
-
-            <Row className="mb-5">
-              <Col id="project_abstract">{project?.abstract}</Col>
-            </Row>
-
-            <Row>
-              <Col>
-                <Form>
-                  <Form.Group>
-                    <Form.Label>
-                      <strong>
-                        <h4>Comments</h4>
-                      </strong>
-                    </Form.Label>
-
-                    <Form.Control
-                      as="textarea"
-                      id="comments"
-                      rows={4}
-                      cols={47}
-                      placeholder="Leave a comment"
-                    />
-                    <Button variant="primary" type="submit" className="mt-3">
-                      Submit
-                    </Button>
-                  </Form.Group>
-                  <hr />
-                  <div className="text-center">
-                    <p>No comments added yet</p>
-                  </div>
-                </Form>
-              </Col>
-            </Row>
-          </Container>
-
-          <Container>
-            <Row>
-              <Col>
-                <h4>Project Details</h4>
-              </Col>
-            </Row>
-
-            <hr className="mb-4" />
-
-            <Row className="mb-3">
-              <Col>
-                <Card>
-                  <Card.Header>
-                    <h6>Author(s)</h6>
-                  </Card.Header>
-                  <Card.Body className="pr-0 pl-0">
-                    <Card.Text id="project_authors">
-                      {project?.authors.map((author, index) => {
-                        return (
-                          <div key={index}>
-                            {index > 0 ? <hr /> : null}
-                            <p className="pr-3 pl-3">{author}</p>
-                          </div>
-                        );
-                      })}
-                    </Card.Text>
-                  </Card.Body>
-
-                  <Card.Footer id="project_tags">
-                    {project?.tags.map((tag, index) => (
-                      <span key={index}>#{tag}</span>
-                    ))}
-                  </Card.Footer>
-                </Card>
-              </Col>
-            </Row>
-
-            <Card>
-              <Card.Header>
-                <h6>Project files</h6>
-              </Card.Header>
-              <Card.Body>
-                <Card.Text>
-                  <div className="text-center">
-                    <p>No files uploaded yet</p>
-                  </div>
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Container>
-        </div>
+            </Col>
+          </Row>
+        </Container>
+        <br />
+        <Container>
+          <Row>
+            <Col>
+              <h3>Project Abstract</h3>
+              <hr className="solid" />
+              <p id="project_abstract">{props.props1.abstract}</p>
+              <br />
+              <br />
+              <Form name="projectComment">
+                <Form.Group>
+                  <Form.Label>
+                    <strong>Comments:</strong>
+                  </Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    name="comments"
+                    rows={4}
+                    cols={50}
+                    placeholder="Leave a comment"
+                  />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </Form>
+              <hr className="solid" />
+              <p align="center">No comments added yet</p>
+            </Col>
+            <Col>
+              <h3>Project details</h3>
+              <hr className="solid" />
+              <InputGroup>
+                <Form.File id="custom-file" label="Custom file input" custom />
+                <InputGroup.Append>
+                  <Button variant="primary" type="button" name="projectFile">
+                    Upload
+                  </Button>
+                </InputGroup.Append>
+              </InputGroup>
+              <hr className="solid" />
+              <Card>
+                <Card.Header>Author(s)</Card.Header>
+                <Card.Body>
+                  <Card.Text>
+                    <p align="center" id="project_authors">
+                      {props.props1.authors}
+                    </p>
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer id="project_tags">{props.props1.tags}</Card.Footer>
+              </Card>
+              <br />
+              <Card>
+                <Card.Header>Project files</Card.Header>
+                <Card.Body>
+                  <Card.Text>
+                    <p align="center">No files uploaded yet</p>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
       </main>
+      <br />
     </Layout>
   );
 };

@@ -1,49 +1,36 @@
-// imports
-const fs = require("fs");
-const path = require("path");
-const Projects = require("../models/projects").Projects;
-const Project = require("../models/projects").Project;
-
-// load data file
-const projectsFile = path.join(__dirname, "../projects.json");
-
-// helper functions
-const saveJsonFile = (file, data) =>
-  fs.writeFileSync(file, JSON.stringify({ data }));
-const getFileAsJson = (file) => JSON.parse(fs.readFileSync(file));
-const saveProjectsToFile = (data) => saveJsonFile(projectsFile, data);
-const id = () => Math.random().toString(36).substring(2);
+const Project = require("../models/project");
+const helper = require("../models/mongo_helper");
 
 /* Create new project */
-const create = ({ name, abstract, authors, tags, createdBy }) => {
-  // populate projects with data from file.
-  const projects = new Projects();
-  projects.data = getFileAsJson(projectsFile).data;
+const create = async ({ name, abstract, authors, tags, createdBy }) => {
+  try {
+    // Create user and add to database.
+    const project = new Project();
+    project.name = name;
+    project.abstract = abstract;
+    project.authors = authors;
+    project.tags = tags;
+    project.createdBy = createdBy;
 
-  const project = new Project(id(), name, abstract, authors, tags, createdBy);
-  if (projects.save(project)) {
-    saveProjectsToFile(projects.data);
-    return [true, project];
-  } else {
-    return [false, projects.errors];
+    if (await project.save()) {
+      return [true, project];
+    }
+  } catch (error) {
+    /* Incase of error, catch, do ya thing! */
+    return [false, helper.translateError(error)];
   }
 };
 
 /* Return project with specified id */
-const getById = (id) => {
+const getById = async (id) => {
   // populate projects with data from file.
-  const projects = new Projects();
-  projects.data = getFileAsJson(projectsFile).data;
-
-  return projects.getById(id);
+  return await Project.findOne({ _id: id });
 };
-/* Return all projects */
-const getAll = () => {
-  // populate projects with data from file.
-  const projects = new Projects();
-  projects.data = getFileAsJson(projectsFile).data;
 
-  return projects.getAll();
+/* Return all projects */
+const getAll = async () => {
+  // populate projects with data from file.
+  return await Project.find();
 };
 
 module.exports = {
