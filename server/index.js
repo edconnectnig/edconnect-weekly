@@ -7,10 +7,16 @@ const morgan = require("morgan");
 const session = require("express-session");
 const flash = require("express-flash");
 const app = express();
+const MongoDBStore = require("connect-mongodb-session")(session);
 
 const register = require("@react-ssr/express/register");
 
-const SERVER_PORT = process.env.SERVER_PORT;
+const SERVER_PORT = process.env.PORT || 80;
+
+const store = new MongoDBStore({
+  uri: process.env.MONGODB_URI,
+  collection: "mySessions",
+});
 
 register(app).then(() => {
   app.use((req, res, next) => {
@@ -37,6 +43,7 @@ register(app).then(() => {
       cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 7,
       },
+      store: store,
       resave: true,
       saveUninitialized: false,
     })
