@@ -11,7 +11,7 @@ const MongoDBStore = require("connect-mongodb-session")(session);
 
 const register = require("@react-ssr/express/register");
 
-const SERVER_PORT = process.env.PORT || 80;
+const SERVER_PORT = process.env.PORT || 4000;
 
 const store = new MongoDBStore({
   uri: process.env.MONGODB_URI,
