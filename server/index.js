@@ -11,7 +11,8 @@ const MongoDBStore = require("connect-mongodb-session")(session);
 
 const register = require("@react-ssr/express/register");
 
-const SERVER_PORT = process.env.PORT || 4000;
+const port = process.env.PORT || 4000;
+const host = "0.0.0.0";
 
 const store = new MongoDBStore({
   uri: process.env.MONGODB_URI,
@@ -54,9 +55,7 @@ register(app).then(() => {
   app.use("/", require("./controllers/user"));
   app.use("/", require("./controllers/project"));
   app.use(express.static("public"));
-  app.listen(SERVER_PORT, "0.0.0.0", function () {
-    console.log("Server listening on port " + SERVER_PORT);
-  });
+  app.listen(port, host, () => console.log("Server listening on port " + port));
 
   mongoose.set("bufferCommands", false);
 
