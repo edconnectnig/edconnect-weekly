@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -12,7 +10,7 @@ const MongoDBStore = require("connect-mongodb-session")(session);
 const register = require("@react-ssr/express/register");
 
 const host = "0.0.0.0";
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 const store = new MongoDBStore({
   uri: process.env.MONGODB_URI,
@@ -55,12 +53,14 @@ register(app).then(() => {
   app.use("/", require("./controllers/user"));
   app.use("/", require("./controllers/project"));
   app.use(express.static("public"));
-  app.listen(port, host, () => console.log("Server listening on port " + port));
+  app.listen(port || 4000);
 
+  const db =
+    "mongodb+srv://spaceman:node-tut-db@node-tut.8hflk.mongodb.net/project-explorer";
   mongoose.set("bufferCommands", false);
 
   mongoose.connect(
-    process.env.MONGODB_URI, // connection string from .env file
+    db, // connection string from .env file
 
     {
       useNewUrlParser: true,
@@ -74,7 +74,7 @@ register(app).then(() => {
       if (err) {
         console.log("Error connecting to db: ", err);
       } else {
-        console.log(`Connected to MongoDB @ ${process.env.MONGODB_URI}`);
+        console.log(`Connected to MongoDB @ ${db}`);
       }
     }
   );
