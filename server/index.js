@@ -2,17 +2,15 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const session = require("express-session");
 const flash = require("express-flash");
+const bodyParser = require("body-parser");
 const app = express();
+const register = require("@react-ssr/express/register");
 const MongoDBStore = require("connect-mongodb-session")(session);
 
-const register = require("@react-ssr/express/register");
-
-const host = "0.0.0.0";
-const port = process.env.PORT;
+const SERVER_PORT = process.env.PORT || 4000;
 
 const store = new MongoDBStore({
   uri: process.env.MONGODB_URI,
@@ -29,32 +27,6 @@ register(app).then(() => {
     next();
   });
 
-  app.listen(port || 4000);
-
-  const db =
-    "mongodb+srv://spaceman:node-tut-db@node-tut.8hflk.mongodb.net/project-explorer";
-  mongoose.set("bufferCommands", false);
-
-  mongoose.connect(
-    db, // connection string from .env file
-
-    {
-      useNewUrlParser: true,
-
-      useUnifiedTopology: true,
-
-      useCreateIndex: true,
-    },
-
-    (err) => {
-      if (err) {
-        console.log("Error connecting to db: ", err);
-      } else {
-        console.log(`Connected to MongoDB @ ${db}`);
-      }
-    }
-  );
-
   app.use(morgan("combined"));
   app.use(flash());
   app.use(bodyParser.json());
@@ -63,7 +35,6 @@ register(app).then(() => {
       extended: true,
     })
   );
-
   app.use(
     session({
       secret: "secret",
@@ -75,10 +46,29 @@ register(app).then(() => {
       saveUninitialized: false,
     })
   );
-
   app.use("/api", require("./routes/api"));
   app.use("/", require("./controllers/home"));
   app.use("/", require("./controllers/user"));
   app.use("/", require("./controllers/project"));
   app.use(express.static("public"));
+  app.listen(SERVER_PORT, () =>
+    console.log("Server listening on port " + SERVER_PORT)
+  );
+
+  mongoose.set("bufferCommands", false);
+  mongoose.connect(
+    process.env.MONGODB_URI, // connection string from .env file
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+    },
+    (err) => {
+      if (err) {
+        console.log("Error connecting to db: ", err);
+      } else {
+        console.log(`Connected to MongoDB @ ${process.env.MONGODB_URI}`);
+      }
+    }
+  );
 });
