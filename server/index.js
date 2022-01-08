@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -27,6 +29,32 @@ register(app).then(() => {
     next();
   });
 
+  app.listen(port || 4000);
+
+  const db =
+    "mongodb+srv://spaceman:node-tut-db@node-tut.8hflk.mongodb.net/project-explorer";
+  mongoose.set("bufferCommands", false);
+
+  mongoose.connect(
+    db, // connection string from .env file
+
+    {
+      useNewUrlParser: true,
+
+      useUnifiedTopology: true,
+
+      useCreateIndex: true,
+    },
+
+    (err) => {
+      if (err) {
+        console.log("Error connecting to db: ", err);
+      } else {
+        console.log(`Connected to MongoDB @ ${db}`);
+      }
+    }
+  );
+
   app.use(morgan("combined"));
   app.use(flash());
   app.use(bodyParser.json());
@@ -53,29 +81,4 @@ register(app).then(() => {
   app.use("/", require("./controllers/user"));
   app.use("/", require("./controllers/project"));
   app.use(express.static("public"));
-  app.listen(port || 4000);
-
-  const db =
-    "mongodb+srv://spaceman:node-tut-db@node-tut.8hflk.mongodb.net/project-explorer";
-  mongoose.set("bufferCommands", false);
-
-  mongoose.connect(
-    db, // connection string from .env file
-
-    {
-      useNewUrlParser: true,
-
-      useUnifiedTopology: true,
-
-      useCreateIndex: true,
-    },
-
-    (err) => {
-      if (err) {
-        console.log("Error connecting to db: ", err);
-      } else {
-        console.log(`Connected to MongoDB @ ${db}`);
-      }
-    }
-  );
 });
