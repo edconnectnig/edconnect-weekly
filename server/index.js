@@ -17,6 +17,10 @@ const store = new MongoDBStore({
   collection: "mySessions",
 });
 
+app.listen(SERVER_PORT, () =>
+    console.log("Server listening on port " + SERVER_PORT)
+);
+
 register(app).then(() => {
   app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -51,9 +55,7 @@ register(app).then(() => {
   app.use("/", require("./controllers/user"));
   app.use("/", require("./controllers/project"));
   app.use(express.static("public"));
-  app.listen(SERVER_PORT, () =>
-    console.log("Server listening on port " + SERVER_PORT)
-  );
+  
 
   mongoose.set("bufferCommands", false);
   mongoose.connect(
