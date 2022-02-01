@@ -10,7 +10,7 @@ const create = async ({ name, abstract, authors, tags, createdBy }) => {
     const newProject = await project.save();
 
     if (!newProject) {
-      throw "ProjectCreateError";
+      throw new Error("ProjectCreateError");
     }
 
     return [true, project];
