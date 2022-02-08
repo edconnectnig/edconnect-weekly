@@ -35,9 +35,10 @@ mongoose.connect(
   }
 );
 
-app.listen(SERVER_PORT, () =>
-  console.log("Server listening on port " + SERVER_PORT)
-);
+app.listen(SERVER_PORT, () => {
+  console.log(dbURI);
+  console.log("Server listening on port " + SERVER_PORT);
+});
 
 register(app).then(() => {
   app.use((req, res, next) => {
