@@ -30,7 +30,7 @@ mongoose.connect(
     if (err) {
       console.log("Error connecting to db: ", err);
     } else {
-      console.log(`Connected to database`);
+      console.log(`Connected to ${dbURI}`);
     }
   }
 );
