@@ -8,15 +8,32 @@ const flash = require("express-flash");
 const bodyParser = require("body-parser");
 const app = express();
 const register = require("@react-ssr/express/register");
-const MongoDBStore = require("connect-mongodb-session")(session);
+// const MongoDBStore = require("connect-mongodb-session")(session);
 
 const SERVER_PORT = process.env.PORT || 4000;
 const dbURI = process.env.MONGODB_URI;
 
-const store = new MongoDBStore({
-  uri: dbURI,
-  collection: "mySessions",
-});
+// const store = new MongoDBStore({
+//   uri: dbURI,
+//   collection: "mySessions",
+// });
+
+mongoose.set("bufferCommands", false);
+mongoose.connect(
+  dbURI, // connection string from .env file
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  },
+  (err) => {
+    if (err) {
+      console.log("Error connecting to db: ", err);
+    } else {
+      console.log(`Connected to database`);
+    }
+  }
+);
 
 app.listen(SERVER_PORT, () =>
   console.log("Server listening on port " + SERVER_PORT)
@@ -56,21 +73,4 @@ register(app).then(() => {
   app.use("/", require("./controllers/user"));
   app.use("/", require("./controllers/project"));
   app.use(express.static("public"));
-
-  mongoose.set("bufferCommands", false);
-  mongoose.connect(
-    dbURI, // connection string from .env file
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-    },
-    (err) => {
-      if (err) {
-        console.log("Error connecting to db: ", err);
-      } else {
-        console.log(`Connected to database`);
-      }
-    }
-  );
 });
