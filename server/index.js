@@ -14,7 +14,7 @@ const SERVER_PORT = process.env.PORT || 4000;
 const dbURI = process.env.MONGODB_URI;
 
 const store = new MongoDBStore({
-  uri: process.env.MONGODB_URI,
+  uri: dbURI,
   collection: "mySessions",
 });
 
@@ -69,7 +69,7 @@ register(app).then(() => {
       if (err) {
         console.log("Error connecting to db: ", err);
       } else {
-        console.log(`Connected to MongoDB @ ${process.env.MONGODB_URI}`);
+        console.log(`Connected to database`);
       }
     }
   );
