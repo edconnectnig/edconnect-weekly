@@ -1,0 +1,69 @@
+<!Doctype html>
+<html lang="en">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Register</title>
+    </head>
+
+    <body>
+        <h2>Project Explorer</h2>
+
+        <h3>One Stop Database for Final Year Projects</h3>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="createproject.html">Projects</a>
+            <a href="#">Submit</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+        </nav>
+
+        <h3>Register</h3>
+
+        <form method="POST">
+            <p><label for="firstname">First Name:</label><br>
+            <input type="text" name="firstName"></p>
+
+            <p><label for="lastname">Last Name</label><br>
+            <input type="text" name="lastName"></p>
+
+            <p><label for="email">Email Address:</label><br>
+            <input type="email" name="email"></p>
+
+            <p><label for="password">Password</label><br>
+            <input type="password" name="password"></p>
+
+            <p><label for="matricnumber">Matric Number</label><br>
+            <input type="text" name="matricNumber"></p>
+
+            <p><label for="program">Program</label><br>
+                <select name="program" id="">
+                <option value="computer_science">Computer Science</option>
+                <option value="computer_information_systems">Computer Informations Systems</option>
+                <option value="computer_technology">Computer Technology</option>
+            </select></p>
+
+            <p><label for="graduation year">Graduation Year</label><br>
+                <select name="select" class="form-control" id="dropdownYear" style="width: 120px;" onchange="getProjectReportFunc()">
+                    <option value="2010">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020" selected="selected">2020</option>
+               
+            </select></p>
+
+
+
+
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
